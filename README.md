@@ -28,10 +28,7 @@ Chọn nền tảng bạn đang sử dụng:
 Sao chép yêu cầu sau vào Codex:
 
 ```text
-Cài skill Design on the Flank từ repository này:
-https://github.com/Chien1618/design-on-the-flank/tree/main/skills/design-on-the-flank
-
-Cài đầy đủ tài liệu đi kèm. Nếu đã có phiên bản cũ, giữ lại các chỉnh sửa cá nhân trước khi cập nhật.
+Cài skill Design on the Flank từ https://github.com/Chien1618/design-on-the-flank/tree/main/skills/design-on-the-flank
 ```
 
 Sau khi cài đặt, bắt đầu cuộc trò chuyện mới và mô tả component bạn muốn tạo.
@@ -52,13 +49,7 @@ Với component sử dụng model 3D, ảnh hoặc dữ liệu riêng, cung cấ
 ### Ví dụ yêu cầu
 
 ```text
-Dùng Design on the Flank tạo một component Framer với hệ thống hạt 3D.
-
-Các hạt phản ứng theo vị trí chuột và tập hợp thành hình cầu khi cuộn trang.
-Cho phép chỉnh màu, số lượng hạt, tốc độ và mức phản ứng trong bảng Properties.
-Trên điện thoại, hiệu ứng phản ứng với thao tác chạm.
-
-Trả một file TSX hoàn chỉnh để sao chép vào Framer, kèm hướng dẫn sử dụng.
+Dùng Design on the Flank tạo hero sản phẩm 3D cho Framer, chuyển góc nhìn theo cuộn và cho phép chỉnh model, ánh sáng, nội dung trong Properties.
 ```
 
 [Xem thêm yêu cầu mẫu](docs/vi/prompt-mau.md)
