@@ -1,0 +1,850 @@
+# Design on the Flank 0.2.0 — threejs-interaction
+
+Selected module for a chat without link access. Use the Framer rules before adapting source examples. Deliver complete code and say what was actually tested.
+
+# Framer component contract
+
+## One-file delivery
+
+Use React 18-compatible code as required by the current Framer component documentation; avoid React 19-only APIs unless Framer explicitly adds support. Include every helper and style needed for the component in its TSX file. Avoid project-specific aliases, local CSS imports, Tailwind build dependencies, environment variables, and assumed files next to the component. React and Framer are platform imports; other dependencies must be checked and named.
+
+Do not add `@framerDisableUnlink` by default: it changes sharing behavior and is not needed to make a component run. Only produce overrides, plugins, or page-wide custom code when that is the user's actual request.
+
+## Visual settings
+
+Build a small mapping before implementation: visible label → prop → rendered effect. Remove controls that do nothing.
+
+Use the appropriate documented control type for editable text, numbers, colors, toggles, fonts, images, options, or repeatable content. Set sensible ranges for numeric values. Keep runtime fallback values aligned with the control defaults. Retain meaningful values such as `0`, `false`, and an intentionally empty string; do not replace them using truthiness-based fallback logic.
+
+When a font control is offered, apply the returned font style object instead of extracting only its family. When an image control returns a responsive image object, handle its `src`, `srcSet`, and alternative text as appropriate. Do not use the whole object as a URL string. Re-check current Framer documentation for unfamiliar control shapes rather than guessing.
+
+## Layout and rendering
+
+Choose sizing behavior based on the component's content. Keep intrinsic dimensions useful for first insertion. Pass Framer's incoming `style` through to the outer element so the user's sizing choices can take effect. Avoid fixed dimensions deep inside the layout that defeat responsive behavior.
+
+Use CSS for layout and responsive text where possible. Scope any CSS to the component so two instances and unrelated page elements do not interfere. Do not impose the original author's typography or breakpoint preset on every user.
+
+Avoid accessing `window`, `document`, or browser-only constructors at module evaluation or during a server render. Use guarded effects for browser-only work. Avoid random or time-dependent initial markup that creates hydration mismatches.
+
+Only branch on Canvas versus Preview when there is a reason, such as keeping a continuous animation still while editing. Explain any visible difference. Offer a useful editor placeholder for content that requires data or user interaction.
+
+## Interaction
+
+Use actual buttons and links for their respective behaviors. Provide keyboard operation and accessible names. Scope IDs to the instance, such as with React `useId` when needed. Avoid hover-only access to essential content. For animation, include a reduced-motion path and clean up resources.
+
+## Sources
+
+Checked 2026-10-13. Use these official references for API details; this file records the project's delivery conventions.
+
+- [Code Components](https://www.framer.com/developers/components-introduction)
+- [Property Controls](https://www.framer.com/developers/property-controls)
+- [Auto-Sizing](https://www.framer.com/developers/auto-sizing)
+- [Asset Sharing](https://www.framer.com/developers/component-sharing)
+
+
+# Three.js and GSAP inside Framer
+
+Read alongside the Framer contract. The upstream library contains standalone web examples and setup instructions. These rules govern adapting them into one Framer TSX file; do not copy their HTML shell, npm commands or app scaffold into the user's workflow.
+
+## Dependencies
+
+Verify the current official API and an import pattern that works in Framer before choosing a library version. Keep Three.js core and addons on the same version and avoid duplicate React or Three.js instances. Keep GSAP core and plugins compatible. Register the plugins actually used. Name external network and asset dependencies in the handoff. Do not assume an import succeeded because syntax parsing passed.
+
+For browser-dependent libraries, choose a Framer-supported loading pattern safe during server rendering. Guard async loading against unmount and stale props. An inaccessible CDN or model needs an error/empty state, not a permanently blank component.
+
+## Three.js lifecycle
+
+- Mount the renderer in an instance-owned element using a ref, never `document.body`. Read its dimensions, not the whole window. Resize from the container and update camera projection, renderer and any composer together; handle zero-sized containers.
+- Create the scene in an effect. Keep stable objects in refs. Apply color, speed, lighting, camera and shader-uniform prop changes to those objects. Rebuild geometry or renderer only when necessary; release replaced resources.
+- Drive animation from elapsed time or delta time. Bound device pixel ratio and particle counts. Pause or reduce work when hidden and use a suitable reduced-motion/editor state.
+- On cleanup cancel animation, disconnect observers, remove listeners, detach the canvas and dispose owned geometries, materials, textures, render targets, composers and renderer resources. Do not dispose shared cached resources still used by another instance.
+- Ignore or cancel stale asset loads; release late-loaded resources when no longer needed. Expose model/image URLs or Framer asset selectors with useful placeholders.
+- Convert pointer coordinates relative to the component bounds. Account for touch, pointer exit and scroll. Keep essential content accessible outside a canvas.
+- Handle unavailable WebGL and context loss with a useful fallback. Validate two instances and remounting without leaking canvases or GPU work.
+
+## GSAP lifecycle
+
+- In React, use `useGSAP` when its compatible import is available, or a carefully scoped effect with `gsap.context`. Scope selectors to the instance root.
+- Revert the instance context on cleanup. Use `contextSafe` or explicit cleanup for animations created later by handlers. Avoid global `killAll`, global selectors and killing another instance's timeline.
+- Declare dependencies deliberately. For rebuilt animations, revert previous state before reconstruction (`revertOnUpdate` where appropriate). Preserve progress if the requested interaction requires it. Controls must update the running effect, not only initial construction.
+- Prefer transforms and opacity where appropriate. Avoid React rerendering on every frame. Animate Three.js object values/uniforms directly and retain one deliberate render-loop owner.
+- Use reduced-motion branches that still show the content. Clean up media-query contexts and event listeners.
+
+## Scroll and text
+
+Use the actual scroll container in Framer Preview. Scope triggers, start/end values and pin targets to the component. Pinning needs enough scroll space and may affect surrounding layout; explain required section sizing. Do not hijack page scrolling without a request.
+
+Refresh layout measurements after relevant fonts, images or content settle. Throttle refreshes; never refresh on every render or frame. Use readable static content in Canvas if Preview scrolling is needed for the effect.
+
+When splitting text, retain accessible reading order, restore original DOM on cleanup and rebuild only when content/font/layout changes demand it. Verify the selected plugin API against its current official documentation.
+
+## Known source correction: horizontal scroll
+
+The imported GSAP ScrollTrigger horizontal-scroll example contains `Max.max` (undefined), mixes pixel distance with `xPercent`, and omits `scrub` from its code despite describing scrubbed scrolling. Do not copy it verbatim. For a left-moving overflow strip, derive a pixel distance from its own container, for example `x: () => -Math.max(0, strip.scrollWidth - viewport.clientWidth)`, use `ease: "none"`, enable `scrub` on the parent ScrollTrigger, and refresh/invalidate measurements when layout changes. Derive scroll distance and pin layout from the actual component. Preserve source excerpts for traceability; apply this correction when generating code.
+
+## Checks for an advanced component
+
+Change an exposed speed, color and effect setting after insertion. Check two instances, resize, removal/reinsertion, missing asset, reduced motion and Preview scrolling. For 3D, check no duplicate canvas/loop and reasonable mobile performance. For GSAP, check no orphan triggers or altered neighboring components. If these cannot be exercised, say precisely which checks remain.
+
+
+# Updates, animation, and troubleshooting
+
+## Preserve configured instances
+
+Read the existing file and identify the exact prop, callback, selector, animation, or binding concerned. Prefer a small change while returning the whole file to the user. Do not create replacement instances or rename media/CMS prop keys merely to make new defaults appear.
+
+Framer can retain saved values on an existing instance. Check the saved value before assuming code is broken. A default change is not a migration of existing content. Add compatibility logic only when a requested change needs it; do not overwrite the user's configured content.
+
+## Controls missing or stale
+
+First check imports, exports, TypeScript errors, and that `addPropertyControls` references the exported function. Ask whether the user selected the actual code component or a wrapping frame. Compare a fresh test instance only if this helps isolate the issue and preserves the original instance.
+
+The previous private workflow sometimes refreshed stale metadata by renaming the component function and updating its control registration. Treat this as an unverified workaround, not a documented Framer guarantee. Consider it only after reproducing stale metadata with otherwise valid code, explaining the change, and keeping the original code file, prop keys, and a backup. Do not rename by default.
+
+## Animation and layering
+
+Keep the existing animation model and timing unless requested otherwise. Dispose of timelines, event listeners, observers, timers, and animation frames when they are no longer needed. Scope refs and selectors per instance; do not alter global page styles casually.
+
+For a mask or cover bug, establish which layer must be above which and which element should move. Inspect clipping and stacking contexts. Do not substitute opacity for a position or layering fix. Honor reduced motion and ensure that content remains usable without animation.
+
+## CMS, Rive, and third-party services
+
+Preserve CMS field mappings, selector names, ordering, Rive inputs, and trigger strings supplied by the user. DOM-based CMS extraction is fragile: document the markup dependency and avoid polling or observers unless required. If an observer is required, scope it narrowly and disconnect it.
+
+When a feature requires a model, uploaded animation, image, service, or CMS collection, identify exactly what the user must select or supply in Framer. Show a helpful empty state. Do not fabricate a successful connection or include an API secret in browser code.
+
+## Converting a sample
+
+Carry over the sample's structure and behavior where compatible. Replace only what Framer requires, such as project-specific CSS imports or app routing. Explain substantive differences. Do not promise a pixel-identical result from an image alone; separate observed details from assumptions.
+
+
+# Verification and truthful reporting
+
+## Always review
+
+- The delivered code is complete and every import is available or disclosed.
+- The export, runtime defaults, and control registration refer to the correct component.
+- Each editable prop is consumed; defaults work without user-provided assets.
+- `0` and `false` behave correctly; empty collections and text do not crash.
+- Sizing follows the intended Framer layout; more than one instance can coexist.
+- Browser-only work is guarded and resources are cleaned up.
+- Existing prop keys and user-configured behavior are preserved when updating.
+
+## Checks available to coding agents
+
+Discover tools already present in the working environment. Do not assume the original author's folders exist, create an app solely for a parse check, or silently install dependencies. If esbuild is already available, a syntax/bundle check can keep `react`, `react-dom`, `framer`, and disclosed URL imports external. Write temporary output outside the source file. This checks syntax and bundling shape, not Framer API correctness or whether remote imports exist.
+
+Run TypeScript checks when actual dependency types are available. A test with a mock `framer` module cannot prove real Framer type compatibility. Do not claim type correctness based on esbuild alone.
+
+If browser rendering is available, check the meaningful behaviors and editable props. If the live Framer editor is available and authorized, inspect Canvas and Preview; use a disposable test page rather than changing production pages. Publishing is a separate action.
+
+## User acceptance in Framer
+
+Ask the user to make these simple observations if you cannot operate Framer:
+
+1. The component appears after insertion without a red error.
+2. Changing text, a color, and a numeric setting visibly works.
+3. Toggle controls turn their feature on and off.
+4. The layout is usable at a narrow width and with two instances on the page.
+5. Preview interactions work using mouse/touch and keyboard where relevant.
+6. Updating an existing file retains its configured content and settings.
+
+## Report the actual level
+
+Use an accurate short statement in the user's language. Examples:
+
+- “Đã rà soát code; chưa chạy trong Framer.”
+- “Đã kiểm tra cú pháp bằng esbuild; chưa kiểm tra kiểu dữ liệu hoặc chạy trong Framer.”
+- “Đã kiểm tra các thay đổi props trong bản render thử; vẫn cần kiểm tra trong Framer.”
+- “Đã thử trong Framer Canvas và Preview: [specific actions actually verified].”
+
+Never transform a partial check into a guarantee that everything works. If a check fails, repair and repeat the relevant check; if blocked, give the exact remaining limitation in plain language.
+
+
+# Source topics
+
+---
+name: threejs-interaction
+description: Three.js interaction - raycasting, controls, mouse/touch input, object selection. Use when handling user input, implementing click detection, adding camera controls, or creating interactive 3D experiences.
+---
+
+# Three.js Interaction
+
+## Quick Start
+
+```javascript
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+// Camera controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+
+// Raycasting for click detection
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+function onClick(event) {
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(scene.children);
+
+  if (intersects.length > 0) {
+    console.log("Clicked:", intersects[0].object);
+  }
+}
+
+window.addEventListener("click", onClick);
+```
+
+## Raycaster
+
+### Basic Raycasting
+
+```javascript
+const raycaster = new THREE.Raycaster();
+
+// From camera (mouse picking)
+raycaster.setFromCamera(mousePosition, camera);
+
+// From any origin and direction
+raycaster.set(origin, direction); // origin: Vector3, direction: normalized Vector3
+
+// Get intersections
+const intersects = raycaster.intersectObjects(objects, recursive);
+
+// intersects array contains:
+// {
+//   distance: number,          // Distance from ray origin
+//   point: Vector3,            // Intersection point in world coords
+//   face: Face3,               // Intersected face
+//   faceIndex: number,         // Face index
+//   object: Object3D,          // Intersected object
+//   uv: Vector2,               // UV coordinates at intersection
+//   uv1: Vector2,              // Second UV channel
+//   normal: Vector3,           // Interpolated face normal
+//   instanceId: number         // For InstancedMesh
+// }
+```
+
+### Mouse Position Conversion
+
+```javascript
+const mouse = new THREE.Vector2();
+
+function updateMouse(event) {
+  // For full window
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+}
+
+// For specific canvas element
+function updateMouseCanvas(event, canvas) {
+  const rect = canvas.getBoundingClientRect();
+  mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+}
+```
+
+### Touch Support
+
+```javascript
+function onTouchStart(event) {
+  event.preventDefault();
+
+  if (event.touches.length === 1) {
+    const touch = event.touches[0];
+    mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(clickableObjects);
+
+    if (intersects.length > 0) {
+      handleSelection(intersects[0]);
+    }
+  }
+}
+
+renderer.domElement.addEventListener("touchstart", onTouchStart);
+```
+
+### Raycaster Options
+
+```javascript
+const raycaster = new THREE.Raycaster();
+
+// Near/far clipping (default: 0, Infinity)
+raycaster.near = 0;
+raycaster.far = 100;
+
+// Line/Points precision
+raycaster.params.Line.threshold = 0.1;
+raycaster.params.Points.threshold = 0.1;
+
+// Layers (only intersect objects on specific layers)
+raycaster.layers.set(1);
+```
+
+### Efficient Raycasting
+
+```javascript
+// Only check specific objects
+const clickables = [mesh1, mesh2, mesh3];
+const intersects = raycaster.intersectObjects(clickables, false);
+
+// Use layers for filtering
+mesh1.layers.set(1); // Clickable layer
+raycaster.layers.set(1);
+
+// Throttle raycast for hover effects
+let lastRaycast = 0;
+function onMouseMove(event) {
+  const now = Date.now();
+  if (now - lastRaycast < 50) return; // 20fps max
+  lastRaycast = now;
+
+  // Raycast here
+}
+```
+
+## Camera Controls
+
+### OrbitControls
+
+```javascript
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+const controls = new OrbitControls(camera, renderer.domElement);
+
+// Damping (smooth movement)
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+
+// Rotation limits
+controls.minPolarAngle = 0; // Top
+controls.maxPolarAngle = Math.PI / 2; // Horizon
+controls.minAzimuthAngle = -Math.PI / 4; // Left
+controls.maxAzimuthAngle = Math.PI / 4; // Right
+
+// Zoom limits
+controls.minDistance = 2;
+controls.maxDistance = 50;
+
+// Enable/disable features
+controls.enableRotate = true;
+controls.enableZoom = true;
+controls.enablePan = true;
+
+// Auto-rotate
+controls.autoRotate = true;
+controls.autoRotateSpeed = 2.0;
+
+// Target (orbit point)
+controls.target.set(0, 1, 0);
+
+// Update in animation loop
+function animate() {
+  controls.update(); // Required for damping and auto-rotate
+  renderer.render(scene, camera);
+}
+```
+
+### FlyControls
+
+```javascript
+import { FlyControls } from "three/addons/controls/FlyControls.js";
+
+const controls = new FlyControls(camera, renderer.domElement);
+controls.movementSpeed = 10;
+controls.rollSpeed = Math.PI / 24;
+controls.dragToLook = true;
+
+// Update with delta
+function animate() {
+  controls.update(clock.getDelta());
+  renderer.render(scene, camera);
+}
+```
+
+### FirstPersonControls
+
+```javascript
+import { FirstPersonControls } from "three/addons/controls/FirstPersonControls.js";
+
+const controls = new FirstPersonControls(camera, renderer.domElement);
+controls.movementSpeed = 10;
+controls.lookSpeed = 0.1;
+controls.lookVertical = true;
+controls.constrainVertical = true;
+controls.verticalMin = Math.PI / 4;
+controls.verticalMax = (Math.PI * 3) / 4;
+
+function animate() {
+  controls.update(clock.getDelta());
+}
+```
+
+### PointerLockControls
+
+```javascript
+import { PointerLockControls } from "three/addons/controls/PointerLockControls.js";
+
+const controls = new PointerLockControls(camera, document.body);
+
+// Lock pointer on click
+document.addEventListener("click", () => {
+  controls.lock();
+});
+
+controls.addEventListener("lock", () => {
+  console.log("Pointer locked");
+});
+
+controls.addEventListener("unlock", () => {
+  console.log("Pointer unlocked");
+});
+
+// Movement
+const velocity = new THREE.Vector3();
+const direction = new THREE.Vector3();
+const moveForward = false;
+const moveBackward = false;
+
+document.addEventListener("keydown", (event) => {
+  switch (event.code) {
+    case "KeyW":
+      moveForward = true;
+      break;
+    case "KeyS":
+      moveBackward = true;
+      break;
+  }
+});
+
+function animate() {
+  if (controls.isLocked) {
+    direction.z = Number(moveForward) - Number(moveBackward);
+    direction.normalize();
+
+    velocity.z -= direction.z * 0.1;
+    velocity.z *= 0.9; // Friction
+
+    controls.moveForward(-velocity.z);
+  }
+}
+```
+
+### TrackballControls
+
+```javascript
+import { TrackballControls } from "three/addons/controls/TrackballControls.js";
+
+const controls = new TrackballControls(camera, renderer.domElement);
+controls.rotateSpeed = 2.0;
+controls.zoomSpeed = 1.2;
+controls.panSpeed = 0.8;
+controls.staticMoving = true;
+
+function animate() {
+  controls.update();
+}
+```
+
+### MapControls
+
+```javascript
+import { MapControls } from "three/addons/controls/MapControls.js";
+
+const controls = new MapControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.screenSpacePanning = false;
+controls.maxPolarAngle = Math.PI / 2;
+```
+
+## TransformControls
+
+Gizmo for moving/rotating/scaling objects.
+
+```javascript
+import { TransformControls } from "three/addons/controls/TransformControls.js";
+
+const transformControls = new TransformControls(camera, renderer.domElement);
+scene.add(transformControls);
+
+// Attach to object
+transformControls.attach(selectedMesh);
+
+// Switch modes
+transformControls.setMode("translate"); // 'translate', 'rotate', 'scale'
+
+// Change space
+transformControls.setSpace("local"); // 'local', 'world'
+
+// Size
+transformControls.setSize(1);
+
+// Events
+transformControls.addEventListener("dragging-changed", (event) => {
+  // Disable orbit controls while dragging
+  orbitControls.enabled = !event.value;
+});
+
+transformControls.addEventListener("change", () => {
+  renderer.render(scene, camera);
+});
+
+// Keyboard shortcuts
+window.addEventListener("keydown", (event) => {
+  switch (event.key) {
+    case "g":
+      transformControls.setMode("translate");
+      break;
+    case "r":
+      transformControls.setMode("rotate");
+      break;
+    case "s":
+      transformControls.setMode("scale");
+      break;
+    case "Escape":
+      transformControls.detach();
+      break;
+  }
+});
+```
+
+## DragControls
+
+Drag objects directly.
+
+```javascript
+import { DragControls } from "three/addons/controls/DragControls.js";
+
+const draggableObjects = [mesh1, mesh2, mesh3];
+const dragControls = new DragControls(
+  draggableObjects,
+  camera,
+  renderer.domElement,
+);
+
+dragControls.addEventListener("dragstart", (event) => {
+  orbitControls.enabled = false;
+  event.object.material.emissive.set(0xaaaaaa);
+});
+
+dragControls.addEventListener("drag", (event) => {
+  // Constrain to ground plane
+  event.object.position.y = 0;
+});
+
+dragControls.addEventListener("dragend", (event) => {
+  orbitControls.enabled = true;
+  event.object.material.emissive.set(0x000000);
+});
+```
+
+## Selection System
+
+### Click to Select
+
+```javascript
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+let selectedObject = null;
+
+function onMouseDown(event) {
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(selectableObjects);
+
+  // Deselect previous
+  if (selectedObject) {
+    selectedObject.material.emissive.set(0x000000);
+  }
+
+  // Select new
+  if (intersects.length > 0) {
+    selectedObject = intersects[0].object;
+    selectedObject.material.emissive.set(0x444444);
+  } else {
+    selectedObject = null;
+  }
+}
+```
+
+### Box Selection
+
+```javascript
+import { SelectionBox } from "three/addons/interactive/SelectionBox.js";
+import { SelectionHelper } from "three/addons/interactive/SelectionHelper.js";
+
+const selectionBox = new SelectionBox(camera, scene);
+const selectionHelper = new SelectionHelper(renderer, "selectBox"); // CSS class
+
+document.addEventListener("pointerdown", (event) => {
+  selectionBox.startPoint.set(
+    (event.clientX / window.innerWidth) * 2 - 1,
+    -(event.clientY / window.innerHeight) * 2 + 1,
+    0.5,
+  );
+});
+
+document.addEventListener("pointermove", (event) => {
+  if (selectionHelper.isDown) {
+    selectionBox.endPoint.set(
+      (event.clientX / window.innerWidth) * 2 - 1,
+      -(event.clientY / window.innerHeight) * 2 + 1,
+      0.5,
+    );
+  }
+});
+
+document.addEventListener("pointerup", (event) => {
+  selectionBox.endPoint.set(
+    (event.clientX / window.innerWidth) * 2 - 1,
+    -(event.clientY / window.innerHeight) * 2 + 1,
+    0.5,
+  );
+
+  const selected = selectionBox.select();
+  console.log("Selected objects:", selected);
+});
+```
+
+### Hover Effects
+
+```javascript
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+let hoveredObject = null;
+
+function onMouseMove(event) {
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(hoverableObjects);
+
+  // Reset previous hover
+  if (hoveredObject) {
+    hoveredObject.material.color.set(hoveredObject.userData.originalColor);
+    document.body.style.cursor = "default";
+  }
+
+  // Apply new hover
+  if (intersects.length > 0) {
+    hoveredObject = intersects[0].object;
+    if (!hoveredObject.userData.originalColor) {
+      hoveredObject.userData.originalColor =
+        hoveredObject.material.color.getHex();
+    }
+    hoveredObject.material.color.set(0xff6600);
+    document.body.style.cursor = "pointer";
+  } else {
+    hoveredObject = null;
+  }
+}
+
+window.addEventListener("mousemove", onMouseMove);
+```
+
+## Keyboard Input
+
+```javascript
+const keys = {};
+
+document.addEventListener("keydown", (event) => {
+  keys[event.code] = true;
+});
+
+document.addEventListener("keyup", (event) => {
+  keys[event.code] = false;
+});
+
+function update() {
+  const speed = 0.1;
+
+  if (keys["KeyW"]) player.position.z -= speed;
+  if (keys["KeyS"]) player.position.z += speed;
+  if (keys["KeyA"]) player.position.x -= speed;
+  if (keys["KeyD"]) player.position.x += speed;
+  if (keys["Space"]) player.position.y += speed;
+  if (keys["ShiftLeft"]) player.position.y -= speed;
+}
+```
+
+## World-Screen Coordinate Conversion
+
+### World to Screen
+
+```javascript
+function worldToScreen(position, camera) {
+  const vector = position.clone();
+  vector.project(camera);
+
+  return {
+    x: ((vector.x + 1) / 2) * window.innerWidth,
+    y: (-(vector.y - 1) / 2) * window.innerHeight,
+  };
+}
+
+// Position HTML element over 3D object
+const screenPos = worldToScreen(mesh.position, camera);
+element.style.left = screenPos.x + "px";
+element.style.top = screenPos.y + "px";
+```
+
+### Screen to World
+
+```javascript
+function screenToWorld(screenX, screenY, camera, targetZ = 0) {
+  const vector = new THREE.Vector3(
+    (screenX / window.innerWidth) * 2 - 1,
+    -(screenY / window.innerHeight) * 2 + 1,
+    0.5,
+  );
+
+  vector.unproject(camera);
+
+  const dir = vector.sub(camera.position).normalize();
+  const distance = (targetZ - camera.position.z) / dir.z;
+
+  return camera.position.clone().add(dir.multiplyScalar(distance));
+}
+```
+
+### Ray-Plane Intersection
+
+```javascript
+function getRayPlaneIntersection(mouse, camera, plane) {
+  const raycaster = new THREE.Raycaster();
+  raycaster.setFromCamera(mouse, camera);
+
+  const intersection = new THREE.Vector3();
+  raycaster.ray.intersectPlane(plane, intersection);
+
+  return intersection;
+}
+
+// Ground plane
+const groundPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+const worldPos = getRayPlaneIntersection(mouse, camera, groundPlane);
+```
+
+## Event Handling Best Practices
+
+```javascript
+class InteractionManager {
+  constructor(camera, renderer, scene) {
+    this.camera = camera;
+    this.renderer = renderer;
+    this.scene = scene;
+    this.raycaster = new THREE.Raycaster();
+    this.mouse = new THREE.Vector2();
+    this.clickables = [];
+
+    this.bindEvents();
+  }
+
+  bindEvents() {
+    const canvas = this.renderer.domElement;
+
+    canvas.addEventListener("click", (e) => this.onClick(e));
+    canvas.addEventListener("mousemove", (e) => this.onMouseMove(e));
+    canvas.addEventListener("touchstart", (e) => this.onTouchStart(e));
+  }
+
+  updateMouse(event) {
+    const rect = this.renderer.domElement.getBoundingClientRect();
+    this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  }
+
+  getIntersects() {
+    this.raycaster.setFromCamera(this.mouse, this.camera);
+    return this.raycaster.intersectObjects(this.clickables, true);
+  }
+
+  onClick(event) {
+    this.updateMouse(event);
+    const intersects = this.getIntersects();
+
+    if (intersects.length > 0) {
+      const object = intersects[0].object;
+      if (object.userData.onClick) {
+        object.userData.onClick(intersects[0]);
+      }
+    }
+  }
+
+  addClickable(object, callback) {
+    this.clickables.push(object);
+    object.userData.onClick = callback;
+  }
+
+  dispose() {
+    // Remove event listeners
+  }
+}
+
+// Usage
+const interaction = new InteractionManager(camera, renderer, scene);
+interaction.addClickable(mesh, (intersect) => {
+  console.log("Clicked at:", intersect.point);
+});
+```
+
+## Performance Tips
+
+1. **Limit raycasts**: Throttle mousemove handlers
+2. **Use layers**: Filter raycast targets
+3. **Simple collision meshes**: Use invisible simpler geometry for raycasting
+4. **Disable controls when not needed**: `controls.enabled = false`
+5. **Batch updates**: Group interaction checks
+
+```javascript
+// Use simpler geometry for raycasting
+const complexMesh = loadedModel;
+const collisionMesh = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({ visible: false }),
+);
+collisionMesh.userData.target = complexMesh;
+clickables.push(collisionMesh);
+```
+
+## See Also
+
+- `threejs-fundamentals` - Camera and scene setup
+- `threejs-animation` - Animating interactions
+- `threejs-shaders` - Visual feedback effects
+
+
+# Upstream license
+
+MIT License
+
+Copyright (c) 2024 fredm00n
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

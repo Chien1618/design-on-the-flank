@@ -1,77 +1,33 @@
----
-slug: design-on-the-flank
-title: Tạo component Framer với Codex hoặc ChatGPT
-description: Chọn ứng dụng bạn đang dùng, gửi yêu cầu và sao chép code vào Framer. Có hướng dẫn từng bước từ lúc cài đến lúc chỉnh component trên trang.
----
+# Mô tả hiệu ứng. Nhận code để dán vào Framer.
 
-# Bạn muốn thêm gì vào website Framer?
+Một cảnh 3D xoay theo chuột. Một tấm ảnh gợn sóng khi chạm. Một đoạn kể chuyện chuyển cảnh theo cuộn trang.
 
-Một nút bấm, thẻ giới thiệu hay phần câu hỏi mở ra khi bấm? Bạn có thể nhờ Codex hoặc ChatGPT viết code, sau đó sao chép vào Framer để dùng.
+Design on the Flank giúp AI tạo những component đó bằng Three.js, shader và GSAP. Bạn nhận một file code, dán vào Framer rồi chỉnh các thiết lập trong bảng Properties.
 
-Design on the Flank là tài liệu hướng dẫn AI làm việc đó. Chọn ứng dụng bạn đang dùng để bắt đầu.
+**Bạn dùng ứng dụng nào?**
 
-## Tôi dùng Codex
+- Codex → Cài bằng một tin nhắn
+- ChatGPT → Tải file bắt đầu
+- Claude → Tải gói skill
+- Claude Code → Xem cách cài
 
-Mở Codex và gửi tin nhắn này:
+## Thử mô tả ý tưởng của bạn
 
-```text
-Cài giúp tôi skill Design on the Flank từ link này:
-https://github.com/Chien1618/design-on-the-flank/tree/main/skills/design-on-the-flank
+“Dùng Design on the Flank tạo một component Framer: đám hạt 3D chuyển động theo chuột, khi cuộn thì gom thành một quả cầu. Cho tôi chỉnh màu, số hạt, tốc độ và mức phản ứng với chuột trong Framer. Trả toàn bộ code trong một khung để tôi sao chép một lần. Tôi không biết code.”
 
-Cài xong hãy báo cho tôi. Nếu không cài được, nói rõ tôi cần làm gì tiếp theo.
-```
+Bạn có thể gửi thêm ảnh tham khảo, video hoặc code sẵn có. AI cần nói rõ khi thiếu model/ảnh, khi phải dùng thư viện bên ngoài và khi chưa thử code trong Framer.
 
-Khi Codex báo đã cài xong, gửi tiếp:
+## Bên trong gói
 
-```text
-Dùng Design on the Flank tạo một thẻ giới thiệu cho Framer.
-Thẻ có tiêu đề, mô tả và nền màu kem. Tôi muốn chỉnh chữ, màu và bo góc trong Framer.
-Trả toàn bộ code để tôi sao chép một lần, rồi chỉ tôi cách dán vào Framer.
-```
+Framer để tạo component và các mục chỉnh. Three.js để dựng cảnh, vật liệu, ánh sáng và shader. GSAP để điều khiển chuyển động, timeline và cuộn trang.
 
-[Bấm đây nếu Codex không cài được](../docs/vi/codex.md).
+Bộ tài liệu có mục lục theo chủ đề. AI chỉ mở phần đang cần. Với ChatGPT, nếu không mở được link, AI sẽ đưa đúng file để bạn tải và gửi thêm.
 
-## Tôi dùng ChatGPT
+## Từ ý tưởng đến Framer
 
-1. [Tải tài liệu](../downloads/design-on-the-flank-knowledge.txt).
-2. Mở một cuộc trò chuyện mới trong ChatGPT và đính kèm file vừa tải.
-3. Gửi tin nhắn này:
+1. Cài skill hoặc gửi file bắt đầu cho AI.
+2. Mô tả component và những mục bạn muốn chỉnh.
+3. Sao chép toàn bộ code vào Framer.
+4. Mở Preview, thử hiệu ứng và chỉnh trong bảng Properties.
 
-```text
-Đọc tài liệu tôi đính kèm và dùng nó để tạo component Framer trong cuộc trò chuyện này.
-
-Tạo cho tôi một thẻ giới thiệu có tiêu đề, mô tả và nền màu kem. Tôi muốn chỉnh chữ, màu và bo góc trong Framer.
-Trả toàn bộ code để tôi sao chép một lần, rồi chỉ tôi cách dán vào Framer.
-```
-
-Tiếp tục nhờ sửa hoặc tạo thêm trong cùng chat. Nếu mở chat mới, gửi lại tài liệu. [Xem hướng dẫn có hình thức lưu tài liệu trong Project](../docs/vi/chatgpt.md).
-
-## Có code rồi thì làm gì?
-
-1. Bấm **Copy** ở khung code AI trả về.
-2. Mở Framer → **Assets** → **Code** → **Create Code File**.
-3. Đặt tên file. Chọn toàn bộ code mẫu và thay bằng code vừa sao chép.
-4. Kéo component vừa tạo từ Assets vào trang.
-5. Chọn component để chỉnh chữ, màu và các thiết lập ở bảng bên phải. Mở **Preview** để thử.
-
-[Nếu cần hướng dẫn chi tiết, xem tại đây](../docs/vi/dua-vao-framer.md).
-
-Bạn có thể thay “thẻ giới thiệu” bằng thứ mình cần, hoặc gửi thêm một ảnh tham khảo cho AI.
-
-## Nếu Framer báo lỗi
-
-Chụp lại lỗi và gửi vào cuộc trò chuyện đang làm:
-
-```text
-Tôi dán code vào Framer và gặp lỗi này. Hãy sửa rồi gửi lại toàn bộ code để tôi thay một lần. Giữ nguyên những phần khác.
-```
-
-Mở lại file code cũ trong Framer để thay nội dung. Giữ một bản sao trước khi thay để có thể quay lại.
-
----
-
-Dùng [Claude](../docs/vi/claude.md) hoặc [Claude Code](../docs/vi/claude-code.md)? Có hướng dẫn riêng cho bạn.
-
-[Thêm câu yêu cầu mẫu](../docs/vi/prompt-mau.md) · [Câu hỏi thường gặp](../docs/vi/faq.md)
-
-Bản 0.1.0 đang thử nghiệm. Code AI tạo ra vẫn cần được kiểm tra trong Framer.
+**Phiên bản 0.2.0.** Có đủ 8 skill GSAP từ GreenSock. [Nguồn và giấy phép](../skills/design-on-the-flank/ATTRIBUTION.md). Chưa kiểm thử toàn bộ quy trình trên từng nền tảng AI và Framer.

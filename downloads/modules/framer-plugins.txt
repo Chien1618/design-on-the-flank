@@ -1,0 +1,426 @@
+# Design on the Flank 0.2.0 — framer-plugins
+
+Selected module for a chat without link access. Use the Framer rules before adapting source examples. Deliver complete code and say what was actually tested.
+
+# Framer component contract
+
+## One-file delivery
+
+Use React 18-compatible code as required by the current Framer component documentation; avoid React 19-only APIs unless Framer explicitly adds support. Include every helper and style needed for the component in its TSX file. Avoid project-specific aliases, local CSS imports, Tailwind build dependencies, environment variables, and assumed files next to the component. React and Framer are platform imports; other dependencies must be checked and named.
+
+Do not add `@framerDisableUnlink` by default: it changes sharing behavior and is not needed to make a component run. Only produce overrides, plugins, or page-wide custom code when that is the user's actual request.
+
+## Visual settings
+
+Build a small mapping before implementation: visible label → prop → rendered effect. Remove controls that do nothing.
+
+Use the appropriate documented control type for editable text, numbers, colors, toggles, fonts, images, options, or repeatable content. Set sensible ranges for numeric values. Keep runtime fallback values aligned with the control defaults. Retain meaningful values such as `0`, `false`, and an intentionally empty string; do not replace them using truthiness-based fallback logic.
+
+When a font control is offered, apply the returned font style object instead of extracting only its family. When an image control returns a responsive image object, handle its `src`, `srcSet`, and alternative text as appropriate. Do not use the whole object as a URL string. Re-check current Framer documentation for unfamiliar control shapes rather than guessing.
+
+## Layout and rendering
+
+Choose sizing behavior based on the component's content. Keep intrinsic dimensions useful for first insertion. Pass Framer's incoming `style` through to the outer element so the user's sizing choices can take effect. Avoid fixed dimensions deep inside the layout that defeat responsive behavior.
+
+Use CSS for layout and responsive text where possible. Scope any CSS to the component so two instances and unrelated page elements do not interfere. Do not impose the original author's typography or breakpoint preset on every user.
+
+Avoid accessing `window`, `document`, or browser-only constructors at module evaluation or during a server render. Use guarded effects for browser-only work. Avoid random or time-dependent initial markup that creates hydration mismatches.
+
+Only branch on Canvas versus Preview when there is a reason, such as keeping a continuous animation still while editing. Explain any visible difference. Offer a useful editor placeholder for content that requires data or user interaction.
+
+## Interaction
+
+Use actual buttons and links for their respective behaviors. Provide keyboard operation and accessible names. Scope IDs to the instance, such as with React `useId` when needed. Avoid hover-only access to essential content. For animation, include a reduced-motion path and clean up resources.
+
+## Sources
+
+Checked 2026-10-13. Use these official references for API details; this file records the project's delivery conventions.
+
+- [Code Components](https://www.framer.com/developers/components-introduction)
+- [Property Controls](https://www.framer.com/developers/property-controls)
+- [Auto-Sizing](https://www.framer.com/developers/auto-sizing)
+- [Asset Sharing](https://www.framer.com/developers/component-sharing)
+
+
+# Three.js and GSAP inside Framer
+
+Read alongside the Framer contract. The upstream library contains standalone web examples and setup instructions. These rules govern adapting them into one Framer TSX file; do not copy their HTML shell, npm commands or app scaffold into the user's workflow.
+
+## Dependencies
+
+Verify the current official API and an import pattern that works in Framer before choosing a library version. Keep Three.js core and addons on the same version and avoid duplicate React or Three.js instances. Keep GSAP core and plugins compatible. Register the plugins actually used. Name external network and asset dependencies in the handoff. Do not assume an import succeeded because syntax parsing passed.
+
+For browser-dependent libraries, choose a Framer-supported loading pattern safe during server rendering. Guard async loading against unmount and stale props. An inaccessible CDN or model needs an error/empty state, not a permanently blank component.
+
+## Three.js lifecycle
+
+- Mount the renderer in an instance-owned element using a ref, never `document.body`. Read its dimensions, not the whole window. Resize from the container and update camera projection, renderer and any composer together; handle zero-sized containers.
+- Create the scene in an effect. Keep stable objects in refs. Apply color, speed, lighting, camera and shader-uniform prop changes to those objects. Rebuild geometry or renderer only when necessary; release replaced resources.
+- Drive animation from elapsed time or delta time. Bound device pixel ratio and particle counts. Pause or reduce work when hidden and use a suitable reduced-motion/editor state.
+- On cleanup cancel animation, disconnect observers, remove listeners, detach the canvas and dispose owned geometries, materials, textures, render targets, composers and renderer resources. Do not dispose shared cached resources still used by another instance.
+- Ignore or cancel stale asset loads; release late-loaded resources when no longer needed. Expose model/image URLs or Framer asset selectors with useful placeholders.
+- Convert pointer coordinates relative to the component bounds. Account for touch, pointer exit and scroll. Keep essential content accessible outside a canvas.
+- Handle unavailable WebGL and context loss with a useful fallback. Validate two instances and remounting without leaking canvases or GPU work.
+
+## GSAP lifecycle
+
+- In React, use `useGSAP` when its compatible import is available, or a carefully scoped effect with `gsap.context`. Scope selectors to the instance root.
+- Revert the instance context on cleanup. Use `contextSafe` or explicit cleanup for animations created later by handlers. Avoid global `killAll`, global selectors and killing another instance's timeline.
+- Declare dependencies deliberately. For rebuilt animations, revert previous state before reconstruction (`revertOnUpdate` where appropriate). Preserve progress if the requested interaction requires it. Controls must update the running effect, not only initial construction.
+- Prefer transforms and opacity where appropriate. Avoid React rerendering on every frame. Animate Three.js object values/uniforms directly and retain one deliberate render-loop owner.
+- Use reduced-motion branches that still show the content. Clean up media-query contexts and event listeners.
+
+## Scroll and text
+
+Use the actual scroll container in Framer Preview. Scope triggers, start/end values and pin targets to the component. Pinning needs enough scroll space and may affect surrounding layout; explain required section sizing. Do not hijack page scrolling without a request.
+
+Refresh layout measurements after relevant fonts, images or content settle. Throttle refreshes; never refresh on every render or frame. Use readable static content in Canvas if Preview scrolling is needed for the effect.
+
+When splitting text, retain accessible reading order, restore original DOM on cleanup and rebuild only when content/font/layout changes demand it. Verify the selected plugin API against its current official documentation.
+
+## Known source correction: horizontal scroll
+
+The imported GSAP ScrollTrigger horizontal-scroll example contains `Max.max` (undefined), mixes pixel distance with `xPercent`, and omits `scrub` from its code despite describing scrubbed scrolling. Do not copy it verbatim. For a left-moving overflow strip, derive a pixel distance from its own container, for example `x: () => -Math.max(0, strip.scrollWidth - viewport.clientWidth)`, use `ease: "none"`, enable `scrub` on the parent ScrollTrigger, and refresh/invalidate measurements when layout changes. Derive scroll distance and pin layout from the actual component. Preserve source excerpts for traceability; apply this correction when generating code.
+
+## Checks for an advanced component
+
+Change an exposed speed, color and effect setting after insertion. Check two instances, resize, removal/reinsertion, missing asset, reduced motion and Preview scrolling. For 3D, check no duplicate canvas/loop and reasonable mobile performance. For GSAP, check no orphan triggers or altered neighboring components. If these cannot be exercised, say precisely which checks remain.
+
+
+# Updates, animation, and troubleshooting
+
+## Preserve configured instances
+
+Read the existing file and identify the exact prop, callback, selector, animation, or binding concerned. Prefer a small change while returning the whole file to the user. Do not create replacement instances or rename media/CMS prop keys merely to make new defaults appear.
+
+Framer can retain saved values on an existing instance. Check the saved value before assuming code is broken. A default change is not a migration of existing content. Add compatibility logic only when a requested change needs it; do not overwrite the user's configured content.
+
+## Controls missing or stale
+
+First check imports, exports, TypeScript errors, and that `addPropertyControls` references the exported function. Ask whether the user selected the actual code component or a wrapping frame. Compare a fresh test instance only if this helps isolate the issue and preserves the original instance.
+
+The previous private workflow sometimes refreshed stale metadata by renaming the component function and updating its control registration. Treat this as an unverified workaround, not a documented Framer guarantee. Consider it only after reproducing stale metadata with otherwise valid code, explaining the change, and keeping the original code file, prop keys, and a backup. Do not rename by default.
+
+## Animation and layering
+
+Keep the existing animation model and timing unless requested otherwise. Dispose of timelines, event listeners, observers, timers, and animation frames when they are no longer needed. Scope refs and selectors per instance; do not alter global page styles casually.
+
+For a mask or cover bug, establish which layer must be above which and which element should move. Inspect clipping and stacking contexts. Do not substitute opacity for a position or layering fix. Honor reduced motion and ensure that content remains usable without animation.
+
+## CMS, Rive, and third-party services
+
+Preserve CMS field mappings, selector names, ordering, Rive inputs, and trigger strings supplied by the user. DOM-based CMS extraction is fragile: document the markup dependency and avoid polling or observers unless required. If an observer is required, scope it narrowly and disconnect it.
+
+When a feature requires a model, uploaded animation, image, service, or CMS collection, identify exactly what the user must select or supply in Framer. Show a helpful empty state. Do not fabricate a successful connection or include an API secret in browser code.
+
+## Converting a sample
+
+Carry over the sample's structure and behavior where compatible. Replace only what Framer requires, such as project-specific CSS imports or app routing. Explain substantive differences. Do not promise a pixel-identical result from an image alone; separate observed details from assumptions.
+
+
+# Verification and truthful reporting
+
+## Always review
+
+- The delivered code is complete and every import is available or disclosed.
+- The export, runtime defaults, and control registration refer to the correct component.
+- Each editable prop is consumed; defaults work without user-provided assets.
+- `0` and `false` behave correctly; empty collections and text do not crash.
+- Sizing follows the intended Framer layout; more than one instance can coexist.
+- Browser-only work is guarded and resources are cleaned up.
+- Existing prop keys and user-configured behavior are preserved when updating.
+
+## Checks available to coding agents
+
+Discover tools already present in the working environment. Do not assume the original author's folders exist, create an app solely for a parse check, or silently install dependencies. If esbuild is already available, a syntax/bundle check can keep `react`, `react-dom`, `framer`, and disclosed URL imports external. Write temporary output outside the source file. This checks syntax and bundling shape, not Framer API correctness or whether remote imports exist.
+
+Run TypeScript checks when actual dependency types are available. A test with a mock `framer` module cannot prove real Framer type compatibility. Do not claim type correctness based on esbuild alone.
+
+If browser rendering is available, check the meaningful behaviors and editable props. If the live Framer editor is available and authorized, inspect Canvas and Preview; use a disposable test page rather than changing production pages. Publishing is a separate action.
+
+## User acceptance in Framer
+
+Ask the user to make these simple observations if you cannot operate Framer:
+
+1. The component appears after insertion without a red error.
+2. Changing text, a color, and a numeric setting visibly works.
+3. Toggle controls turn their feature on and off.
+4. The layout is usable at a narrow width and with two instances on the page.
+5. Preview interactions work using mouse/touch and keyboard where relevant.
+6. Updating an existing file retains its configured content and settings.
+
+## Report the actual level
+
+Use an accurate short statement in the user's language. Examples:
+
+- “Đã rà soát code; chưa chạy trong Framer.”
+- “Đã kiểm tra cú pháp bằng esbuild; chưa kiểm tra kiểu dữ liệu hoặc chạy trong Framer.”
+- “Đã kiểm tra các thay đổi props trong bản render thử; vẫn cần kiểm tra trong Framer.”
+- “Đã thử trong Framer Canvas và Preview: [specific actions actually verified].”
+
+Never transform a partial check into a guarantee that everything works. If a check fails, repair and repeat the relevant check; if blocked, give the exact remaining limitation in plain language.
+
+
+# Source topics
+
+---
+name: framer-plugins
+description: >
+  Framer Plugin SDK expert. Use when building, debugging, or modifying
+  Framer plugins. Covers ManagedCollection API, CMS sync, plugin modes,
+  UI patterns, permissions, data storage, and common pitfalls.
+user-invokable: true
+license: MIT
+allowed-tools: Read, Grep, Glob, WebFetch, WebSearch
+metadata:
+  author: fredm00n
+  version: 1.0.0
+---
+
+# Framer Plugin Development Guide
+
+You are an expert on the Framer Plugin SDK. Use this reference when building, debugging, or modifying Framer plugins. Always check the project's CLAUDE.md for project-specific overrides.
+
+## Quick Reference
+
+- **SDK package**: `framer-plugin` (v3.6+)
+- **Scaffolding**: `npm create framer-plugin@latest`
+- **Build**: Vite + `vite-plugin-framer`
+- **Base styles**: `import "framer-plugin/framer.css"`
+- **Core import**: `import { framer } from "framer-plugin"`
+- **Dev workflow**: `npm run dev` → Framer → Developer Tools → Development Plugin
+
+## framer.json
+
+Every plugin needs a `framer.json` at the project root:
+
+```json
+{
+  "id": "6bbb4f",
+  "name": "My Plugin",
+  "modes": ["configureManagedCollection", "syncManagedCollection"],
+  "icon": "/icon.svg"
+}
+```
+
+- `id` — unique hex identifier (auto-generated by scaffolding)
+- `modes` — array of supported modes (see below)
+- `icon` — 30×30 SVG/PNG in `public/`. SVGs need careful centering.
+
+## Plugin Modes
+
+| Mode | Purpose | `framer.mode` value |
+|------|---------|---------------------|
+| `canvas` | General-purpose canvas access | `"canvas"` |
+| `configureManagedCollection` | CMS: first-time setup / field config | `"configureManagedCollection"` |
+| `syncManagedCollection` | CMS: re-sync existing collection | `"syncManagedCollection"` |
+| `image` | User picks an image | `"image"` |
+| `editImage` | Edit existing image | `"editImage"` |
+| `collection` | Access user-editable collections | `"collection"` |
+
+CMS plugins use both `configureManagedCollection` + `syncManagedCollection`.
+
+## Core framer API
+
+### UI Management
+
+```typescript
+framer.showUI({ position?, width, height, minWidth?, minHeight?, maxWidth?, resizable? })
+framer.hideUI()
+framer.closePlugin(message?, { variant: "success" | "error" | "info" })  // returns never
+framer.notify(message, { variant?, durationMs?, button?: { text, onClick } })
+framer.setCloseWarning(message | false)  // warn before closing during sync
+framer.setBackgroundMessage(message)     // status while plugin runs hidden
+framer.setMenu([{ label, onAction, visible? }, { type: "separator" }])
+```
+
+- `closePlugin` throws `FramerPluginClosedError` internally — always ignore in catch blocks
+- `showUI` should be called in `useLayoutEffect` to avoid flicker
+
+### Properties
+
+- `framer.mode` — current mode string
+
+### Collection Access
+
+```typescript
+framer.getActiveManagedCollection()    // → Promise<ManagedCollection>
+framer.getActiveCollection()           // → Promise<Collection> (unmanaged)
+framer.getManagedCollections()          // → Promise<ManagedCollection[]>
+framer.getCollections()                // → Promise<Collection[]>
+framer.createManagedCollection()       // → Promise<ManagedCollection>
+```
+
+### Canvas Methods (canvas mode)
+
+```typescript
+framer.addImage({ image, name, altText })
+framer.setImage({ image, name, altText })
+framer.getImage()
+framer.addText(text)
+framer.addFrame()
+framer.addSVG(svg, name)              // max 10kB
+framer.addComponentInstance({ url, attributes? })
+framer.getSelection()
+framer.subscribeToSelection(callback)
+```
+
+## ManagedCollection API
+
+```typescript
+interface ManagedCollection {
+    id: string
+    getItemIds(): Promise<string[]>
+    setItemOrder(ids: string[]): Promise<void>
+    getFields(): Promise<ManagedCollectionField[]>
+    setFields(fields: ManagedCollectionFieldInput[]): Promise<void>
+    addItems(items: ManagedCollectionItemInput[]): Promise<void>   // upsert!
+    removeItems(ids: string[]): Promise<void>
+    setPluginData(key: string, value: string | null): Promise<void>
+    getPluginData(key: string): Promise<string | null>
+}
+```
+
+**Critical**: `addItems()` is an **upsert** — it adds new items and updates existing ones matched by `id`.
+
+### Field Types
+
+```
+"boolean" | "color" | "number" | "string" | "formattedText" |
+"image" | "file" | "link" | "date" | "enum" |
+"collectionReference" | "multiCollectionReference" | "array"
+```
+
+### Field Definition
+
+```typescript
+interface ManagedCollectionFieldInput {
+    id: string
+    name: string
+    type: CollectionFieldType
+    userEditable?: boolean        // default false for managed
+    cases?: { id, name }[]       // for "enum"
+    collectionId?: string         // for collection references
+    fields?: ManagedCollectionFieldInput[]  // for "array" (gallery)
+}
+```
+
+### Item Structure
+
+```typescript
+interface ManagedCollectionItemInput {
+    id: string
+    slug: string
+    draft: boolean
+    fieldData: Record<string, FieldDataEntryInput>
+}
+```
+
+### Field Data Values — MUST specify type explicitly
+
+```typescript
+{ type: "string", value: "hello" }
+{ type: "number", value: 42 }
+{ type: "boolean", value: true }
+{ type: "date", value: "2024-01-01T00:00:00Z" }   // ISO 8601
+{ type: "link", value: "https://example.com" }
+{ type: "image", value: "https://img.url" | null }
+{ type: "file", value: "https://file.url" | null }
+{ type: "color", value: "#FF0000" | null }
+{ type: "formattedText", value: "<p>hello</p>", contentType: "html" }
+{ type: "enum", value: "case-id" }
+{ type: "collectionReference", value: "item-id" }
+{ type: "multiCollectionReference", value: ["id1", "id2"] }
+{ type: "array", value: [{ id: "1", fieldData: { ... } }] }
+```
+
+## Permissions
+
+```typescript
+import { framer, useIsAllowedTo, type ProtectedMethod } from "framer-plugin"
+
+// Imperative check
+framer.isAllowedTo("ManagedCollection.addItems", "ManagedCollection.removeItems")
+
+// React hook (reactive)
+const canSync = useIsAllowedTo("ManagedCollection.addItems", "ManagedCollection.removeItems")
+
+// Standard CMS sync permissions
+const SYNC_METHODS = [
+    "ManagedCollection.setFields",
+    "ManagedCollection.addItems",
+    "ManagedCollection.removeItems",
+    "ManagedCollection.setPluginData",
+] as const satisfies ProtectedMethod[]
+```
+
+## Data Storage Decision Tree
+
+| Need | Use | Why |
+|------|-----|-----|
+| API keys, auth tokens | `localStorage` | Per-user, no size warnings, not shared |
+| User preferences | `localStorage` | Per-user, synchronous |
+| Data source ID, last sync time | `collection.setPluginData()` | Shared across collaborators, tied to collection |
+| Project-level config | `framer.setPluginData()` | Shared, but 4kB total limit |
+
+- `pluginData`: 2kB per entry, 4kB total. Strings only. Pass `null` to delete.
+- `localStorage`: Sandboxed per-plugin origin. No size warnings.
+- `setPluginData()` triggers "Invoking protected message type" toast (SDK bug).
+
+## Key Exports from "framer-plugin"
+
+```typescript
+import { framer, useIsAllowedTo, FramerPluginClosedError } from "framer-plugin"
+import type {
+    ManagedCollection, ManagedCollectionField, ManagedCollectionFieldInput,
+    ManagedCollectionItemInput, FieldDataInput, FieldDataEntryInput,
+    ProtectedMethod, Collection, CollectionItem
+} from "framer-plugin"
+import "framer-plugin/framer.css"
+```
+
+## Supporting References
+
+For deeper information, see the companion files in this skill directory:
+
+- **[api-reference.md](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-plugins-api-reference/index.md)** — Complete API signatures and type definitions
+- **[patterns.md](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-plugins-patterns/index.md)** — Common plugin patterns extracted from 32 official examples
+- **[pitfalls.md](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-plugins-pitfalls/index.md)** — Known gotchas, workarounds, and debugging tips
+
+## Key Rules
+
+1. Always check the project's `CLAUDE.md` for project-specific overrides and decisions
+2. CMS plugins should attempt silent sync in `syncManagedCollection` mode before showing UI
+3. `addItems()` is upsert — no need to check for existing items before adding
+4. Field data values MUST include explicit `type` property: `{ type: "string", value: "..." }`
+5. Use `localStorage` for sensitive/user-specific data, `pluginData` for shared sync state
+6. Import `"framer-plugin/framer.css"` for standard Framer plugin styling
+7. Use `<div role="button">` instead of `<button>` to avoid Framer's CSS overrides
+8. Handle `FramerPluginClosedError` in catch blocks — ignore it silently
+9. Call `showUI` in `useLayoutEffect` to avoid flicker when resizing
+10. Always check permissions with `framer.isAllowedTo()` before sync operations
+
+
+# Upstream license
+
+MIT License
+
+Copyright (c) 2024 fredm00n
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

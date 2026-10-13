@@ -1,45 +1,33 @@
-# Câu hỏi thường gặp
+# Những câu thường gặp
 
-## Tôi có cần biết code không?
+**Tôi phải biết code không?**
 
-Không cần để bắt đầu. Bạn mô tả component bằng lời, sao chép code AI trả về, rồi chỉnh các mục trong Framer. Hướng dẫn có từng bước và tin nhắn mẫu khi gặp lỗi.
+Bạn mô tả thứ muốn làm, sao chép code AI trả lại và dán vào Framer. Sau đó chỉnh các mục đã yêu cầu trong bảng Properties.
 
-## Đây có phải plugin cài vào Framer không?
+**Tạo được gì?**
 
-Không. Bạn cung cấp bộ hướng dẫn cho AI. AI tạo code; bạn đưa code đó vào Framer. Bộ này không tự truy cập tài khoản hay xuất bản trang của bạn.
+Cảnh 3D, hạt, shader, tương tác theo chuột, animation GSAP và hiệu ứng theo cuộn. Kết quả còn phụ thuộc vào yêu cầu, tài nguyên và việc kiểm tra trong Framer.
 
-## Tôi nên chọn Codex, Claude hay ChatGPT?
+**Một file là không cần gì thêm?**
 
-Chọn ứng dụng bạn đã quen. Các gói dùng chung quy tắc. Codex/Claude Code có thể thao tác file và chạy kiểm tra nếu được cấp công cụ; ứng dụng trò chuyện có thể trả code đầy đủ để sao chép. Khả năng và kết quả phụ thuộc ứng dụng, model và tài khoản.
+File chứa code component, nhưng có thể tải thư viện, ảnh hoặc model từ bên ngoài. AI phải nói rõ những phần đó.
 
-## Một file nghĩa là không cần thư viện hay dữ liệu ngoài?
+**Tôi cần chọn từng skill không?**
 
-Một file nghĩa là bạn không phải ghép nhiều file code. Hiệu ứng hoặc chức năng nâng cao vẫn có thể cần thư viện, ảnh, animation, CMS hoặc dịch vụ. AI phải nói rõ những phần đó và cách thiết lập.
+Không. Skill chính có mục lục để AI tìm phần cần dùng. Nếu dùng ChatGPT không mở được link, bạn chỉ cần gửi thêm file mà nó chỉ ra.
 
-## Dán code vào là chắc chắn chạy không?
+**ChatGPT có cài giống Codex không?**
 
-Đó là tiêu chuẩn đầu ra mà bộ hướng dẫn yêu cầu. AI vẫn có thể tạo lỗi. Bạn nên thử các thiết lập và Preview trước khi dùng trên trang chính. “Đã kiểm tra cú pháp” không đồng nghĩa với “đã chạy trong Framer”.
+Hướng dẫn này dùng tài liệu đính kèm và link trong ChatGPT. Codex và Claude hỗ trợ quy trình skill riêng. [Chọn cách bắt đầu](bat-dau.md).
 
-## Tại sao ChatGPT có hai file, còn Claude có ZIP?
+**Có UI/UX Pro Max không?**
 
-Các ứng dụng nhận hướng dẫn theo cách khác nhau. ChatGPT dùng Project Instructions và tài liệu; Claude có thể upload gói skill. Nội dung cốt lõi được xuất từ cùng một nguồn.
+Không. Gói gồm Framer, Three.js và GSAP; phần plugin Framer được để riêng.
 
-## Tôi có thể dùng tiếng Việt không?
+**Tải bản mới có tự cập nhật bản cũ không?**
 
-Có. Hãy mô tả bằng tiếng Việt hoặc ngôn ngữ bạn thấy dễ nhất. Tên điều khiển cũng có thể được yêu cầu bằng ngôn ngữ bạn muốn.
+Không. Cần cập nhật bản đã cài hoặc thay file đã đính kèm. Giữ lại chỉnh sửa cá nhân trước khi thay.
 
-## Có mất phí không?
+**AI nói chạy được mà Framer báo lỗi thì sao?**
 
-Bộ tải xuống này không thu phí. Tài khoản AI, Framer và các dịch vụ/thư viện bạn chọn có thể có chi phí hoặc điều kiện riêng. Kiểm tra với nhà cung cấp tương ứng.
-
-## Tôi có được dùng cho website khách hàng không?
-
-Bạn được dùng bộ này và chỉnh ví dụ đi kèm cho dự án cá nhân hoặc thương mại theo [quyền sử dụng](../../LICENSE.md). Tài nguyên và thư viện bên thứ ba vẫn có điều kiện riêng. Quyền sử dụng không bao gồm bán lại bộ skill dưới tên khác.
-
-## Khi có bản mới, AI có tự cập nhật không?
-
-Không. Tải hoặc cài lại theo hướng dẫn của nền tảng. Với ChatGPT, thay cả instructions và knowledge của cùng phiên bản. Với skill đã tự chỉnh, giữ bản sao trước khi cập nhật.
-
-## Bộ này đã được thử trên mọi AI chưa?
-
-Chưa. Đây là bản thử nghiệm đầu tiên. Xem [báo cáo kiểm tra](../validation.md) để biết phần đã thử, phần mới đối chiếu tài liệu và phần cần kiểm tra thêm.
+Gửi lỗi và toàn bộ code trong cùng chat, yêu cầu sửa và trả lại cả file. [Cách báo lỗi](go-loi.md).

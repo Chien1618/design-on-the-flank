@@ -1,95 +1,43 @@
 # Design on the Flank
 
-Bạn muốn làm một nút, thẻ giới thiệu hay phần hỏi đáp cho website Framer? Bộ hướng dẫn này giúp Codex hoặc ChatGPT viết code để bạn sao chép vào Framer. Chữ, màu và các thiết lập bạn yêu cầu sẽ được đưa vào bảng chỉnh bên phải.
+Tạo component Framer bằng cách mô tả thứ bạn muốn: một cảnh 3D xoay theo chuột, nền hạt chuyển động, hiệu ứng shader trên ảnh, hay một đoạn kể chuyện chạy theo cuộn trang.
 
-Chọn ứng dụng bạn đang dùng và làm theo bên dưới.
+AI trả lại một file code hoàn chỉnh. Bạn sao chép vào Framer rồi chỉnh màu, tốc độ, hình ảnh và các thiết lập đã yêu cầu trong bảng Properties.
 
-## Tôi dùng Codex
+## Bạn dùng AI nào?
 
-**1. Mở Codex, sao chép tin nhắn này và gửi:**
+- **Codex:** gửi tin nhắn cài đặt bên dưới.
+- **ChatGPT:** [tải file bắt đầu](https://github.com/Chien1618/design-on-the-flank/raw/refs/heads/main/downloads/design-on-the-flank-knowledge.txt), đính kèm vào chat rồi mô tả component. [Xem từng bước](docs/vi/chatgpt.md).
+- **Claude:** [tải gói ZIP](https://github.com/Chien1618/design-on-the-flank/raw/refs/heads/main/downloads/design-on-the-flank-skill.zip) và thêm trong mục Skills. [Xem từng bước](docs/vi/claude.md).
+- **Claude Code:** [cài bằng một tin nhắn](docs/vi/claude-code.md).
+
+Gửi cho Codex:
 
 ```text
-Cài giúp tôi skill Design on the Flank từ link này:
+Cài giúp tôi skill Design on the Flank từ:
 https://github.com/Chien1618/design-on-the-flank/tree/main/skills/design-on-the-flank
-
-Cài xong hãy báo cho tôi. Nếu không cài được, nói rõ tôi cần làm gì tiếp theo.
+Giữ đủ các file tài liệu đi kèm. Nếu có bản cũ, giữ lại chỉnh sửa của tôi trước khi cập nhật. Cài xong hãy báo cho tôi.
 ```
 
-**2. Khi Codex báo đã cài xong, gửi yêu cầu của bạn.** Ví dụ:
+Sau khi cài, thử yêu cầu:
 
 ```text
-Dùng Design on the Flank tạo một thẻ giới thiệu cho Framer.
-Thẻ có tiêu đề, mô tả và nền màu kem. Tôi muốn chỉnh chữ, màu và bo góc trong Framer.
-Trả toàn bộ code để tôi sao chép một lần, rồi chỉ tôi cách dán vào Framer.
+Dùng Design on the Flank tạo một component Framer: đám hạt 3D chuyển động theo chuột, khi cuộn thì gom thành một quả cầu. Cho tôi chỉnh màu, số hạt, tốc độ và mức phản ứng với chuột trong Framer. Trả toàn bộ code trong một khung để tôi sao chép một lần. Tôi không biết code.
 ```
 
-**3. Lấy code Codex trả về và làm theo [cách dán vào Framer ở dưới](#dua-vao-framer).**
+[Cách dán code vào Framer](docs/vi/dua-vao-framer.md) · [Các ý tưởng khác](docs/vi/prompt-mau.md) · [Khi gặp lỗi](docs/vi/go-loi.md)
 
-[Nếu Codex không cài được →](docs/vi/codex.md)
+## Có những gì?
 
-## Tôi dùng ChatGPT
+| Phần | Nội dung |
+|---|---|
+| Framer | Component, Property Controls, responsive, overrides, CMS và WebGL |
+| Three.js | Scene, geometry, material, ánh sáng, texture, model, animation, interaction, shader và postprocessing |
+| GSAP | Đủ 8 skill chính thức của GreenSock: core, timeline, ScrollTrigger, plugins, utils, React, performance và frameworks |
+| Framer plugins | Tài liệu riêng khi bạn muốn làm plugin |
 
-**1. [Tải tài liệu này](https://github.com/Chien1618/design-on-the-flank/raw/refs/heads/main/downloads/design-on-the-flank-knowledge.txt).**
+Một skill chính dẫn đến từng chủ đề nhỏ. AI đọc phần cần cho yêu cầu đang làm. Với ChatGPT, file bắt đầu chứa mục lục có link; nếu không mở được link, AI sẽ đưa đúng file cần bạn tải và đính kèm.
 
-**2. Mở một cuộc trò chuyện mới trong ChatGPT.** Bấm nút đính kèm file cạnh ô nhắn tin, chọn file vừa tải, rồi gửi tin nhắn này:
+Bản **0.2.0** có nội dung từ **20 skill và 6 tài liệu tham khảo**, chia thành **384 phần**. UI/UX Pro Max đã được loại khỏi gói. [Mục lục kỹ thuật](skills/design-on-the-flank/references/catalog.md) · [Nguồn và giấy phép](skills/design-on-the-flank/ATTRIBUTION.md).
 
-```text
-Đọc tài liệu tôi đính kèm và dùng nó để tạo component Framer trong cuộc trò chuyện này.
-
-Tạo cho tôi một thẻ giới thiệu có tiêu đề, mô tả và nền màu kem. Tôi muốn chỉnh chữ, màu và bo góc trong Framer.
-Trả toàn bộ code để tôi sao chép một lần, rồi chỉ tôi cách dán vào Framer.
-```
-
-**3. Lấy code ChatGPT trả về và làm theo [cách dán vào Framer ở dưới](#dua-vao-framer).**
-
-Tiếp tục nhờ sửa hoặc tạo thêm trong cùng cuộc trò chuyện. Nếu mở cuộc trò chuyện mới, đính kèm lại tài liệu.
-
-<details>
-<summary>Bấm tải nhưng trình duyệt chỉ hiện chữ?</summary>
-
-Nhấn **Ctrl+A** rồi **Ctrl+C** để sao chép toàn bộ trang. Trên Mac, dùng **Cmd+A** rồi **Cmd+C**. Dán vào ChatGPT và gửi trước, sau đó gửi yêu cầu tạo component ở trên.
-
-</details>
-
-<details>
-<summary>Muốn lưu tài liệu để dùng cho nhiều cuộc trò chuyện?</summary>
-
-[Làm theo cách tạo Project trong ChatGPT](docs/vi/chatgpt.md#luu-lai).
-
-</details>
-
-<a id="dua-vao-framer"></a>
-## Có code rồi, dán vào Framer ở đâu?
-
-1. Bấm **Copy** ở khung code AI trả về. Nếu AI trả file, nhờ nó hiện toàn bộ code trong chat để bạn sao chép.
-2. Mở dự án Framer → **Assets** → **Code** → **Create Code File**. Chọn **Component** nếu được hỏi.
-3. Đặt tên, ví dụ **MyCard**. Bấm vào phần code mẫu, chọn tất cả rồi dán code vừa sao chép để thay thế.
-4. Chờ Framer xử lý. Kéo **MyCard** từ Assets vào trang.
-5. Chọn thẻ trên trang để chỉnh chữ, màu và bo góc ở bảng bên phải. Mở **Preview** để xem thử.
-
-Bạn có thể thay yêu cầu “thẻ giới thiệu” bằng thứ mình muốn tạo, hoặc gửi thêm ảnh tham khảo cho AI.
-
-## Nếu có lỗi
-
-Chụp lại lỗi, gửi cho AI trong cuộc trò chuyện đang làm và nhắn:
-
-```text
-Tôi dán code vào Framer và gặp lỗi này. Hãy sửa rồi gửi lại toàn bộ code để tôi thay một lần. Giữ nguyên những phần khác.
-```
-
-Khi sửa, mở lại **file code cũ** trong Framer và thay nội dung. Giữ một bản sao code cũ để quay lại nếu cần.
-
----
-
-Dùng Claude? [Xem cách cài](docs/vi/claude.md). Dùng Claude Code? [Xem tại đây](docs/vi/claude-code.md).
-
-[Thêm câu yêu cầu mẫu](docs/vi/prompt-mau.md) · [Hướng dẫn Framer chi tiết](docs/vi/dua-vao-framer.md) · [Câu hỏi thường gặp](docs/vi/faq.md)
-
-Bản 0.1.0 đang thử nghiệm. Code AI tạo ra vẫn cần được kiểm tra trong Framer. [Xem phần đã kiểm tra](docs/validation.md).
-
-<details>
-<summary>Tài liệu cho người quản lý bộ skill và website</summary>
-
-[Nội dung đưa lên web](web/README.md) · [Cách cập nhật bộ skill](docs/maintainer.md) · [Lịch sử thay đổi](CHANGELOG.md) · [Quyền sử dụng](LICENSE.md)
-
-</details>
+Một file code vẫn có thể cần thư viện hoặc model/ảnh bên ngoài. AI phải nói rõ những gì cần thêm và đã kiểm tra tới đâu. Gói tài liệu đã được kiểm tra cấu trúc; chưa thử toàn bộ quy trình tạo component trên từng nền tảng AI và Framer. [Chi tiết kiểm tra](docs/validation.md).

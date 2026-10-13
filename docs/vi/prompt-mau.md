@@ -1,29 +1,25 @@
-# Prompt mẫu — sao chép rồi thay phần mô tả
+# Bạn có thể yêu cầu gì?
 
-## Thẻ giới thiệu
+Dùng các câu dưới đây sau khi đã cài skill hoặc gửi file bắt đầu. Thay màu sắc, nội dung và chuyển động theo ý bạn.
 
-> Dùng Design on the Flank. Tạo một thẻ giới thiệu cho Framer có tiêu đề và mô tả. Cho chỉnh chữ, màu nền, màu chữ, khoảng cách bên trong, bo góc và bật/tắt mô tả trong Properties. Dùng nội dung mẫu để nhìn thấy ngay khi thêm vào trang. Trả một file TSX hoàn chỉnh. Mình không biết code.
+## Cảnh sản phẩm 3D
 
-## Câu hỏi thường gặp mở/đóng
+> Dùng Design on the Flank tạo component Framer hiển thị model GLB tôi cung cấp. Sản phẩm xoay nhẹ theo chuột; trên điện thoại có thể kéo để xoay. Cho tôi chọn model, chỉnh màu nền, ánh sáng, góc nhìn và tốc độ tự xoay. Khi chưa chọn model, hiện một hình mẫu. Trả một file TSX hoàn chỉnh.
 
-> Dùng Design on the Flank. Tạo một danh sách FAQ cho Framer. Mỗi câu hỏi bấm vào sẽ mở câu trả lời. Mình muốn thêm/xóa câu hỏi, chỉnh nội dung, màu và khoảng cách trong bảng thiết lập. Dùng được bằng bàn phím và trên điện thoại. Trả một file TSX hoàn chỉnh để mình sao chép vào Framer.
+## Kể chuyện theo cuộn trang
 
-## Theo ảnh tham khảo
+> Tạo một section Framer có ba đoạn nội dung. Khi cuộn, ảnh chuyển dần giữa ba cảnh và chữ xuất hiện theo từng đoạn bằng GSAP. Cho tôi đổi ảnh, chữ, khoảng cuộn và tốc độ chuyển cảnh. Nói rõ tôi cần đặt chiều cao section thế nào. Trả toàn bộ code trong một file.
 
-> Dùng Design on the Flank. Dựa vào ảnh mình đính kèm, tạo component Framer có bố cục và phong cách tương tự. Mình muốn chỉnh chữ, ảnh và màu trong Properties. Nếu ảnh chưa thể hiện hành vi tương tác, nói rõ giả định. Xuất một file TSX hoàn chỉnh, không yêu cầu mình ghép nhiều file.
+## Shader trên ảnh
 
-## Chuyển code mẫu sang Framer
+> Tạo component Framer làm ảnh gợn như mặt nước khi rê chuột. Cho tôi chọn ảnh và chỉnh cường độ, kích thước vùng tác động, tốc độ tan của gợn. Trên điện thoại dùng thao tác chạm. Khi không chạy được WebGL vẫn hiện ảnh. Trả một file TSX.
 
-> Dùng Design on the Flank. Chuyển đoạn code mình gửi thành một Framer Code Component trong một file TSX. Giữ giao diện và cơ chế animation của mẫu trong phạm vi Framer hỗ trợ. Thêm các thiết lập cần thiết trong Properties. Nói rõ phần nào phải thay đổi và thư viện nào được dùng.
+## Chữ chuyển động bằng GSAP
 
-## Sửa component hiện có
+> Tạo tiêu đề Framer xuất hiện từng dòng khi cuộn tới. Dùng GSAP, có thể chỉnh nội dung, font, màu, thời gian và khoảng trễ. Chữ vẫn đọc được khi tắt chuyển động. Trả toàn bộ code trong một khung để tôi dán một lần.
 
-> Dùng Design on the Flank. Đây là toàn bộ code hiện tại. Mình muốn thay đổi: [mô tả]. Giữ nguyên các thiết lập, nội dung và hiệu ứng khác. Giữ tên props để các instance cũ tiếp tục dùng được. Trả toàn bộ file đã sửa để mình thay code một lần.
+## Sửa component đang dùng
 
-## Thêm một thiết lập
+> Đây là toàn bộ code hiện tại. Khi tôi chỉnh tốc độ trong Framer, hiệu ứng không thay đổi. Hãy sửa để thiết lập đó hoạt động, giữ các thiết lập và cơ chế còn lại. Trả toàn bộ file đã sửa và nói rõ đã kiểm tra gì.
 
-> Thêm mục chỉnh [mô tả thiết lập] trong Properties của component này. Khi chỉnh, component phải thay đổi tương ứng. Giữ tên và chức năng của các mục hiện có. Trả toàn bộ file TSX mới. Đây là code hiện tại: [đính kèm hoặc dán code].
-
-## Kiểm tra trước khi dùng
-
-> Rà soát component này theo Design on the Flank. Kiểm tra mỗi Property Control có thực sự hoạt động, giá trị mặc định có dùng được, layout trên màn hình nhỏ và việc giữ thiết lập cũ. Nói rõ bạn đã chạy kiểm tra nào và phần nào cần mình thử trong Framer.
+Dán code hiện tại ngay sau yêu cầu sửa. Nếu có model hoặc ảnh riêng, cung cấp file/link có quyền sử dụng. AI cần nói rõ tài nguyên còn thiếu; không thể tự có model sản phẩm của bạn.

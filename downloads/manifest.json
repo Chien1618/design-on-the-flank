@@ -1,21 +1,121 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "files": {
-    "FlankCard.tsx": {
-      "bytes": 2662,
-      "sha256": "ff263a5d1cbb8f35729d477ba21a796ba83b96ca0dcc0d795becf30cb54dff11"
-    },
     "chatgpt-instructions.txt": {
-      "bytes": 1586,
-      "sha256": "2f633b8061e5c00e0870a6bca1d6297e99b8086eadcb6733db5301ec30611322"
+      "bytes": 967,
+      "sha256": "ac7993668a806b28c6bd942fcad5a62bd37a7c0cfc840ad1ffea31618bae9f03"
     },
     "design-on-the-flank-knowledge.txt": {
-      "bytes": 16721,
-      "sha256": "aa40c7678f116d87c7742459e87c0d53b6742960166d092db391e47e573e867c"
+      "bytes": 15563,
+      "sha256": "adb8600d0227c46258118c7d0813cc611124a73af38387083794490e82547114"
     },
     "design-on-the-flank-skill.zip": {
-      "bytes": 9278,
-      "sha256": "8e1bd0a9c56c15caff4c0c772b119ea5705a01dc53b894dec6380e6f8d11aeca"
+      "bytes": 341250,
+      "sha256": "1c19e2e30dea66c95913b18c5f2995755de1c6f943af71b2027882ae8ec45528"
+    },
+    "modules/framer-components-patterns.txt": {
+      "bytes": 25550,
+      "sha256": "ed559160a12c46e500fdd69d8e2b9b8ab3bf17b64abf59a4242562a3859f19a4"
+    },
+    "modules/framer-components-property-controls.txt": {
+      "bytes": 22271,
+      "sha256": "194fb2d276e259719c19c214065dcb3ab2b9fbf7918fee5e36124602b560efa6"
+    },
+    "modules/framer-components-webgl-shaders.txt": {
+      "bytes": 20112,
+      "sha256": "10c27acc322e07bb98f477773e5dc306053189fbbdda421c7dd3e41a519de39b"
+    },
+    "modules/framer-components.txt": {
+      "bytes": 31555,
+      "sha256": "ae335b45e4807102c883e94d323972661ef9516aba6077f14e6d26218d53fe53"
+    },
+    "modules/framer-plugins-api-reference.txt": {
+      "bytes": 25953,
+      "sha256": "4ec06adf43cd8111b411c03eaada7620ef77ff832abebebbfbcd9fd0b4293c6e"
+    },
+    "modules/framer-plugins-patterns.txt": {
+      "bytes": 26410,
+      "sha256": "732dbe8f7f06469fa348d439c54e733d7eb76d8975d934234075190a0b9df998"
+    },
+    "modules/framer-plugins-pitfalls.txt": {
+      "bytes": 22570,
+      "sha256": "6fdaba67a28203bcbdf0ba94c4c158a7ccecbae80e79b40928771d4940588423"
+    },
+    "modules/framer-plugins.txt": {
+      "bytes": 24344,
+      "sha256": "3db9950601a024b704e177164f7ca19c4ef6c50116d073f47828cd78b3269896"
+    },
+    "modules/gsap-core.txt": {
+      "bytes": 30260,
+      "sha256": "d1949b2393eef720dc55bceae5f1b13550fa228f63c29687fc49b85bfc5daf2b"
+    },
+    "modules/gsap-frameworks.txt": {
+      "bytes": 26095,
+      "sha256": "c8a0cad3a229a7eeec7210729a5f126af1d894f0b2342f590a2a54b0de0fadca"
+    },
+    "modules/gsap-performance.txt": {
+      "bytes": 19614,
+      "sha256": "896cab61d6ea99f65f84be7e47d73286bb240f62a04796a3b472fae6f7676533"
+    },
+    "modules/gsap-plugins.txt": {
+      "bytes": 37050,
+      "sha256": "900a5c8a955470ba3a2df740e8d952217a3ecf15fbd3b5d7f7ec432181b7d9f0"
+    },
+    "modules/gsap-react.txt": {
+      "bytes": 22035,
+      "sha256": "269be4f3c00d14735de63d3b32ccabae3f761debcb5f90df11f99a35d847199b"
+    },
+    "modules/gsap-scrolltrigger.txt": {
+      "bytes": 33866,
+      "sha256": "ff73ea6fb4ba0a29c0bbab62e94eb7233fbef0f81853c98ca99a6642e9ffabfe"
+    },
+    "modules/gsap-timeline.txt": {
+      "bytes": 19866,
+      "sha256": "f59ad2e4c52839ac8dd606da39f88ec584c660567a47a2d7432850847f9525bd"
+    },
+    "modules/gsap-utils.txt": {
+      "bytes": 27562,
+      "sha256": "386f40f7ff3ca3e7770db6b439a06de5331632029496421584bbaad7e311d333"
+    },
+    "modules/threejs-animation.txt": {
+      "bytes": 28032,
+      "sha256": "e2b20e67c176aee502b4322de003690fbfc8bdca6711fe9bd3e0474e805baeea"
+    },
+    "modules/threejs-fundamentals.txt": {
+      "bytes": 26998,
+      "sha256": "f91647efde4b6812152664cffb98854fb4fff87062095bbfa55d1eaf89134578"
+    },
+    "modules/threejs-geometry.txt": {
+      "bytes": 29303,
+      "sha256": "52be653eff5d8e21524d84ac00ce89bd439457cb53c3fa725ad86f732d007274"
+    },
+    "modules/threejs-interaction.txt": {
+      "bytes": 31795,
+      "sha256": "5a36915d41b21cd17e3198f99f1a1c6b6bd28b939ff6560acbebc3ede969d46d"
+    },
+    "modules/threejs-lighting.txt": {
+      "bytes": 27501,
+      "sha256": "5a3b65e412d815cd8dd143f09170a19366970cafb2a90029c9811dacd9456ea5"
+    },
+    "modules/threejs-loaders.txt": {
+      "bytes": 29505,
+      "sha256": "7655eabecd69dc6eed373736c1bb37e536deb323f3076d9b69681d706ca288c6"
+    },
+    "modules/threejs-materials.txt": {
+      "bytes": 28893,
+      "sha256": "3f393ee2b9f96c630cfa944e83a460028fee8c9f55b3eb117c8490b083036224"
+    },
+    "modules/threejs-postprocessing.txt": {
+      "bytes": 29907,
+      "sha256": "01d471f55f474c4b5a7b619241b38028e93493d0797bb781f338a190778df30f"
+    },
+    "modules/threejs-shaders.txt": {
+      "bytes": 29529,
+      "sha256": "bf8df4aa31eaa0cf7c8de9d59bf2e0c8b1506130fcf5b5cbe2baa4d09458d695"
+    },
+    "modules/threejs-textures.txt": {
+      "bytes": 29117,
+      "sha256": "fb7921328f0ce0a07cae50fb18fd2c1b14c1fa9879b2a89b98fe41efbb00e318"
     }
   }
 }

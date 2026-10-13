@@ -1,48 +1,53 @@
 ---
 name: design-on-the-flank
-description: Create, convert, or update Framer Code Components as one complete paste-ready TSX file with working Property Controls. Use for component requests, adapting React samples to Framer, and fixing existing Framer component behavior. Intended for people who do not write code.
+description: Build complex Framer Code Components with Three.js, WebGL shaders, GSAP timelines, scroll animation, and working Property Controls. Convert or repair existing components and deliver one complete paste-ready TSX file. Includes on-demand references for Framer overrides and plugins when explicitly requested.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Design on the Flank
 
-Turn the user's description into one complete Framer Code Component that they can copy into Framer and customize visually. Follow the user's language. Explain setup in everyday words.
+Create the component the user describes. Common requests include interactive 3D scenes, particle fields, shader effects, scroll stories, and animated typography. Speak the user's language and explain insertion in everyday words.
 
-## Output contract
+## Read only what the task needs
 
-- Deliver one self-contained `.tsx` file per requested component. Keep styles and helper functions in that file. Do not scaffold an app or require a build step for the end user.
-- Include React/Framer imports, an exported component, layout annotations where appropriate, runtime defaults, and `addPropertyControls` attached to the same component.
-- Every advertised control must change the actual output or behavior. Use plain labels and only controls useful for this component.
-- Show useful sample content on first insertion. Handle empty content, absent optional assets, and narrow widths without crashing.
-- Prefer React, Framer, CSS, and browser capabilities. If a feature needs an external package, verify its Framer-compatible import and disclose it. Do not claim one-file output means offline or dependency-free.
-- Do not require private keys in client-side code. For features requiring a backend, explain the additional service; provide a clearly labeled demo only if useful.
-- Produce complete code, never ellipses, omitted sections, a patch alone, or “keep the rest unchanged” for a user who must copy and paste.
+1. Read [Framer contract](references/framer-contract.md) for component work.
+2. Choose a route below. Open its index, then only the topic files needed. Never read the entire library or source manifest to begin a task.
+3. For Three.js or GSAP, also read [Framer integration](references/advanced-integration.md). Source examples are reference material; standalone app setup must be adapted to Framer.
+4. For edits, read the current component and [updates and effects](references/updates-and-effects.md).
+5. Before delivery, follow [verification](references/verification.md). Report checks actually performed.
 
-## Workflow
+| Need | Start here |
+|---|---|
+| Component, layout, override | [Framer components](references/library/framer-components/index.md) |
+| Editable controls | [Property Controls](references/library/framer-components-property-controls/index.md) |
+| Framer patterns, CMS, shader examples | [Framer topics](references/catalog.md#framer) |
+| Three.js scene, model, material, particles, shader, interaction | [Three.js topics](references/catalog.md#threejs) |
+| GSAP animation, timeline, scroll, React, plugins, performance | [GSAP topics](references/catalog.md#gsap) |
+| Framer plugin explicitly requested | [Plugin topics](references/catalog.md#plugins) |
 
-1. Identify the content, appearance, interaction, and settings the user wants. Ask only about missing information that materially changes the result. Choose reasonable visual defaults for the rest.
-2. For edits or conversions, read the supplied source first. Preserve names, prop keys, saved instance behavior, callbacks, and requested animation mechanisms. If the source is unavailable, ask for the current complete code before claiming to preserve it.
-3. Read [the Framer contract](references/framer-contract.md). For animation, CMS, or update bugs, also read [update and troubleshooting guidance](references/updates-and-effects.md).
-4. Implement the smallest complete component satisfying the request. Use [FlankCard.tsx](assets/FlankCard.tsx) only as a small structural example, not a mandatory visual style.
-5. Follow [verification guidance](references/verification.md). Check what the environment actually permits. Keep compile, type, rendered behavior, and live Framer verification distinct.
-6. Return the file or one complete `tsx` code block, followed by a short note explaining how to insert it, which settings are available, any required assets/setup, and what was checked.
+A combined request can use multiple routes. For a scroll-controlled 3D scene, select scene setup, the relevant Three.js topic, GSAP React and ScrollTrigger. Do not load all topics under those routes.
 
-## Adapt to the current AI application
+## Component output
 
-- With file tools: create or update the requested TSX file and provide a clickable file. If the interface cannot expose its contents conveniently, also provide the complete code block.
-- With chat only: supply the full code in one block. Do not ask the user to assemble pieces, install packages in a terminal, or create a development project.
-- With execution tools: run relevant checks when possible. Without those tools, inspect the code and say it has not been compiled or run in Framer.
-- If reference files cannot be opened, say so and ask for the bundled knowledge file. Never pretend to have read unavailable instructions.
+- Return one complete `.tsx` per component. Include imports, helpers, styles, exported component, sensible runtime defaults, layout annotations and `addPropertyControls` on that component.
+- Every advertised control must change the visible result or behavior. Keep existing prop keys and saved settings when editing. Use defaults that display something useful without optional assets.
+- Do not scaffold an app or ask the user to install npm packages, use a terminal, or assemble snippets. Verify and disclose external imports and required assets. One file does not mean dependency-free.
+- Do not simplify an advanced request into a basic card or button. If a requested effect is infeasible in Framer, explain the concrete constraint and propose the closest practical behavior.
+- Guard browser APIs, handle loading/errors, scope effects per instance, support reduced motion and clean up resources.
+- Return complete code, never ellipses or just a patch. With file tools, provide the file; with chat only, use one complete TSX code block.
+- Explain where to paste, which settings to change, required assets and what was checked. Never claim code runs in Framer unless actually tested there.
 
-## Updating existing components
+## Existing work and other outputs
 
-Update the existing file by default. Preserve the exported component identity, props, CMS selectors, Rive bindings, accessibility labels used as hooks, and callbacks unless a requested change requires otherwise. Add new props with safe defaults. Saved instances can retain old values even when defaults change.
+Read supplied code before modifying it. Preserve the export, prop names, callbacks, CMS selectors, Rive inputs, timing and animation mechanism unless the request requires a change. Explain meaningful conversion changes. Ask for missing source before claiming to preserve it.
 
-## Handoff to a nontechnical user
+Overrides and plugins have different output requirements. Use those references only when requested; a Framer plugin is not a code component that can be pasted into a page.
 
-Use short steps: open the Framer project → Assets → Code → create a code file → replace its starter code with the entire TSX → add the component to the page → select it and adjust settings → open Preview. Menu wording may vary.
+## Chat-only access
 
-When something fails, ask for the exact error or a screenshot and the complete current code. Return the corrected whole file. Describe controls by their visible labels, not internal variable names.
+When local files are unavailable, use the public URLs in the supplied knowledge index. Open only the relevant index and topics. If links cannot be opened, ask for the exact linked topic file or the named module download. Never claim the whole library is loaded from an index alone.
 
-The success target is a working Framer component. Do not promise that untested output is guaranteed to work, publish the user's site, or modify unrelated projects as part of this skill.
+## Handoff
+
+Give short steps: open the Framer project → create a code file in Assets → replace starter code with the complete TSX → add the component → change settings → open Preview. If it fails, ask for the exact error and complete current code, then return the corrected whole file. This skill does not authorize publishing a website.

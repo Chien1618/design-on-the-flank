@@ -1,32 +1,15 @@
 # Dùng với Claude
 
-## 1. Tải gói skill
+1. [Tải gói skill ZIP](https://github.com/Chien1618/design-on-the-flank/raw/refs/heads/main/downloads/design-on-the-flank-skill.zip), giữ nguyên file ZIP.
+2. Mở mục **Skills** trong Claude, chọn thêm skill và tải file lên. Vị trí mục này có thể khác giữa các phiên bản; [xem hướng dẫn của Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+3. Bật skill nếu có công tắc, rồi gửi:
 
-Tải [design-on-the-flank-skill.zip](../../downloads/design-on-the-flank-skill.zip). Giữ nguyên file ZIP, không cần giải nén.
+```text
+Dùng Design on the Flank tạo một component Framer: đám hạt 3D chuyển động theo chuột, khi cuộn thì gom thành một quả cầu. Cho tôi chỉnh màu, số hạt, tốc độ và mức phản ứng với chuột trong Framer. Trả toàn bộ code trong một khung để tôi sao chép một lần. Tôi không biết code.
+```
 
-## 2. Thêm vào Claude
+4. Sao chép toàn bộ code và [dán vào Framer](dua-vao-framer.md).
 
-1. Mở Claude và tìm mục **Skills**, thường nằm trong **Customize**. Tên hoặc vị trí có thể khác theo phiên bản.
-2. Chọn thêm hoặc upload skill.
-3. Chọn file `design-on-the-flank-skill.zip` vừa tải.
-4. Bật **Design on the Flank** nếu có công tắc bật/tắt.
+Không thấy Skills? Dùng [file bắt đầu trong chat](chatgpt.md): các bước tải và đính kèm cũng áp dụng được với Claude. Nếu AI không mở được link tài liệu, tải đúng module nó yêu cầu rồi đính kèm.
 
-Nếu không thấy Skills, kiểm tra tính năng **Code execution and file creation** trong cài đặt. Tài khoản tổ chức có thể cần quản trị viên cho phép. [Hướng dẫn chính thức của Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
-
-## 3. Tạo component đầu tiên
-
-Mở cuộc trò chuyện và gửi:
-
-> Dùng skill Design on the Flank để tạo một thẻ giới thiệu Framer. Cho mình chỉnh tiêu đề, mô tả, màu nền và bo góc trong bảng Properties. Trả một file TSX hoàn chỉnh và hướng dẫn sao chép vào Framer. Mình không biết code.
-
-Claude có thể trả file hoặc một khung code. Bạn cần toàn bộ nội dung code, không cần sao chép phần giải thích. [Cách đưa vào Framer](dua-vao-framer.md).
-
-## Không có mục Skills?
-
-Dùng [cách đính kèm tài liệu một file](bat-dau.md#thu-nhanh). Chỉ dẫn sẽ áp dụng trong cuộc trò chuyện đó.
-
-## Cập nhật
-
-Tải ZIP phiên bản mới và dùng chức năng cập nhật/thay thế nếu tài khoản hỗ trợ. Nếu phải xóa bản cũ để thêm bản mới, lưu lại các chỉnh sửa cá nhân trước. Tránh bật hai bản cùng tên cùng lúc. Tải ZIP mới không tự cập nhật bản đã upload.
-
-Gói này chưa được thử upload vào tài khoản Claude thật; xem [trạng thái kiểm tra](../validation.md).
+Khi cập nhật, tải ZIP mới và thay bản đã cài sau khi giữ lại chỉnh sửa cá nhân. File đã upload không tự đồng bộ với GitHub. Gói này chưa được thử upload trong tài khoản Claude thật.

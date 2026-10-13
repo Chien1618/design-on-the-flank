@@ -1,0 +1,717 @@
+# Design on the Flank 0.2.0 — framer-components
+
+Selected module for a chat without link access. Use the Framer rules before adapting source examples. Deliver complete code and say what was actually tested.
+
+# Framer component contract
+
+## One-file delivery
+
+Use React 18-compatible code as required by the current Framer component documentation; avoid React 19-only APIs unless Framer explicitly adds support. Include every helper and style needed for the component in its TSX file. Avoid project-specific aliases, local CSS imports, Tailwind build dependencies, environment variables, and assumed files next to the component. React and Framer are platform imports; other dependencies must be checked and named.
+
+Do not add `@framerDisableUnlink` by default: it changes sharing behavior and is not needed to make a component run. Only produce overrides, plugins, or page-wide custom code when that is the user's actual request.
+
+## Visual settings
+
+Build a small mapping before implementation: visible label → prop → rendered effect. Remove controls that do nothing.
+
+Use the appropriate documented control type for editable text, numbers, colors, toggles, fonts, images, options, or repeatable content. Set sensible ranges for numeric values. Keep runtime fallback values aligned with the control defaults. Retain meaningful values such as `0`, `false`, and an intentionally empty string; do not replace them using truthiness-based fallback logic.
+
+When a font control is offered, apply the returned font style object instead of extracting only its family. When an image control returns a responsive image object, handle its `src`, `srcSet`, and alternative text as appropriate. Do not use the whole object as a URL string. Re-check current Framer documentation for unfamiliar control shapes rather than guessing.
+
+## Layout and rendering
+
+Choose sizing behavior based on the component's content. Keep intrinsic dimensions useful for first insertion. Pass Framer's incoming `style` through to the outer element so the user's sizing choices can take effect. Avoid fixed dimensions deep inside the layout that defeat responsive behavior.
+
+Use CSS for layout and responsive text where possible. Scope any CSS to the component so two instances and unrelated page elements do not interfere. Do not impose the original author's typography or breakpoint preset on every user.
+
+Avoid accessing `window`, `document`, or browser-only constructors at module evaluation or during a server render. Use guarded effects for browser-only work. Avoid random or time-dependent initial markup that creates hydration mismatches.
+
+Only branch on Canvas versus Preview when there is a reason, such as keeping a continuous animation still while editing. Explain any visible difference. Offer a useful editor placeholder for content that requires data or user interaction.
+
+## Interaction
+
+Use actual buttons and links for their respective behaviors. Provide keyboard operation and accessible names. Scope IDs to the instance, such as with React `useId` when needed. Avoid hover-only access to essential content. For animation, include a reduced-motion path and clean up resources.
+
+## Sources
+
+Checked 2026-10-13. Use these official references for API details; this file records the project's delivery conventions.
+
+- [Code Components](https://www.framer.com/developers/components-introduction)
+- [Property Controls](https://www.framer.com/developers/property-controls)
+- [Auto-Sizing](https://www.framer.com/developers/auto-sizing)
+- [Asset Sharing](https://www.framer.com/developers/component-sharing)
+
+
+# Three.js and GSAP inside Framer
+
+Read alongside the Framer contract. The upstream library contains standalone web examples and setup instructions. These rules govern adapting them into one Framer TSX file; do not copy their HTML shell, npm commands or app scaffold into the user's workflow.
+
+## Dependencies
+
+Verify the current official API and an import pattern that works in Framer before choosing a library version. Keep Three.js core and addons on the same version and avoid duplicate React or Three.js instances. Keep GSAP core and plugins compatible. Register the plugins actually used. Name external network and asset dependencies in the handoff. Do not assume an import succeeded because syntax parsing passed.
+
+For browser-dependent libraries, choose a Framer-supported loading pattern safe during server rendering. Guard async loading against unmount and stale props. An inaccessible CDN or model needs an error/empty state, not a permanently blank component.
+
+## Three.js lifecycle
+
+- Mount the renderer in an instance-owned element using a ref, never `document.body`. Read its dimensions, not the whole window. Resize from the container and update camera projection, renderer and any composer together; handle zero-sized containers.
+- Create the scene in an effect. Keep stable objects in refs. Apply color, speed, lighting, camera and shader-uniform prop changes to those objects. Rebuild geometry or renderer only when necessary; release replaced resources.
+- Drive animation from elapsed time or delta time. Bound device pixel ratio and particle counts. Pause or reduce work when hidden and use a suitable reduced-motion/editor state.
+- On cleanup cancel animation, disconnect observers, remove listeners, detach the canvas and dispose owned geometries, materials, textures, render targets, composers and renderer resources. Do not dispose shared cached resources still used by another instance.
+- Ignore or cancel stale asset loads; release late-loaded resources when no longer needed. Expose model/image URLs or Framer asset selectors with useful placeholders.
+- Convert pointer coordinates relative to the component bounds. Account for touch, pointer exit and scroll. Keep essential content accessible outside a canvas.
+- Handle unavailable WebGL and context loss with a useful fallback. Validate two instances and remounting without leaking canvases or GPU work.
+
+## GSAP lifecycle
+
+- In React, use `useGSAP` when its compatible import is available, or a carefully scoped effect with `gsap.context`. Scope selectors to the instance root.
+- Revert the instance context on cleanup. Use `contextSafe` or explicit cleanup for animations created later by handlers. Avoid global `killAll`, global selectors and killing another instance's timeline.
+- Declare dependencies deliberately. For rebuilt animations, revert previous state before reconstruction (`revertOnUpdate` where appropriate). Preserve progress if the requested interaction requires it. Controls must update the running effect, not only initial construction.
+- Prefer transforms and opacity where appropriate. Avoid React rerendering on every frame. Animate Three.js object values/uniforms directly and retain one deliberate render-loop owner.
+- Use reduced-motion branches that still show the content. Clean up media-query contexts and event listeners.
+
+## Scroll and text
+
+Use the actual scroll container in Framer Preview. Scope triggers, start/end values and pin targets to the component. Pinning needs enough scroll space and may affect surrounding layout; explain required section sizing. Do not hijack page scrolling without a request.
+
+Refresh layout measurements after relevant fonts, images or content settle. Throttle refreshes; never refresh on every render or frame. Use readable static content in Canvas if Preview scrolling is needed for the effect.
+
+When splitting text, retain accessible reading order, restore original DOM on cleanup and rebuild only when content/font/layout changes demand it. Verify the selected plugin API against its current official documentation.
+
+## Known source correction: horizontal scroll
+
+The imported GSAP ScrollTrigger horizontal-scroll example contains `Max.max` (undefined), mixes pixel distance with `xPercent`, and omits `scrub` from its code despite describing scrubbed scrolling. Do not copy it verbatim. For a left-moving overflow strip, derive a pixel distance from its own container, for example `x: () => -Math.max(0, strip.scrollWidth - viewport.clientWidth)`, use `ease: "none"`, enable `scrub` on the parent ScrollTrigger, and refresh/invalidate measurements when layout changes. Derive scroll distance and pin layout from the actual component. Preserve source excerpts for traceability; apply this correction when generating code.
+
+## Checks for an advanced component
+
+Change an exposed speed, color and effect setting after insertion. Check two instances, resize, removal/reinsertion, missing asset, reduced motion and Preview scrolling. For 3D, check no duplicate canvas/loop and reasonable mobile performance. For GSAP, check no orphan triggers or altered neighboring components. If these cannot be exercised, say precisely which checks remain.
+
+
+# Updates, animation, and troubleshooting
+
+## Preserve configured instances
+
+Read the existing file and identify the exact prop, callback, selector, animation, or binding concerned. Prefer a small change while returning the whole file to the user. Do not create replacement instances or rename media/CMS prop keys merely to make new defaults appear.
+
+Framer can retain saved values on an existing instance. Check the saved value before assuming code is broken. A default change is not a migration of existing content. Add compatibility logic only when a requested change needs it; do not overwrite the user's configured content.
+
+## Controls missing or stale
+
+First check imports, exports, TypeScript errors, and that `addPropertyControls` references the exported function. Ask whether the user selected the actual code component or a wrapping frame. Compare a fresh test instance only if this helps isolate the issue and preserves the original instance.
+
+The previous private workflow sometimes refreshed stale metadata by renaming the component function and updating its control registration. Treat this as an unverified workaround, not a documented Framer guarantee. Consider it only after reproducing stale metadata with otherwise valid code, explaining the change, and keeping the original code file, prop keys, and a backup. Do not rename by default.
+
+## Animation and layering
+
+Keep the existing animation model and timing unless requested otherwise. Dispose of timelines, event listeners, observers, timers, and animation frames when they are no longer needed. Scope refs and selectors per instance; do not alter global page styles casually.
+
+For a mask or cover bug, establish which layer must be above which and which element should move. Inspect clipping and stacking contexts. Do not substitute opacity for a position or layering fix. Honor reduced motion and ensure that content remains usable without animation.
+
+## CMS, Rive, and third-party services
+
+Preserve CMS field mappings, selector names, ordering, Rive inputs, and trigger strings supplied by the user. DOM-based CMS extraction is fragile: document the markup dependency and avoid polling or observers unless required. If an observer is required, scope it narrowly and disconnect it.
+
+When a feature requires a model, uploaded animation, image, service, or CMS collection, identify exactly what the user must select or supply in Framer. Show a helpful empty state. Do not fabricate a successful connection or include an API secret in browser code.
+
+## Converting a sample
+
+Carry over the sample's structure and behavior where compatible. Replace only what Framer requires, such as project-specific CSS imports or app routing. Explain substantive differences. Do not promise a pixel-identical result from an image alone; separate observed details from assumptions.
+
+
+# Verification and truthful reporting
+
+## Always review
+
+- The delivered code is complete and every import is available or disclosed.
+- The export, runtime defaults, and control registration refer to the correct component.
+- Each editable prop is consumed; defaults work without user-provided assets.
+- `0` and `false` behave correctly; empty collections and text do not crash.
+- Sizing follows the intended Framer layout; more than one instance can coexist.
+- Browser-only work is guarded and resources are cleaned up.
+- Existing prop keys and user-configured behavior are preserved when updating.
+
+## Checks available to coding agents
+
+Discover tools already present in the working environment. Do not assume the original author's folders exist, create an app solely for a parse check, or silently install dependencies. If esbuild is already available, a syntax/bundle check can keep `react`, `react-dom`, `framer`, and disclosed URL imports external. Write temporary output outside the source file. This checks syntax and bundling shape, not Framer API correctness or whether remote imports exist.
+
+Run TypeScript checks when actual dependency types are available. A test with a mock `framer` module cannot prove real Framer type compatibility. Do not claim type correctness based on esbuild alone.
+
+If browser rendering is available, check the meaningful behaviors and editable props. If the live Framer editor is available and authorized, inspect Canvas and Preview; use a disposable test page rather than changing production pages. Publishing is a separate action.
+
+## User acceptance in Framer
+
+Ask the user to make these simple observations if you cannot operate Framer:
+
+1. The component appears after insertion without a red error.
+2. Changing text, a color, and a numeric setting visibly works.
+3. Toggle controls turn their feature on and off.
+4. The layout is usable at a narrow width and with two instances on the page.
+5. Preview interactions work using mouse/touch and keyboard where relevant.
+6. Updating an existing file retains its configured content and settings.
+
+## Report the actual level
+
+Use an accurate short statement in the user's language. Examples:
+
+- “Đã rà soát code; chưa chạy trong Framer.”
+- “Đã kiểm tra cú pháp bằng esbuild; chưa kiểm tra kiểu dữ liệu hoặc chạy trong Framer.”
+- “Đã kiểm tra các thay đổi props trong bản render thử; vẫn cần kiểm tra trong Framer.”
+- “Đã thử trong Framer Canvas và Preview: [specific actions actually verified].”
+
+Never transform a partial check into a guarantee that everything works. If a check fails, repair and repeat the relevant check; if blocked, give the exact remaining limitation in plain language.
+
+
+# Source topics
+
+---
+name: framer-code-components-overrides
+description: Create Framer Code Components and Code Overrides. Use when building custom React components for Framer, writing Code Overrides (HOCs) to modify canvas elements, implementing property controls, working with Framer Motion animations, handling WebGL/shaders in Framer, or debugging Framer-specific issues like hydration errors and font handling.
+user-invokable: true
+license: MIT
+metadata:
+  author: fredm00n
+  version: 1.0.0
+---
+
+# Framer Code Development
+
+## Code Components vs Code Overrides
+
+**Code Components**: Custom React components added to canvas. Support `addPropertyControls`.
+
+**Code Overrides**: Higher-order components wrapping existing canvas elements. Do NOT support `addPropertyControls`.
+
+## Required Annotations
+
+Always include at minimum:
+```typescript
+/**
+ * @framerDisableUnlink
+ * @framerIntrinsicWidth 100
+ * @framerIntrinsicHeight 100
+ */
+```
+
+Full set:
+- `@framerDisableUnlink` — Prevents unlinking when modified
+- `@framerIntrinsicWidth` / `@framerIntrinsicHeight` — Default dimensions
+- `@framerSupportedLayoutWidth` / `@framerSupportedLayoutHeight` — `any`, `auto`, `fixed`, `any-prefer-fixed`
+
+## Code Override Pattern
+
+```typescript
+import type { ComponentType } from "react"
+import { useState, useEffect } from "react"
+
+/**
+ * @framerDisableUnlink
+ */
+export function withFeatureName(Component): ComponentType {
+    return (props) => {
+        // State and logic here
+        return <Component {...props} />
+    }
+}
+```
+
+Naming: Always use `withFeatureName` prefix.
+
+## Code Component Pattern
+
+```typescript
+import { motion } from "framer-motion"
+import { addPropertyControls, ControlType } from "framer"
+
+/**
+ * @framerDisableUnlink
+ * @framerIntrinsicWidth 300
+ * @framerIntrinsicHeight 200
+ */
+export default function MyComponent(props) {
+    const { style } = props
+    return <motion.div style={{ ...style }}>{/* content */}</motion.div>
+}
+
+MyComponent.defaultProps = {
+    // Always define defaults
+}
+
+addPropertyControls(MyComponent, {
+    // Controls here
+})
+```
+
+## Critical: Font Handling
+
+**Never access font properties individually. Always spread the entire font object.**
+
+```typescript
+// ❌ BROKEN - Will not work
+style={{
+    fontFamily: props.font.fontFamily,
+    fontSize: props.font.fontSize,
+}}
+
+// ✅ CORRECT - Spread entire object
+style={{
+    ...props.font,
+}}
+```
+
+Font control definition:
+```typescript
+font: {
+    type: ControlType.Font,
+    controls: "extended",
+    defaultValue: {
+        fontFamily: "Inter",
+        fontWeight: 500,
+        fontSize: 16,
+        lineHeight: "1.5em",
+    },
+}
+```
+
+## Critical: Wrap State Updates in startTransition
+
+All React state updates in Framer must be wrapped in `startTransition()`:
+
+```typescript
+import { startTransition } from "react"
+
+// ❌ WRONG - May cause issues in Framer's rendering pipeline
+setCount(count + 1)
+
+// ✅ CORRECT - Always wrap state updates
+startTransition(() => {
+    setCount(count + 1)
+})
+```
+
+This is Framer-specific and prevents performance issues with concurrent rendering.
+
+## Critical: Hydration Safety
+
+Framer pre-renders on server. Browser APIs unavailable during SSR.
+
+**Two-phase rendering pattern:**
+```typescript
+const [isClient, setIsClient] = useState(false)
+
+useEffect(() => {
+    setIsClient(true)
+}, [])
+
+if (!isClient) {
+    return <Component {...props} /> // SSR-safe fallback
+}
+
+// Client-only logic here
+```
+
+**Never access directly at render time:**
+- `window`, `document`, `navigator`
+- `localStorage`, `sessionStorage`
+- `window.innerWidth`, `window.innerHeight`
+
+## Critical: Canvas vs Preview Detection
+
+```typescript
+import { RenderTarget } from "framer"
+
+const isOnCanvas = RenderTarget.current() === RenderTarget.canvas
+
+// Show debug only in editor
+{isOnCanvas && <DebugOverlay />}
+```
+
+Use for:
+- Debug overlays
+- Disabling heavy effects in editor
+- Preview toggles
+
+## Property Controls Reference
+
+See [references/property-controls.md](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-components-property-controls/index.md) for complete control types and patterns.
+
+## Common Patterns
+
+See [references/patterns.md](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-components-patterns/index.md) for implementations: shared state, keyboard detection, show-once logic, scroll effects, magnetic hover, animation triggers.
+
+## Variant Control in Overrides
+
+Cannot read variant names from props (may be hashed). Manage internally:
+
+```typescript
+export function withVariantControl(Component): ComponentType {
+    return (props) => {
+        const [currentVariant, setCurrentVariant] = useState("variant-1")
+
+        // Logic to change variant
+        setCurrentVariant("variant-2")
+
+        return <Component {...props} variant={currentVariant} />
+    }
+}
+```
+
+## Scroll Detection Constraint
+
+Framer's scroll detection uses viewport-based IntersectionObserver. Applying `overflow: scroll` to containers breaks this detection.
+
+For scroll-triggered animations, use:
+```typescript
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasEntered) {
+                setHasEntered(true)
+            }
+        })
+    },
+    { threshold: 0.1 }
+)
+```
+
+## WebGL in Framer
+
+See [references/webgl-shaders.md](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-components-webgl-shaders/index.md) for shader implementation patterns including transparency handling.
+
+## Shadertoy to WebGL Conversion
+
+When adapting complex Shadertoy algorithms (GLSL) into Framer React Code Components using raw WebGL 1.0, you must handle several strict limitations:
+
+### 1. WebGL 1.0 Syntax Limitations
+**No `tanh()`**: WebGL 1.0 doesn't have a native hyperbolic tangent. Use an exponential approximation and clamp to prevent overflow/NaN (which causes black screens):
+```glsl
+vec4 tanh_approx(vec4 x) {
+    vec4 x_clamped = clamp(x, -20.0, 20.0);
+    vec4 exp2x = exp(2.0 * x_clamped);
+    return (exp2x - 1.0) / (exp2x + 1.0);
+}
+```
+
+**Strict Typing**: WebGL 1.0 does not auto-cast. You cannot mix floats and ints (e.g., `1` vs `1.0`).
+
+**For-Loops**: WebGL 1.0 requires loop indices to be compared to a constant expression. You cannot mutate the iterator in complex ways inside the loop header (e.g., `for(o*=i; i++<1e2; ...)` will fail). Extract logic cleanly:
+```glsl
+// ❌ Shadertoy shortcut (Fails in WebGL 1.0)
+for(o*=i; i++<1e2; p += cos(...)) { ... }
+
+// ✅ WebGL 1.0 compliant
+float i = 0.0;
+for(int j = 0; j < 100; j++) {
+    i += 1.0;
+    float fi = float(j);
+    // ... Math logic here ...
+}
+```
+
+### 2. Framer Canvas vs Published (Performance Drop)
+Shaders iterate per pixel. A loop of 100 iterations on a 4K retina screen (DPR 2.0) will instantly freeze Framer's editor because it executes millions of calculations per frame.
+
+**Solution:** Clamp Device Pixel Ratio (`dpr`) to preserve framerate, and disable time-based animations on Canvas:
+```typescript
+// Inside render() function
+// Downscale high-density screens for complex shaders (e.g., limit to 0.75 or 1.0)
+const dpr = window.devicePixelRatio > 1.5 ? 1.0 : window.devicePixelRatio
+
+if (canvas.width !== Math.floor(displayWidth * dpr)) {
+    canvas.width = Math.floor(displayWidth * dpr)
+    canvas.height = Math.floor(displayHeight * dpr)
+}
+
+// Stop heavy time calculations in Editor to keep Canvas snappy
+const currentTime = isOnCanvas ? 0 : (performance.now() - startTime) * 0.001 * speed
+```
+
+## NPM Package Imports
+
+Standard import (preferred):
+```typescript
+import { Component } from "package-name"
+```
+
+Force specific version via CDN when Framer cache is stuck:
+```typescript
+import { Component } from "https://esm.sh/package-name@1.2.3?external=react,react-dom"
+```
+
+Always include `?external=react,react-dom` for React components.
+
+**Critical for Three.js in Framer:**
+Framer's SSR environment **does not support** Node.js `require()` for Three.js addon modules (like `EffectComposer` or `GLTFLoader`). You must import them via `esm.sh` and set `?external=three` to prevent duplicate Three.js instances:
+
+```typescript
+// ❌ FAILS IN FRAMER:
+// const EffectComposer = require("three/examples/jsm/postprocessing/EffectComposer.js")
+
+// ✅ CORRECT:
+import { EffectComposer } from "https://esm.sh/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js?external=three"
+import { RenderPass } from "https://esm.sh/three@0.160.0/examples/jsm/postprocessing/RenderPass.js?external=three"
+```
+
+## Common Pitfalls
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| Font styles not applying | Accessing font props individually | Spread entire font object: `...props.font` |
+| Hydration mismatch | Browser API in render | Use `isClient` state pattern |
+| Override props undefined | Expecting property controls | Overrides don't support `addPropertyControls` |
+| Scroll animation broken | `overflow: scroll` on container | Use IntersectionObserver on viewport |
+| Shader attach error | Null shader from compilation failure | Check `createShader()` return before `attachShader()` |
+| Component display name | Need custom name in Framer UI | `Component.displayName = "Name"` |
+| TypeScript `Timeout` errors | Using `NodeJS.Timeout` type | Use `number` instead — browser environment |
+| Overlay stuck under content | Stacking context from parent | Use React Portal to render at `document.body` level |
+| Easing feels same for all curves | Not tracking initial distance | Track `initialDiff` when target changes for progress calculation |
+
+## Mobile Optimization
+
+For particle systems and heavy animations:
+- Implement resize debouncing (500ms default)
+- Add size change threshold (15% minimum)
+- Handle orientation changes with dedicated listener
+- Use `touchAction: "none"` to prevent scroll interference
+
+## CMS Content Timing
+
+CMS content loads asynchronously after hydration. Processing sequence:
+1. SSR: Placeholder content
+2. Hydration: React attaches
+3. CMS Load: Real content (~50-200ms)
+
+Add delay before processing CMS data:
+```typescript
+useEffect(() => {
+    if (isClient && props.children) {
+        const timer = setTimeout(() => {
+            processContent(props.children)
+        }, 100)
+        return () => clearTimeout(timer)
+    }
+}, [isClient, props.children])
+```
+
+## Text Manipulation in Overrides
+
+Framer text uses deeply nested structure. Process recursively:
+
+```typescript
+const processChildren = (children) => {
+    if (typeof children === "string") {
+        return processText(children)
+    }
+    if (isValidElement(children)) {
+        return cloneElement(children, {
+            ...children.props,
+            children: processChildren(children.props.children)
+        })
+    }
+    if (Array.isArray(children)) {
+        return children.map(child => processChildren(child))
+    }
+    return children
+}
+```
+
+## Animation Best Practices
+
+**Separate positioning from animation:**
+```typescript
+<motion.div
+    style={{
+        position: "absolute",
+        left: `${offset}px`,  // Static positioning
+        x: animatedValue,     // Animation transform
+    }}
+/>
+```
+
+**Split animation phases for natural motion:**
+```typescript
+// Up: snappy pop
+transition={{ duration: 0.15, ease: [0, 0, 0.39, 2.99] }}
+
+// Down: smooth settle
+transition={{ duration: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+```
+
+## Safari SVG Fix
+
+Force GPU acceleration for smooth SVG animations:
+```typescript
+style={{
+    willChange: "transform",
+    transform: "translateZ(0)",
+    backfaceVisibility: "hidden",
+}}
+```
+
+## Z-Index Stacking Context & React Portals
+
+**Problem:** Components with `position: absolute` inherit their parent's stacking context. Even with `z-index: 9999`, they can't appear above elements outside the parent.
+
+**Solution:** Use React Portal to render at `document.body` level:
+
+```typescript
+import { createPortal } from "react-dom"
+
+export default function ComponentWithOverlay(props) {
+    const [showOverlay, setShowOverlay] = useState(false)
+
+    return (
+        <div style={{ position: "relative" }}>
+            {/* Main component content */}
+
+            {/* Overlay rendered outside parent hierarchy */}
+            {showOverlay && createPortal(
+                <div style={{
+                    position: "fixed",  // Fixed to viewport
+                    inset: 0,
+                    zIndex: 9999,
+                    background: "rgba(0, 0, 0, 0.8)",
+                }}>
+                    {/* Overlay content */}
+                </div>,
+                document.body
+            )}
+        </div>
+    )
+}
+```
+
+**Key differences:**
+- `position: "fixed"` positions relative to viewport, not parent
+- Portal breaks out of component's DOM hierarchy and stacking context
+- Works for modals, tooltips, popovers, loading overlays
+
+**Canvas vs Published:**
+Portals work in both canvas editor and published site. No RenderTarget check needed.
+
+## Loading States with Scroll Lock
+
+**Pattern:** Show loading overlay and prevent page scroll until content is ready.
+
+```typescript
+const [isLoading, setIsLoading] = useState(true)
+const [fadeOut, setFadeOut] = useState(false)
+
+// Prevent scroll while loading (published site only)
+useEffect(() => {
+    const isPublished = RenderTarget.current() !== "CANVAS"
+    if (!isPublished || !isLoading) return
+
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+
+    return () => {
+        document.body.style.overflow = originalOverflow
+    }
+}, [isLoading])
+
+// Two-phase hide: fade-out → remove from DOM
+const hideLoader = () => {
+    setFadeOut(true)
+    setTimeout(() => setIsLoading(false), 300) // Match CSS transition
+}
+```
+
+**Scroll to top on load** (fixes variant sequence issues):
+```typescript
+useEffect(() => {
+    const isPublished = RenderTarget.current() !== "CANVAS"
+    if (isPublished) {
+        window.scrollTo(0, 0)
+    }
+}, [])
+```
+
+## Easing Curves with Lerp Animations
+
+**Problem:** Exponential lerp (`value += diff * speed`) naturally gives ease-out. Need to track initial distance to implement other curves.
+
+**Solution:** Track `initialDiff` when animation starts:
+
+```typescript
+const animated = useRef({
+    property: {
+        current: 0,
+        target: 0,
+        initialDiff: 0,  // Track for easing calculations
+    }
+})
+
+// When target changes, store initial distance
+const updateTarget = (newTarget) => {
+    const entry = animated.current.property
+    entry.initialDiff = Math.abs(newTarget - entry.current)
+    entry.target = newTarget
+}
+
+// Apply easing in animation loop
+const applyEasing = (easingCurve) => {
+    const v = animated.current.property
+    const diff = v.target - v.current
+    let speed = 0.05  // Base speed
+
+    if (easingCurve !== "ease-out") {
+        // Calculate progress: 0 at start, 1 near target
+        const diffMagnitude = Math.abs(diff)
+        const progress = v.initialDiff > 0
+            ? Math.max(0, Math.min(1, 1 - (diffMagnitude / v.initialDiff)))
+            : 1
+
+        if (easingCurve === "ease-in") {
+            // Start slow, end fast (cubic)
+            speed *= (0.05 + Math.pow(progress, 3) * 10)
+        } else if (easingCurve === "ease-in-out") {
+            // Slow-fast-slow (smootherstep)
+            const smoothed = progress * progress * progress *
+                (progress * (progress * 6 - 15) + 10)
+            speed *= (0.2 + smoothed * 3)
+        }
+    }
+    // ease-out: use default exponential decay
+
+    v.current += diff * speed
+}
+```
+
+**Why aggressive curves?**
+Exponential lerp naturally slows down approaching target. To create noticeable ease-in, need extreme multipliers (0.05x → 10x) to overcome the natural decay.
+
+**Property control:**
+```typescript
+easingCurve: {
+    type: ControlType.Enum,
+    title: "Easing Curve",
+    options: ["ease-out", "ease-in", "ease-in-out"],
+    optionTitles: ["Ease Out", "Ease In", "Ease In/Out"],
+    defaultValue: "ease-out",
+}
+```
+
+
+# Upstream license
+
+MIT License
+
+Copyright (c) 2024 fredm00n
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

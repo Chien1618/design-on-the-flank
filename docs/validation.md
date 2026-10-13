@@ -1,23 +1,19 @@
-# Verification status
+# Validation status — 0.2.0
 
-Version: 0.1.0. Report date: 2026-10-13.
+Checked 2026-10-13.
 
-This is an initial preview release. Do not present it as tested on every AI platform.
+## Packaging checks
 
-| Check | Status |
-|---|---|
-| Skill frontmatter and resource structure | Passed official quick validator and local reference checks |
-| Generated downloads, ZIP contents, hashes, version consistency | Passed |
-| Local Markdown links and machine-path removal | Passed |
-| Example TSX parse check | Passed esbuild with platform imports external |
-| Example rendered defaults and prop changes in isolated React check | Passed with React 19.2.4 and mocked Framer registration; seven props, empty strings, zero/false, and incoming width checked |
-| Real Framer type definitions | Not tested |
-| Framer Canvas and Preview | Not tested |
-| Clean Codex skill installation and generation | Not tested |
-| Clean Claude Code skill installation and generation | Not tested |
-| Claude skill ZIP upload and generation | Not tested |
-| ChatGPT Project setup and generation | Not tested |
+- 26 source documents: 18 from the handoff after exclusion, 8 from the official GSAP repository.
+- 20 original skills and 6 reference documents split into 384 topics. UI/UX Pro Max is excluded.
+- Source manifest preserves original hashes and adapted-body hashes; topic reconstruction is checked after relative link repairs.
+- Local links, topic coverage, source licenses, download hashes and exact ZIP/source equality are checked by `scripts/validate.py`.
+- Chat entry is an index with public links. Its fallback downloads contain one selected module each, not the entire library.
 
-Installation routes were checked against official provider documentation. Menu wording, account availability, and model behavior can change. The included example uses platform imports only; successful parsing does not establish runtime compatibility.
+## What this does not verify
 
-See the [maintainer guide](maintainer.md) for the behavioral scenarios required before claiming full platform verification.
+The known upstream horizontal-scroll snippet errors are documented in the integration rules; source excerpts remain unchanged for traceability. Imported examples have not all been compiled or run. Source preservation is not a compatibility certification. GSAP/Three.js snippets must be adapted using the Framer integration reference.
+
+The complete install → generation → Framer Canvas/Preview workflow has not been tested in fresh Codex, Claude, Claude Code or ChatGPT sessions. No live visual, GPU performance or model-generated component acceptance is claimed.
+
+The retained legacy fixture's prior syntax/render checks used mocked Framer registration and React 19.2.4. That check does not establish Framer's React compatibility or validate advanced effects.

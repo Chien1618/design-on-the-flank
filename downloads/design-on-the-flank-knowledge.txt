@@ -1,268 +1,142 @@
-# Design on the Flank — Knowledge
+# Design on the Flank — Start here
 
-Version: 0.1.0
+Version: 0.2.0
 
-Instructions and supporting material for creating Framer components.
+This is an entry guide and topic directory, not the full library. Read only the references needed for the request. If link access fails, use the named fallback module downloads below. Never say a linked file was read unless opened.
 
 # Design on the Flank
 
-Turn the user's description into one complete Framer Code Component that they can copy into Framer and customize visually. Follow the user's language. Explain setup in everyday words.
+Create the component the user describes. Common requests include interactive 3D scenes, particle fields, shader effects, scroll stories, and animated typography. Speak the user's language and explain insertion in everyday words.
+
+## Read only what the task needs
 
-## Output contract
+1. Read [Framer contract](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/framer-contract.md) for component work.
+2. Choose a route below. Open its index, then only the topic files needed. Never read the entire library or source manifest to begin a task.
+3. For Three.js or GSAP, also read [Framer integration](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/advanced-integration.md). Source examples are reference material; standalone app setup must be adapted to Framer.
+4. For edits, read the current component and [updates and effects](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/updates-and-effects.md).
+5. Before delivery, follow [verification](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/verification.md). Report checks actually performed.
 
-- Deliver one self-contained `.tsx` file per requested component. Keep styles and helper functions in that file. Do not scaffold an app or require a build step for the end user.
-- Include React/Framer imports, an exported component, layout annotations where appropriate, runtime defaults, and `addPropertyControls` attached to the same component.
-- Every advertised control must change the actual output or behavior. Use plain labels and only controls useful for this component.
-- Show useful sample content on first insertion. Handle empty content, absent optional assets, and narrow widths without crashing.
-- Prefer React, Framer, CSS, and browser capabilities. If a feature needs an external package, verify its Framer-compatible import and disclose it. Do not claim one-file output means offline or dependency-free.
-- Do not require private keys in client-side code. For features requiring a backend, explain the additional service; provide a clearly labeled demo only if useful.
-- Produce complete code, never ellipses, omitted sections, a patch alone, or “keep the rest unchanged” for a user who must copy and paste.
-
-## Workflow
-
-1. Identify the content, appearance, interaction, and settings the user wants. Ask only about missing information that materially changes the result. Choose reasonable visual defaults for the rest.
-2. For edits or conversions, read the supplied source first. Preserve names, prop keys, saved instance behavior, callbacks, and requested animation mechanisms. If the source is unavailable, ask for the current complete code before claiming to preserve it.
-3. Read the Framer contract (included below). For animation, CMS, or update bugs, also read update and troubleshooting guidance (included below).
-4. Implement the smallest complete component satisfying the request. Use FlankCard.tsx (included below) only as a small structural example, not a mandatory visual style.
-5. Follow verification guidance (included below). Check what the environment actually permits. Keep compile, type, rendered behavior, and live Framer verification distinct.
-6. Return the file or one complete `tsx` code block, followed by a short note explaining how to insert it, which settings are available, any required assets/setup, and what was checked.
-
-## Adapt to the current AI application
-
-- With file tools: create or update the requested TSX file and provide a clickable file. If the interface cannot expose its contents conveniently, also provide the complete code block.
-- With chat only: supply the full code in one block. Do not ask the user to assemble pieces, install packages in a terminal, or create a development project.
-- With execution tools: run relevant checks when possible. Without those tools, inspect the code and say it has not been compiled or run in Framer.
-- If reference files cannot be opened, say so and ask for the bundled knowledge file. Never pretend to have read unavailable instructions.
-
-## Updating existing components
-
-Update the existing file by default. Preserve the exported component identity, props, CMS selectors, Rive bindings, accessibility labels used as hooks, and callbacks unless a requested change requires otherwise. Add new props with safe defaults. Saved instances can retain old values even when defaults change.
-
-## Handoff to a nontechnical user
-
-Use short steps: open the Framer project → Assets → Code → create a code file → replace its starter code with the entire TSX → add the component to the page → select it and adjust settings → open Preview. Menu wording may vary.
-
-When something fails, ask for the exact error or a screenshot and the complete current code. Return the corrected whole file. Describe controls by their visible labels, not internal variable names.
-
-The success target is a working Framer component. Do not promise that untested output is guaranteed to work, publish the user's site, or modify unrelated projects as part of this skill.
-
----
-
-# Framer component contract
-
-## One-file delivery
-
-Use React 18-compatible code as required by the current Framer component documentation; avoid React 19-only APIs unless Framer explicitly adds support. Include every helper and style needed for the component in its TSX file. Avoid project-specific aliases, local CSS imports, Tailwind build dependencies, environment variables, and assumed files next to the component. React and Framer are platform imports; other dependencies must be checked and named.
-
-Do not add `@framerDisableUnlink` by default: it changes sharing behavior and is not needed to make a component run. Only produce overrides, plugins, or page-wide custom code when that is the user's actual request.
-
-## Visual settings
-
-Build a small mapping before implementation: visible label → prop → rendered effect. Remove controls that do nothing.
-
-Use the appropriate documented control type for editable text, numbers, colors, toggles, fonts, images, options, or repeatable content. Set sensible ranges for numeric values. Keep runtime fallback values aligned with the control defaults. Retain meaningful values such as `0`, `false`, and an intentionally empty string; do not replace them using truthiness-based fallback logic.
-
-When a font control is offered, apply the returned font style object instead of extracting only its family. When an image control returns a responsive image object, handle its `src`, `srcSet`, and alternative text as appropriate. Do not use the whole object as a URL string. Re-check current Framer documentation for unfamiliar control shapes rather than guessing.
-
-## Layout and rendering
-
-Choose sizing behavior based on the component's content. Keep intrinsic dimensions useful for first insertion. Pass Framer's incoming `style` through to the outer element so the user's sizing choices can take effect. Avoid fixed dimensions deep inside the layout that defeat responsive behavior.
-
-Use CSS for layout and responsive text where possible. Scope any CSS to the component so two instances and unrelated page elements do not interfere. Do not impose the original author's typography or breakpoint preset on every user.
-
-Avoid accessing `window`, `document`, or browser-only constructors at module evaluation or during a server render. Use guarded effects for browser-only work. Avoid random or time-dependent initial markup that creates hydration mismatches.
-
-Only branch on Canvas versus Preview when there is a reason, such as keeping a continuous animation still while editing. Explain any visible difference. Offer a useful editor placeholder for content that requires data or user interaction.
-
-## Interaction
-
-Use actual buttons and links for their respective behaviors. Provide keyboard operation and accessible names. Scope IDs to the instance, such as with React `useId` when needed. Avoid hover-only access to essential content. For animation, include a reduced-motion path and clean up resources.
-
-## Sources
-
-Checked 2026-10-13. Use these official references for API details; this file records the project's delivery conventions.
-
-- [Code Components](https://www.framer.com/developers/components-introduction)
-- [Property Controls](https://www.framer.com/developers/property-controls)
-- [Auto-Sizing](https://www.framer.com/developers/auto-sizing)
-- [Asset Sharing](https://www.framer.com/developers/component-sharing)
-
----
-
-# Updates, animation, and troubleshooting
-
-## Preserve configured instances
-
-Read the existing file and identify the exact prop, callback, selector, animation, or binding concerned. Prefer a small change while returning the whole file to the user. Do not create replacement instances or rename media/CMS prop keys merely to make new defaults appear.
-
-Framer can retain saved values on an existing instance. Check the saved value before assuming code is broken. A default change is not a migration of existing content. Add compatibility logic only when a requested change needs it; do not overwrite the user's configured content.
-
-## Controls missing or stale
-
-First check imports, exports, TypeScript errors, and that `addPropertyControls` references the exported function. Ask whether the user selected the actual code component or a wrapping frame. Compare a fresh test instance only if this helps isolate the issue and preserves the original instance.
-
-The previous private workflow sometimes refreshed stale metadata by renaming the component function and updating its control registration. Treat this as an unverified workaround, not a documented Framer guarantee. Consider it only after reproducing stale metadata with otherwise valid code, explaining the change, and keeping the original code file, prop keys, and a backup. Do not rename by default.
-
-## Animation and layering
-
-Keep the existing animation model and timing unless requested otherwise. Dispose of timelines, event listeners, observers, timers, and animation frames when they are no longer needed. Scope refs and selectors per instance; do not alter global page styles casually.
-
-For a mask or cover bug, establish which layer must be above which and which element should move. Inspect clipping and stacking contexts. Do not substitute opacity for a position or layering fix. Honor reduced motion and ensure that content remains usable without animation.
-
-## CMS, Rive, and third-party services
-
-Preserve CMS field mappings, selector names, ordering, Rive inputs, and trigger strings supplied by the user. DOM-based CMS extraction is fragile: document the markup dependency and avoid polling or observers unless required. If an observer is required, scope it narrowly and disconnect it.
-
-When a feature requires a model, uploaded animation, image, service, or CMS collection, identify exactly what the user must select or supply in Framer. Show a helpful empty state. Do not fabricate a successful connection or include an API secret in browser code.
-
-## Converting a sample
-
-Carry over the sample's structure and behavior where compatible. Replace only what Framer requires, such as project-specific CSS imports or app routing. Explain substantive differences. Do not promise a pixel-identical result from an image alone; separate observed details from assumptions.
-
----
-
-# Verification and truthful reporting
-
-## Always review
-
-- The delivered code is complete and every import is available or disclosed.
-- The export, runtime defaults, and control registration refer to the correct component.
-- Each editable prop is consumed; defaults work without user-provided assets.
-- `0` and `false` behave correctly; empty collections and text do not crash.
-- Sizing follows the intended Framer layout; more than one instance can coexist.
-- Browser-only work is guarded and resources are cleaned up.
-- Existing prop keys and user-configured behavior are preserved when updating.
-
-## Checks available to coding agents
-
-Discover tools already present in the working environment. Do not assume the original author's folders exist, create an app solely for a parse check, or silently install dependencies. If esbuild is already available, a syntax/bundle check can keep `react`, `react-dom`, `framer`, and disclosed URL imports external. Write temporary output outside the source file. This checks syntax and bundling shape, not Framer API correctness or whether remote imports exist.
-
-Run TypeScript checks when actual dependency types are available. A test with a mock `framer` module cannot prove real Framer type compatibility. Do not claim type correctness based on esbuild alone.
-
-If browser rendering is available, check the meaningful behaviors and editable props. If the live Framer editor is available and authorized, inspect Canvas and Preview; use a disposable test page rather than changing production pages. Publishing is a separate action.
-
-## User acceptance in Framer
-
-Ask the user to make these simple observations if you cannot operate Framer:
-
-1. The component appears after insertion without a red error.
-2. Changing text, a color, and a numeric setting visibly works.
-3. Toggle controls turn their feature on and off.
-4. The layout is usable at a narrow width and with two instances on the page.
-5. Preview interactions work using mouse/touch and keyboard where relevant.
-6. Updating an existing file retains its configured content and settings.
-
-## Report the actual level
-
-Use an accurate short statement in the user's language. Examples:
-
-- “Đã rà soát code; chưa chạy trong Framer.”
-- “Đã kiểm tra cú pháp bằng esbuild; chưa kiểm tra kiểu dữ liệu hoặc chạy trong Framer.”
-- “Đã kiểm tra các thay đổi props trong bản render thử; vẫn cần kiểm tra trong Framer.”
-- “Đã thử trong Framer Canvas và Preview: [specific actions actually verified].”
-
-Never transform a partial check into a guarantee that everything works. If a check fails, repair and repeat the relevant check; if blocked, give the exact remaining limitation in plain language.
-
----
-
-# Complete structural example: FlankCard.tsx
-
-```tsx
-import * as React from "react"
-import { addPropertyControls, ControlType } from "framer"
-
-interface Props {
-    title?: string
-    body?: string
-    showBody?: boolean
-    background?: string
-    textColor?: string
-    padding?: number
-    radius?: number
-    style?: React.CSSProperties
-}
-
-const defaults = {
-    title: "Your next idea starts here",
-    body: "Change this text, the colors, and the spacing in the Properties panel.",
-    showBody: true,
-    background: "#F1F0EB",
-    textColor: "#20201E",
-    padding: 24,
-    radius: 16,
-}
-
-/**
- * @framerSupportedLayoutWidth any
- * @framerSupportedLayoutHeight auto
- * @framerIntrinsicWidth 360
- * @framerIntrinsicHeight 200
- */
-export default function FlankCard(props: Props) {
-    const {
-        title = defaults.title,
-        body = defaults.body,
-        showBody = defaults.showBody,
-        background = defaults.background,
-        textColor = defaults.textColor,
-        padding = defaults.padding,
-        radius = defaults.radius,
-        style,
-    } = props
-
-    return (
-        <div
-            style={{
-                width: "100%",
-                boxSizing: "border-box",
-                display: "flex",
-                flexDirection: "column",
-                gap: 12,
-                background,
-                color: textColor,
-                padding,
-                borderRadius: radius,
-                fontFamily: "system-ui, sans-serif",
-                overflowWrap: "anywhere",
-                ...style,
-            }}
-        >
-            <h2 style={{ margin: 0, fontSize: 24, lineHeight: 1.2 }}>{title}</h2>
-            {showBody && (
-                <p style={{ margin: 0, fontSize: 16, lineHeight: 1.5 }}>{body}</p>
-            )}
-        </div>
-    )
-}
-
-FlankCard.defaultProps = defaults
-
-addPropertyControls(FlankCard, {
-    title: { type: ControlType.String, title: "Title", defaultValue: defaults.title },
-    showBody: { type: ControlType.Boolean, title: "Show text", defaultValue: defaults.showBody },
-    body: {
-        type: ControlType.String,
-        title: "Text",
-        displayTextArea: true,
-        defaultValue: defaults.body,
-        hidden: (props) => props.showBody === false,
-    },
-    background: { type: ControlType.Color, title: "Background", defaultValue: defaults.background },
-    textColor: { type: ControlType.Color, title: "Text color", defaultValue: defaults.textColor },
-    padding: { type: ControlType.Number, title: "Padding", min: 0, max: 100, step: 1, unit: "px", defaultValue: defaults.padding },
-    radius: { type: ControlType.Number, title: "Corners", min: 0, max: 100, step: 1, unit: "px", defaultValue: defaults.radius },
-})
-```
-
-
----
-
-# Usage permission
-
-Copyright © 2026 Design on the Flank.
-
-You may download and use this skill and its included example in your AI tools to create and modify your own Framer components, including for commercial projects. You may modify the included example for those projects.
-
-This permission does not grant rights to the Design on the Flank name or branding, or to third-party code, assets, fonts, and services. AI-generated outputs may include third-party material with separate terms. No warranty or guarantee of compatibility is provided.
-
-Redistribution or resale of the skill collection itself requires permission from the owner. This is a publicly available skill, not an MIT-licensed collection.
+| Need | Start here |
+|---|---|
+| Component, layout, override | [Framer components](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-components/index.md) |
+| Editable controls | [Property Controls](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-components-property-controls/index.md) |
+| Framer patterns, CMS, shader examples | [Framer topics](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/catalog.md#framer) |
+| Three.js scene, model, material, particles, shader, interaction | [Three.js topics](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/catalog.md#threejs) |
+| GSAP animation, timeline, scroll, React, plugins, performance | [GSAP topics](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/catalog.md#gsap) |
+| Framer plugin explicitly requested | [Plugin topics](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/catalog.md#plugins) |
+
+A combined request can use multiple routes. For a scroll-controlled 3D scene, select scene setup, the relevant Three.js topic, GSAP React and ScrollTrigger. Do not load all topics under those routes.
+
+## Component output
+
+- Return one complete `.tsx` per component. Include imports, helpers, styles, exported component, sensible runtime defaults, layout annotations and `addPropertyControls` on that component.
+- Every advertised control must change the visible result or behavior. Keep existing prop keys and saved settings when editing. Use defaults that display something useful without optional assets.
+- Do not scaffold an app or ask the user to install npm packages, use a terminal, or assemble snippets. Verify and disclose external imports and required assets. One file does not mean dependency-free.
+- Do not simplify an advanced request into a basic card or button. If a requested effect is infeasible in Framer, explain the concrete constraint and propose the closest practical behavior.
+- Guard browser APIs, handle loading/errors, scope effects per instance, support reduced motion and clean up resources.
+- Return complete code, never ellipses or just a patch. With file tools, provide the file; with chat only, use one complete TSX code block.
+- Explain where to paste, which settings to change, required assets and what was checked. Never claim code runs in Framer unless actually tested there.
+
+## Existing work and other outputs
+
+Read supplied code before modifying it. Preserve the export, prop names, callbacks, CMS selectors, Rive inputs, timing and animation mechanism unless the request requires a change. Explain meaningful conversion changes. Ask for missing source before claiming to preserve it.
+
+Overrides and plugins have different output requirements. Use those references only when requested; a Framer plugin is not a code component that can be pasted into a page.
+
+## Chat-only access
+
+When local files are unavailable, use the public URLs in the supplied knowledge index. Open only the relevant index and topics. If links cannot be opened, ask for the exact linked topic file or the named module download. Never claim the whole library is loaded from an index alone.
+
+## Handoff
+
+Give short steps: open the Framer project → create a code file in Assets → replace starter code with the complete TSX → add the component → change settings → open Preview. If it fails, ask for the exact error and complete current code, then return the corrected whole file. This skill does not authorize publishing a website.
+
+# Topic catalog
+
+Read one index, then the relevant topic files. Open additional topics only when the task calls for them. The source manifest is for maintainers, not task context.
+
+Start with the [Framer contract](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/framer-contract.md); for animation or 3D also read [integration rules](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/advanced-integration.md).
+
+<a id="framer"></a>
+## Framer
+
+| Module | Use for |
+|---|---|
+| [framer-components](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-components/index.md) | Components, overrides, layout and rendering |
+| [framer-components-property-controls](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-components-property-controls/index.md) | Editable props, control types and defaults |
+| [framer-components-patterns](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-components-patterns/index.md) | Component patterns and integration examples |
+| [framer-components-webgl-shaders](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-components-webgl-shaders/index.md) | Framer shader and canvas patterns |
+
+<a id="threejs"></a>
+## Three.js
+
+| Module | Use for |
+|---|---|
+| [threejs-animation](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-animation/index.md) | Keyframes, mixers, morphs and procedural animation |
+| [threejs-fundamentals](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-fundamentals/index.md) | Scene, camera, renderer and object hierarchy |
+| [threejs-geometry](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-geometry/index.md) | Shapes, custom buffers, particles and instancing |
+| [threejs-interaction](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-interaction/index.md) | Raycasting, pointers and controls |
+| [threejs-lighting](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-lighting/index.md) | Lights, shadows and environment lighting |
+| [threejs-loaders](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-loaders/index.md) | Models, textures and asynchronous assets |
+| [threejs-materials](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-materials/index.md) | PBR, material properties and custom materials |
+| [threejs-postprocessing](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-postprocessing/index.md) | Composer, bloom and screen effects |
+| [threejs-shaders](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-shaders/index.md) | GLSL, uniforms and shader effects |
+| [threejs-textures](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/threejs-textures/index.md) | UVs, textures and environment maps |
+
+<a id="gsap"></a>
+## GSAP
+
+| Module | Use for |
+|---|---|
+| [gsap-core](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/gsap-core/index.md) | Tweens, easing, transforms and lifecycle |
+| [gsap-frameworks](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/gsap-frameworks/index.md) | Other frameworks; only read when specifically needed |
+| [gsap-performance](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/gsap-performance/index.md) | Rendering cost and animation performance |
+| [gsap-plugins](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/gsap-plugins/index.md) | SplitText, Flip, Draggable, MotionPath and other plugins |
+| [gsap-react](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/gsap-react/index.md) | React hooks, scoped context and cleanup |
+| [gsap-scrolltrigger](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/gsap-scrolltrigger/index.md) | Scroll, scrub, pinning and refresh |
+| [gsap-timeline](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/gsap-timeline/index.md) | Sequencing, labels, position and playback |
+| [gsap-utils](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/gsap-utils/index.md) | Mapping, interpolation, snapping and helpers |
+
+<a id="plugins"></a>
+## Framer plugins
+
+| Module | Use for |
+|---|---|
+| [framer-plugins](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-plugins/index.md) | Plugin development only, not paste-ready components |
+| [framer-plugins-api-reference](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-plugins-api-reference/index.md) | Plugin API lookup |
+| [framer-plugins-patterns](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-plugins-patterns/index.md) | Plugin implementation patterns |
+| [framer-plugins-pitfalls](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/references/library/framer-plugins-pitfalls/index.md) | Plugin errors and constraints |
+
+The eight GSAP modules are from [GreenSock’s official skill repository](https://github.com/greensock/gsap-skills). [Source and license details](https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/skills/design-on-the-flank/ATTRIBUTION.md).
+
+
+# If links cannot be opened
+
+Ask for only the needed module download below. The user can download and attach it. Do not request the entire library. Each module contains its topic text and common integration rules.
+
+- framer-components: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/framer-components.txt
+- framer-components-property-controls: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/framer-components-property-controls.txt
+- framer-components-patterns: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/framer-components-patterns.txt
+- framer-components-webgl-shaders: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/framer-components-webgl-shaders.txt
+- framer-plugins: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/framer-plugins.txt
+- framer-plugins-api-reference: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/framer-plugins-api-reference.txt
+- framer-plugins-patterns: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/framer-plugins-patterns.txt
+- framer-plugins-pitfalls: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/framer-plugins-pitfalls.txt
+- threejs-animation: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-animation.txt
+- threejs-fundamentals: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-fundamentals.txt
+- threejs-geometry: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-geometry.txt
+- threejs-interaction: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-interaction.txt
+- threejs-lighting: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-lighting.txt
+- threejs-loaders: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-loaders.txt
+- threejs-materials: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-materials.txt
+- threejs-postprocessing: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-postprocessing.txt
+- threejs-shaders: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-shaders.txt
+- threejs-textures: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/threejs-textures.txt
+- gsap-core: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/gsap-core.txt
+- gsap-frameworks: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/gsap-frameworks.txt
+- gsap-performance: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/gsap-performance.txt
+- gsap-plugins: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/gsap-plugins.txt
+- gsap-react: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/gsap-react.txt
+- gsap-scrolltrigger: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/gsap-scrolltrigger.txt
+- gsap-timeline: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/gsap-timeline.txt
+- gsap-utils: https://raw.githubusercontent.com/Chien1618/design-on-the-flank/main/downloads/modules/gsap-utils.txt

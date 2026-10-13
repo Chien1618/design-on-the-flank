@@ -1,3 +1,12 @@
+# 0.2.0
+
+- Port the handoff into on-demand Framer, plugin and ten Three.js modules; exclude UI/UX Pro Max.
+- Include all eight official GreenSock GSAP skills with MIT attribution and pinned source commit.
+- Split 26 source documents into 384 linked topics with integrity mappings.
+- Add Framer-specific GSAP/Three.js lifecycle, prop update and one-file delivery guidance.
+- Replace the flattened chat bundle with a topic index and per-module fallback downloads.
+- Rewrite onboarding and website copy around complex components. Move the card fixture out of the distributed package.
+
 # Changelog
 
 ## Documentation update — 2026-10-13

@@ -1,58 +1,33 @@
-# Tạo component bằng ChatGPT
+# Dùng với ChatGPT
 
-Lần đầu, bạn chỉ cần một file tài liệu và một cuộc trò chuyện.
+## 1. Tải file bắt đầu
 
-## 1. Tải tài liệu
+[Bấm để tải design-on-the-flank-knowledge.txt](https://github.com/Chien1618/design-on-the-flank/raw/refs/heads/main/downloads/design-on-the-flank-knowledge.txt). Nếu trình duyệt hiện một trang chữ, lưu trang thành file văn bản hoặc sao chép nội dung.
 
-[Bấm vào đây để tải](https://github.com/Chien1618/design-on-the-flank/raw/refs/heads/main/downloads/design-on-the-flank-knowledge.txt). File có tên **design-on-the-flank-knowledge.txt**.
+## 2. Gửi vào ChatGPT
 
-Nếu trình duyệt hiện nội dung thay vì tải file, chọn toàn bộ bằng **Ctrl+A**, sao chép bằng **Ctrl+C**, rồi dán vào ChatGPT. Trên Mac, dùng phím **Cmd** thay cho **Ctrl**.
-
-## 2. Gửi tài liệu cho ChatGPT
-
-Mở cuộc trò chuyện mới. Bấm nút đính kèm file cạnh ô nhắn tin, rồi chọn file vừa tải. Nếu đã dán nội dung ở bước 1, gửi nội dung đó trước và đi tiếp bước 3.
-
-## 3. Gửi yêu cầu của bạn
-
-Sao chép câu này để thử:
+Mở chat, đính kèm file vừa tải hoặc dán nội dung vào ô nhắn tin. Gửi tiếp:
 
 ```text
-Đọc tài liệu tôi vừa cung cấp và dùng nó để tạo component Framer trong cuộc trò chuyện này.
+Đọc tài liệu Design on the Flank tôi vừa gửi. Mở những tài liệu được dẫn link có liên quan đến yêu cầu dưới đây. Nếu không mở được, đưa link đúng file tôi cần tải và đính kèm.
 
-Tạo cho tôi một thẻ giới thiệu có tiêu đề, mô tả và nền màu kem. Tôi muốn chỉnh chữ, màu và bo góc trong Framer.
-Trả toàn bộ code để tôi sao chép một lần, rồi chỉ tôi cách dán vào Framer.
+Dùng Design on the Flank tạo một component Framer: đám hạt 3D chuyển động theo chuột, khi cuộn thì gom thành một quả cầu. Cho tôi chỉnh màu, số hạt, tốc độ và mức phản ứng với chuột trong Framer. Trả toàn bộ code trong một khung để tôi sao chép một lần. Tôi không biết code.
 ```
 
-Sau này, thay phần mô tả bằng thứ bạn muốn tạo. Bạn cũng có thể gửi ảnh tham khảo.
+File này là mục lục để tìm tài liệu, không phải toàn bộ thư viện. ChatGPT cần mở được các link hoặc nhận thêm tài liệu của phần đang dùng. Đây là cách dùng tài liệu trong chat; không phải cài một skill có khả năng tự đọc file như Codex.
 
-## 4. Đưa code vào Framer
+## 3. Nếu ChatGPT cần thêm tài liệu
 
-Bấm **Copy** ở khung code ChatGPT trả về, rồi làm theo [cách dán vào Framer](dua-vao-framer.md).
+AI sẽ đưa link và tên phần, chẳng hạn **gsap-scrolltrigger.txt**. Mở link đó, tải file rồi đính kèm vào cùng chat. Chỉ gửi những phần đang cần; không phải tải cả bộ.
 
-Nếu ChatGPT chia code thành nhiều phần hoặc chỉ gửi file, nhắn:
+## 4. Sao chép code vào Framer
+
+Bấm **Copy** ở khung code và làm theo [cách dán vào Framer](dua-vao-framer.md). Nếu AI chia nhỏ code, nhắn:
 
 ```text
-Hiện toàn bộ code trong một khung duy nhất để tôi bấm Copy và dán một lần vào Framer.
+Gửi lại toàn bộ code trong một khung duy nhất để tôi sao chép một lần vào Framer.
 ```
 
-Tiếp tục yêu cầu sửa trong cùng cuộc trò chuyện. Khi bắt đầu cuộc trò chuyện mới, gửi lại tài liệu.
+Tiếp tục yêu cầu sửa trong cùng chat. Khi mở chat mới, gửi lại file bắt đầu. Nếu dùng Projects, bạn có thể lưu file bắt đầu và [đoạn hướng dẫn này](../../downloads/chatgpt-instructions.txt) trong Project; giữ các cuộc trò chuyện Framer ở đó.
 
-<a id="luu-lai"></a>
-## Muốn dùng thường xuyên?
-
-Bạn có thể lưu tài liệu trong một **Project** để dùng cho nhiều cuộc trò chuyện ở cùng một nơi:
-
-1. Trong ChatGPT, chọn **New project / Dự án mới** và đặt tên **Làm website Framer**.
-2. Trong Project vừa tạo, chọn thêm file/nguồn và upload file tài liệu ở bước 1.
-3. Mở cài đặt Project qua menu dấu ba chấm, tìm **Project instructions / Hướng dẫn**.
-4. Dán đoạn bên dưới và lưu lại:
-
-```text
-Khi tôi yêu cầu tạo hoặc sửa component Framer, hãy đọc và áp dụng tài liệu Design on the Flank đã đính kèm trong Project.
-
-Tôi cần toàn bộ code trong một file hoặc một khung code để sao chép vào Framer. Đưa các mục tôi muốn chỉnh vào bảng thiết lập của component. Khi sửa, giữ các thiết lập cũ nếu tôi không yêu cầu đổi. Hướng dẫn từng bước bằng tiếng Việt và nói rõ nếu chưa chạy thử trong Framer.
-```
-
-Sau đó bắt đầu các cuộc trò chuyện làm Framer **bên trong Project này**. Nếu không thấy Project, cứ dùng cách gửi file vào chat ở trên.
-
-[Các câu yêu cầu khác để thử](prompt-mau.md) · [Quay lại trang chính](../../README.md)
+[Các yêu cầu mẫu](prompt-mau.md) · [Trang chính](../../README.md)

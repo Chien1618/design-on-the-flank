@@ -1,25 +1,20 @@
 # Dùng với Claude Code
 
-Nếu bạn dùng Claude để trò chuyện thông thường, hãy mở [hướng dẫn Claude](claude.md).
+Mở Claude Code trong một thư mục làm việc rồi gửi:
 
-## Cài bằng một tin nhắn
+```text
+Cài skill Design on the Flank từ:
+https://github.com/Chien1618/design-on-the-flank/tree/main/skills/design-on-the-flank
+vào ~/.claude/skills/design-on-the-flank/.
+Giữ nguyên SKILL.md và toàn bộ tài liệu, mục lục, giấy phép đi kèm. Nếu đã có bản cũ, giữ lại chỉnh sửa của tôi trước khi thay thế. Tôi không biết code; hãy tự thực hiện thao tác cài đặt bằng công cụ của bạn.
+```
 
-1. Mở Claude Code trong một thư mục làm việc.
-2. Gửi toàn bộ lời nhắn sau:
+Khi cài xong, gửi:
 
-> Hãy tải skill Design on the Flank từ https://github.com/Chien1618/design-on-the-flank/tree/main/skills/design-on-the-flank và cài làm personal skill trong ~/.claude/skills/design-on-the-flank/. Giữ nguyên cấu trúc SKILL.md, references và assets. Nếu đã có skill cùng tên, cho tôi biết trước khi thay thế. Chỉ tải các file của skill, không chạy script lạ. Kiểm tra cài đặt xong rồi hướng dẫn tôi dùng. Tôi không biết code; hãy tự làm những thao tác công cụ của bạn cho phép.
+```text
+Dùng Design on the Flank tạo một component Framer: đám hạt 3D chuyển động theo chuột, khi cuộn thì gom thành một quả cầu. Cho tôi chỉnh màu, số hạt, tốc độ và mức phản ứng với chuột trong Framer. Trả toàn bộ code trong một khung để tôi sao chép một lần. Tôi không biết code.
+```
 
-3. Thực hiện bước cho phép truy cập nếu Claude Code yêu cầu đúng các thao tác cài đặt trên.
-4. Khi đã cài thành công, gửi: **“Dùng /design-on-the-flank tạo một thẻ giới thiệu Framer có chữ và màu chỉnh được.”** Nếu chưa nhận diện, bắt đầu phiên mới.
+Nếu chưa nhận ra skill, bắt đầu phiên mới. Sau khi nhận code, [dán vào Framer](dua-vao-framer.md).
 
-## Nếu không cài được
-
-Dùng [tài liệu một file trong cuộc trò chuyện](bat-dau.md#thu-nhanh), hoặc gửi thông báo lỗi để AI giải thích bước cần làm. Bạn không cần tự học lệnh terminal.
-
-## Khi cập nhật
-
-Nhờ Claude Code so sánh phiên bản, giữ lại bản cũ và các chỉnh sửa cá nhân trước khi cập nhật. Skill không tự cập nhật.
-
-Tiếp theo: [Đưa code vào Framer](dua-vao-framer.md).
-
-Tham khảo: [Claude Code Skills](https://code.claude.com/docs/en/skills). Gói này chưa được thử cài trong một phiên Claude Code sạch; xem [trạng thái kiểm tra](../validation.md).
+Nếu bạn dùng Claude để chat thông thường, xem [hướng dẫn Claude](claude.md). Gói này chưa được thử cài trong một phiên Claude Code sạch. [Tài liệu chính thức](https://code.claude.com/docs/en/skills).

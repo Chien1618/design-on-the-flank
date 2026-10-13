@@ -1,4 +1,4 @@
 interface:
   display_name: "Design on the Flank"
-  short_description: "Paste-ready Framer components with visual controls"
-  default_prompt: "Use $design-on-the-flank to create one complete Framer TSX component with working Property Controls and simple copy-and-paste instructions."
+  short_description: "Three.js and GSAP components for Framer"
+  default_prompt: "Use $design-on-the-flank to build a complex Framer component with Three.js or GSAP. Read only the relevant topics and return one complete TSX with working Property Controls."

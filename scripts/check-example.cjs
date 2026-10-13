@@ -16,7 +16,7 @@ async function main() {
     try {
         const outfile = path.join(temp, 'card.cjs')
         await esbuild.build({
-            entryPoints: [path.resolve(__dirname, '../skills/design-on-the-flank/assets/FlankCard.tsx')],
+            entryPoints: [path.resolve(__dirname, '../tests/fixtures/FlankCard.tsx')],
             outfile, bundle: true, platform: 'node', format: 'cjs',
             plugins: [{ name: 'test-platform', setup(build) {
                 build.onResolve({ filter: /^react$/ }, () => ({ path: dependencies.resolve('react'), external: true }))

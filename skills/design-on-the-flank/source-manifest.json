@@ -1,0 +1,2548 @@
+{
+  "handoff_sha256": "fb7dc3dca2e68af441a2e8131fc27e074c82bc233b3d605e959a0a17eb9e16e9",
+  "excluded": [
+    "ui-ux-pro-max"
+  ],
+  "gsap_repository": "https://github.com/greensock/gsap-skills",
+  "gsap_commit": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+  "sources": [
+    {
+      "source": "framerlabs/skills/framer-code-components-overrides/SKILL.md",
+      "module": "framer-components",
+      "source_sha256": "95ab2a3774fc995a507331c6c1be892b14833fc0c95293c5d2fc3f8cae80a95c",
+      "adapted_sha256": "b3e874760622597dfcb28844dd8c8e7d7023dade4ce5a8a326a31389b202f943",
+      "index": "references/library/framer-components/index.md",
+      "topics": [
+        {
+          "path": "references/library/framer-components/01-framer-code-development.md",
+          "title": "Framer Code Development",
+          "lines": 12,
+          "sha256": "26d79ec3fee64b0a010f773e31bcee35bf0a4d68b037efa5adb4392401e1e64c"
+        },
+        {
+          "path": "references/library/framer-components/02-code-components-vs-code-overrides.md",
+          "title": "Code Components vs Code Overrides",
+          "lines": 6,
+          "sha256": "ff04c8e5cd14fa272270482f0cc7b611a340f986f30a0d3e66dfcbd4c7ee4ff9"
+        },
+        {
+          "path": "references/library/framer-components/03-required-annotations.md",
+          "title": "Required Annotations",
+          "lines": 16,
+          "sha256": "43c8a087910531069c0bf1a402dda7ec05931d59082c85ecc0f97ed96266fe7f"
+        },
+        {
+          "path": "references/library/framer-components/04-code-override-pattern.md",
+          "title": "Code Override Pattern",
+          "lines": 19,
+          "sha256": "093394d48909914edde869b5f7e1abc15d1bbb6671c867b081e951db000874cd"
+        },
+        {
+          "path": "references/library/framer-components/05-code-component-pattern.md",
+          "title": "Code Component Pattern",
+          "lines": 25,
+          "sha256": "008107fc5794cf385818efbf4bac7529c16e33772a363bea753b844977c0a66b"
+        },
+        {
+          "path": "references/library/framer-components/06-critical-font-handling.md",
+          "title": "Critical: Font Handling",
+          "lines": 31,
+          "sha256": "f44462d2272cf75365bdf0666c3c3ef29c0912684e0e10fe7f0712bedb392872"
+        },
+        {
+          "path": "references/library/framer-components/07-critical-wrap-state-updates-in-starttransition.md",
+          "title": "Critical: Wrap State Updates in startTransition",
+          "lines": 18,
+          "sha256": "6fe925ab533efb57f3e18348ba64b2c5ed24dba53f3a27f9ebf516588206eddf"
+        },
+        {
+          "path": "references/library/framer-components/08-critical-hydration-safety.md",
+          "title": "Critical: Hydration Safety",
+          "lines": 24,
+          "sha256": "9a2cf4fc6647548dbb88fdc43e23154ece655277edbdfadd692948827e78657d"
+        },
+        {
+          "path": "references/library/framer-components/09-critical-canvas-vs-preview-detection.md",
+          "title": "Critical: Canvas vs Preview Detection",
+          "lines": 16,
+          "sha256": "4d7aedb8821f03d0cbe9bb775778fc16cf09a99d19f5489e9f48760614087599"
+        },
+        {
+          "path": "references/library/framer-components/10-property-controls-reference.md",
+          "title": "Property Controls Reference",
+          "lines": 4,
+          "sha256": "21f31e3faecf0c0ddbace89231d1ab57d50da8afbaf55dde27d7bbf8658b75cc"
+        },
+        {
+          "path": "references/library/framer-components/11-common-patterns.md",
+          "title": "Common Patterns",
+          "lines": 4,
+          "sha256": "843cf98adcd4cb38a79b4808ebea91cd1cfae2a55133e5a7b97356d2e89b503a"
+        },
+        {
+          "path": "references/library/framer-components/12-variant-control-in-overrides.md",
+          "title": "Variant Control in Overrides",
+          "lines": 17,
+          "sha256": "3a6f14a4c0afc04fcb617b5238dd34908384506dbf4144583a60a98bed5deba3"
+        },
+        {
+          "path": "references/library/framer-components/13-scroll-detection-constraint.md",
+          "title": "Scroll Detection Constraint",
+          "lines": 18,
+          "sha256": "9d55fc7fc057e88a184a9b49bbeeab4d5034fc22078ff936789145d490c98e1c"
+        },
+        {
+          "path": "references/library/framer-components/14-webgl-in-framer.md",
+          "title": "WebGL in Framer",
+          "lines": 4,
+          "sha256": "b4f956fc1fb5ac5d56ab5ba1e48773230af9ad2be172baa5348fe3d8908c6f3f"
+        },
+        {
+          "path": "references/library/framer-components/15-shadertoy-to-webgl-conversion.md",
+          "title": "Shadertoy to WebGL Conversion",
+          "lines": 48,
+          "sha256": "5c0527665db6c04d52adbdb252b6570db97f480fb1954c6a7215a82390558272"
+        },
+        {
+          "path": "references/library/framer-components/16-npm-package-imports.md",
+          "title": "NPM Package Imports",
+          "lines": 26,
+          "sha256": "c82736eab3a9d7b3a3192b1680cf32a0579a4667e5b90f66ccab483f25554856"
+        },
+        {
+          "path": "references/library/framer-components/17-common-pitfalls.md",
+          "title": "Common Pitfalls",
+          "lines": 14,
+          "sha256": "33ee2d0b9b82c6e84d381fd539e111de60d7dbc05b524ced790bafe0355c1761"
+        },
+        {
+          "path": "references/library/framer-components/18-mobile-optimization.md",
+          "title": "Mobile Optimization",
+          "lines": 8,
+          "sha256": "62bef2248d15b43a82fb631573a071938f42a79c51ebfa83dba4f584594cd1b0"
+        },
+        {
+          "path": "references/library/framer-components/19-cms-content-timing.md",
+          "title": "CMS Content Timing",
+          "lines": 19,
+          "sha256": "39780ccafdf45292a32f32ed5e73b5f33c037f3faf6213d56bd4df28561efa38"
+        },
+        {
+          "path": "references/library/framer-components/20-text-manipulation-in-overrides.md",
+          "title": "Text Manipulation in Overrides",
+          "lines": 22,
+          "sha256": "62da33dffe97170b1a598a19f4cb0a2bba91ce6913995a591e8f13ea5a6d7d4d"
+        },
+        {
+          "path": "references/library/framer-components/21-animation-best-practices.md",
+          "title": "Animation Best Practices",
+          "lines": 22,
+          "sha256": "445c7bd90e774b46f0dd22b0778fb6cec60c3e4c1085cd05207fbc853a117159"
+        },
+        {
+          "path": "references/library/framer-components/22-safari-svg-fix.md",
+          "title": "Safari SVG Fix",
+          "lines": 11,
+          "sha256": "099f9eeaa160ba6ca15ce4ded364582aaa69cd2fcc04d4eec9477f117a526a59"
+        },
+        {
+          "path": "references/library/framer-components/23-z-index-stacking-context-react-portals.md",
+          "title": "Z-Index Stacking Context & React Portals",
+          "lines": 41,
+          "sha256": "145e42e4a590d2126190ced628e77b8d832544a8dede797881da83b438ef13fd"
+        },
+        {
+          "path": "references/library/framer-components/24-loading-states-with-scroll-lock.md",
+          "title": "Loading States with Scroll Lock",
+          "lines": 38,
+          "sha256": "d280d39888d274c96610bda11d33e5b5f2b923d4637ab1276b8989aa907e0293"
+        },
+        {
+          "path": "references/library/framer-components/25-easing-curves-with-lerp-animations.md",
+          "title": "Easing Curves with Lerp Animations",
+          "lines": 64,
+          "sha256": "d775d59562a6cccdf06a4e281a8d28434f1b950053ff1df62f3af20a7b014fce"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/framer-code-components-overrides/references/property-controls.md",
+      "module": "framer-components-property-controls",
+      "source_sha256": "0346b4c4893550e68658f013816d68312540d91547d554d06374f9423acdb286",
+      "adapted_sha256": "0346b4c4893550e68658f013816d68312540d91547d554d06374f9423acdb286",
+      "index": "references/library/framer-components-property-controls/index.md",
+      "topics": [
+        {
+          "path": "references/library/framer-components-property-controls/01-property-controls-reference.md",
+          "title": "Property Controls Reference",
+          "lines": 2,
+          "sha256": "fa58ff4fd9b25f548f601f71c13d593a409f84925522303183770e5efa9319b5"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/02-control-types.md",
+          "title": "Control Types",
+          "lines": 2,
+          "sha256": "4ce3e391bb3099066111e60f9878691b046129ecf3244d2b172b563baeeea4c6"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/03-string.md",
+          "title": "String",
+          "lines": 14,
+          "sha256": "ae3f2da3910c73e7a1f14a99eb0c425b1960d815eb00740c28c956f9c14cfa04"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/04-number.md",
+          "title": "Number",
+          "lines": 14,
+          "sha256": "3b36f006a7f71be6ac65b569f2221fcc328f21fe7c2c66539b5ef035b053e24a"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/05-boolean.md",
+          "title": "Boolean",
+          "lines": 11,
+          "sha256": "031348c1312b4d649c648033de0da4a634e49079e44bf03189548973bf45cef9"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/06-color.md",
+          "title": "Color",
+          "lines": 9,
+          "sha256": "c861915720e4bdb1b45c6cf2761dd740572b13296853d9647ade8bc94a0b36e6"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/07-enum-dropdown-or-segmented.md",
+          "title": "Enum (Dropdown or Segmented)",
+          "lines": 12,
+          "sha256": "a12eabfc19451ea8d47ec56727be60901be361815621118ccbaf2c483d27aebe"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/08-image.md",
+          "title": "Image",
+          "lines": 10,
+          "sha256": "76ab58ef240749470a0bf855786605d38a9c0997b599def6c30a8a685ab447a8"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/09-responsiveimage-file-no-defaultvalue-support.md",
+          "title": "ResponsiveImage / File — No defaultValue Support",
+          "lines": 41,
+          "sha256": "7ecb9341ee447c9269b07e52dfd44baadcab87fad92d84b0bd721d668ab8d080"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/10-file.md",
+          "title": "File",
+          "lines": 9,
+          "sha256": "97deb62073f04178485ea3942e03eb81aa6c1177fb759216ea11c5641c18c2c2"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/11-font-extended.md",
+          "title": "Font (Extended)",
+          "lines": 44,
+          "sha256": "5a3f96c182459fd8ba900d30972532d6e5d7f3457b29fd0fc0375637ecca5694"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/12-transition.md",
+          "title": "Transition",
+          "lines": 9,
+          "sha256": "cb03c335102f1094e45699571ea7f7604f1e6d2992528741ce74a539789cde99"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/13-componentinstance.md",
+          "title": "ComponentInstance",
+          "lines": 10,
+          "sha256": "3cb2ece10bb74c71a3c8d1b00fc76edcb0660c25495f9f373fa89d0ca32e9c43"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/14-array.md",
+          "title": "Array",
+          "lines": 12,
+          "sha256": "ecbdb3ab8872dfdfc394fc05408ee0dd186aba8ef90a05bfaedbf9080458b8cd"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/15-array-with-image-preview.md",
+          "title": "Array with Image Preview",
+          "lines": 16,
+          "sha256": "8067ccf716c4d379cf571f6c39000b4ad5165d0dcda3c0dd71c0ce441ac4b9d8"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/16-object-grouped-controls.md",
+          "title": "Object (Grouped Controls)",
+          "lines": 15,
+          "sha256": "70a82f815cea613046898ff2605a6ae4ed615ef2fd9f54f4bb1df76d8737a044"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/17-conditional-visibility.md",
+          "title": "Conditional Visibility",
+          "lines": 15,
+          "sha256": "d782a95dc89a6314f5c26bb6d5ba80c189e4840645759cf8a4c18a443a8120c6"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/18-markdown-descriptions.md",
+          "title": "Markdown Descriptions",
+          "lines": 9,
+          "sha256": "8ed498b5fdc703b3b8215bde66e9f4e5f6943ebd02147422967d80aaa9c44e53"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/19-default-props-requirement.md",
+          "title": "Default Props Requirement",
+          "lines": 19,
+          "sha256": "c2a5121135908ca6428bebc2d2c085c1b643cb1672cf81c6b3ddc754434a2efb"
+        },
+        {
+          "path": "references/library/framer-components-property-controls/20-common-patterns.md",
+          "title": "Common Patterns",
+          "lines": 42,
+          "sha256": "1bd5ddd14519648392b15858125f62bc34499cda87cd6decff4097fb7d3efd72"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/framer-code-components-overrides/references/patterns.md",
+      "module": "framer-components-patterns",
+      "source_sha256": "e673f5d4e535a8fa8f578e4d717d835fce38cd592f0518dae137be869c0fcb6f",
+      "adapted_sha256": "d71974d1b3e61f0947801cfce2fdf2c7854283685db68b32927938c88550ab05",
+      "index": "references/library/framer-components-patterns/index.md",
+      "topics": [
+        {
+          "path": "references/library/framer-components-patterns/01-common-framer-patterns.md",
+          "title": "Common Framer Patterns",
+          "lines": 2,
+          "sha256": "adfd6a4e8510376e3ab8a4548b1073dd8b345fbb457beadd7be6b1f70e6953ff"
+        },
+        {
+          "path": "references/library/framer-components-patterns/02-shared-state-between-overrides.md",
+          "title": "Shared State Between Overrides",
+          "lines": 32,
+          "sha256": "af7b4172a7b27325d87de70e183b987a8ece9c743c836aa0cbb98c29b6a54abc"
+        },
+        {
+          "path": "references/library/framer-components-patterns/03-keyboard-sequence-detection.md",
+          "title": "Keyboard Sequence Detection",
+          "lines": 38,
+          "sha256": "3268cd3654850151ad742c2cbf5558f2bef99f57fd547e6d2b78b6064ee15fda"
+        },
+        {
+          "path": "references/library/framer-components-patterns/04-show-once-logic-localstorage.md",
+          "title": "Show-Once Logic (localStorage)",
+          "lines": 26,
+          "sha256": "68e080e1a0fa011c89ba51770fb958e3d0d1cd47599afcd1d107669ab8592225"
+        },
+        {
+          "path": "references/library/framer-components-patterns/05-random-variant-on-mount.md",
+          "title": "Random Variant on Mount",
+          "lines": 17,
+          "sha256": "c8dfb1d52334d44026d8229ac9fa987056ed42a3b29b83579228c12bb9ded442"
+        },
+        {
+          "path": "references/library/framer-components-patterns/06-toggle-on-keystroke.md",
+          "title": "Toggle on Keystroke",
+          "lines": 28,
+          "sha256": "1678f3e6fe78e5b78a967bd0446c9dcd0bee8ad46e577d964ad39c669496c244"
+        },
+        {
+          "path": "references/library/framer-components-patterns/07-screenshot-exclude-class.md",
+          "title": "Screenshot Exclude Class",
+          "lines": 11,
+          "sha256": "d1d1ba58b559fb131c637ee1cfebd6e657130de7f946b4fbe4dec5535803367c"
+        },
+        {
+          "path": "references/library/framer-components-patterns/08-scroll-velocity-detection.md",
+          "title": "Scroll Velocity Detection",
+          "lines": 57,
+          "sha256": "abde167ae9498b76d31bcb6e4b55b68a448ec7b6684656ab61a3b87dbfc270ce"
+        },
+        {
+          "path": "references/library/framer-components-patterns/09-magnetic-hover-effect.md",
+          "title": "Magnetic Hover Effect",
+          "lines": 45,
+          "sha256": "8ec8973a85aa5e8c8b37f155328d19eaae0b256f695e0bff30813dff6b3aca6a"
+        },
+        {
+          "path": "references/library/framer-components-patterns/10-multi-column-text-layout.md",
+          "title": "Multi-Column Text Layout",
+          "lines": 18,
+          "sha256": "d6e03240283542b4339e527f695486c861a0e34351a390a095171ed3ad8904ce"
+        },
+        {
+          "path": "references/library/framer-components-patterns/11-scroll-frame-sequence.md",
+          "title": "Scroll Frame Sequence",
+          "lines": 35,
+          "sha256": "2ec4103612e5a08b5a77717c23567185027d2168590bd3f5f9370de03dedd842"
+        },
+        {
+          "path": "references/library/framer-components-patterns/12-animation-trigger-modes.md",
+          "title": "Animation Trigger Modes",
+          "lines": 30,
+          "sha256": "024bc389cdfab371ebf4460c88001db7247fa75fcb994278c75d0802be573464"
+        },
+        {
+          "path": "references/library/framer-components-patterns/13-auto-sized-text-fix.md",
+          "title": "Auto-Sized Text Fix",
+          "lines": 15,
+          "sha256": "64387cfe8e025aaa4893ce40d232cd0b8095c607ee161c87f245df440ae0cbcd"
+        },
+        {
+          "path": "references/library/framer-components-patterns/14-default-media-placeholder-urls.md",
+          "title": "Default Media Placeholder URLs",
+          "lines": 13,
+          "sha256": "e99eddf4cb95e98104832fb3b96c99561ff92317c00b9ef4316a6cfe616fe37d"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/framer-code-components-overrides/references/webgl-shaders.md",
+      "module": "framer-components-webgl-shaders",
+      "source_sha256": "b35202fec01e22824a3edd13f3d7784cc69a07ef6f3743af200e2ff2f5cdf567",
+      "adapted_sha256": "b35202fec01e22824a3edd13f3d7784cc69a07ef6f3743af200e2ff2f5cdf567",
+      "index": "references/library/framer-components-webgl-shaders/index.md",
+      "topics": [
+        {
+          "path": "references/library/framer-components-webgl-shaders/01-webgl-shaders-in-framer.md",
+          "title": "WebGL Shaders in Framer",
+          "lines": 2,
+          "sha256": "bb76406f56feee7450758f37daa57a664e8291ee32828921dd1dbb423c1e58e5"
+        },
+        {
+          "path": "references/library/framer-components-webgl-shaders/02-basic-setup.md",
+          "title": "Basic Setup",
+          "lines": 37,
+          "sha256": "90937f9a7daa4c859cc0c5dbfa11e7346bbcf0793db6b11a9a9952b1d73a0c2b"
+        },
+        {
+          "path": "references/library/framer-components-webgl-shaders/03-transparency-support.md",
+          "title": "Transparency Support",
+          "lines": 30,
+          "sha256": "b5565475a3bd971ded832b79d35545e395edc6c2b2a25a9180565974098aaa21"
+        },
+        {
+          "path": "references/library/framer-components-webgl-shaders/04-shader-compilation-safety.md",
+          "title": "Shader Compilation Safety",
+          "lines": 46,
+          "sha256": "b034c9e0e2698090031dd5c11c185146679055fc063db02d7641e5f187ed32e6"
+        },
+        {
+          "path": "references/library/framer-components-webgl-shaders/05-canvas-resize-handling.md",
+          "title": "Canvas Resize Handling",
+          "lines": 26,
+          "sha256": "5d52091b8783839f4d9a3c8594311c7f5b3aed4ae943f82f822240863c512747"
+        },
+        {
+          "path": "references/library/framer-components-webgl-shaders/06-uniform-updates.md",
+          "title": "Uniform Updates",
+          "lines": 18,
+          "sha256": "035c73f2c4f83040aa53a20e0166cd2136cf78d6980b8d972064e27fe6166380"
+        },
+        {
+          "path": "references/library/framer-components-webgl-shaders/07-cleanup-pattern.md",
+          "title": "Cleanup Pattern",
+          "lines": 23,
+          "sha256": "a14371634f1761bec77beb51e3dca813d764908c6d293d0b0c3339b3cbebc819"
+        },
+        {
+          "path": "references/library/framer-components-webgl-shaders/08-canvas-positioning-for-effects.md",
+          "title": "Canvas Positioning for Effects",
+          "lines": 25,
+          "sha256": "741afc29f0b31825af50d1407c5f063ad120fce1d95330edb78a140e4f1ad23e"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/framer-plugins/SKILL.md",
+      "module": "framer-plugins",
+      "source_sha256": "9b984d9620e7fdeb4fbac46ca3c81bd86c997264ee24ea6d60cd17c3773f2979",
+      "adapted_sha256": "9722b09e96d7bd3269252cbc880bba98ad0b50a43be26655e29572e546f03a99",
+      "index": "references/library/framer-plugins/index.md",
+      "topics": [
+        {
+          "path": "references/library/framer-plugins/01-framer-plugin-development-guide.md",
+          "title": "Framer Plugin Development Guide",
+          "lines": 18,
+          "sha256": "836f29b520b2ec7ffadca69a9c3a5be404a8e76529cf1f5bc0b660d21242c71a"
+        },
+        {
+          "path": "references/library/framer-plugins/02-quick-reference.md",
+          "title": "Quick Reference",
+          "lines": 9,
+          "sha256": "7e3f4f845ec282dc0a259a50a55ba8c51fda26f40b3cdea5f339e5916c0af07a"
+        },
+        {
+          "path": "references/library/framer-plugins/03-framer-json.md",
+          "title": "framer.json",
+          "lines": 17,
+          "sha256": "00e0c423a31e79193f19c22701b4ce0846363171b953579decf25d710c8d1696"
+        },
+        {
+          "path": "references/library/framer-plugins/04-plugin-modes.md",
+          "title": "Plugin Modes",
+          "lines": 13,
+          "sha256": "f9b175bafe58ba2d4383124cc1881cadd1578eb257a3b6e963b6d6a1477eb78b"
+        },
+        {
+          "path": "references/library/framer-plugins/05-core-framer-api.md",
+          "title": "Core framer API",
+          "lines": 45,
+          "sha256": "0f2522809743093765f71a2a8543840c8fd2b6fe54e622891bbfbde4a3897338"
+        },
+        {
+          "path": "references/library/framer-plugins/06-managedcollection-api.md",
+          "title": "ManagedCollection API",
+          "lines": 69,
+          "sha256": "97d955db5ad005bc7328cfe110c36a89ea1a389d9a5692128ced227e916872df"
+        },
+        {
+          "path": "references/library/framer-plugins/07-permissions.md",
+          "title": "Permissions",
+          "lines": 20,
+          "sha256": "0745ddfe87511a0fe8ab7ffa1ae0fe5400e8b9fa3bf90efabb588647ff555de4"
+        },
+        {
+          "path": "references/library/framer-plugins/08-data-storage-decision-tree.md",
+          "title": "Data Storage Decision Tree",
+          "lines": 13,
+          "sha256": "3627bc30e20f024c4b02d54a7cfff425852aae1b959b71787b54e75a852a406a"
+        },
+        {
+          "path": "references/library/framer-plugins/09-key-exports-from-framer-plugin.md",
+          "title": "Key Exports from \"framer-plugin\"",
+          "lines": 12,
+          "sha256": "8bf9f0976cecf8977c67c7d95dd76d93cf7af8cc9548a8737c97d93c9839430c"
+        },
+        {
+          "path": "references/library/framer-plugins/10-supporting-references.md",
+          "title": "Supporting References",
+          "lines": 8,
+          "sha256": "c21c658f97429a1caf3f8be931558f818e9e91962f6c554330d1f6eee26f59a9"
+        },
+        {
+          "path": "references/library/framer-plugins/11-key-rules.md",
+          "title": "Key Rules",
+          "lines": 12,
+          "sha256": "baf7d909ff796db10f1f948dc82daf1e7d2c8b7b47715ad85c1d510465a07702"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/framer-plugins/references/api-reference.md",
+      "module": "framer-plugins-api-reference",
+      "source_sha256": "ceb660404c681d81bcfbb13de7cba25d2adfb235368ffd0df1e51ed07feadc17",
+      "adapted_sha256": "9aa5ac27c038e4b8c23dad368f692abafd3ec8e79670a3bb48d0a147a1b1b1fb",
+      "index": "references/library/framer-plugins-api-reference/index.md",
+      "topics": [
+        {
+          "path": "references/library/framer-plugins-api-reference/01-framer-plugin-api-reference.md",
+          "title": "Framer Plugin API Reference",
+          "lines": 4,
+          "sha256": "cc25873f22f92b3d10fea73373cc70e26f5a534d2eea92e9146bb4a36b315894"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/02-framer-global-object.md",
+          "title": "framer Global Object",
+          "lines": 127,
+          "sha256": "7e1d45773a213f79f783a81f4e8278a57f1c189fd47f6648272ce99c513cf718"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/03-managedcollection.md",
+          "title": "ManagedCollection",
+          "lines": 31,
+          "sha256": "5f62c3f16944bd0af90fc79922233e81a7872f84231f3f64fdef3911e6b2a989"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/04-managedcollectionfieldinput.md",
+          "title": "ManagedCollectionFieldInput",
+          "lines": 42,
+          "sha256": "eb022f713e309a64692516ce46af8ff9951842ec3b2112c8fa9d8443db4b4d87"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/05-managedcollectioniteminput.md",
+          "title": "ManagedCollectionItemInput",
+          "lines": 13,
+          "sha256": "43536e12682673c3232ad1beacad02790977f019a4921c08aadc8168896cc29e"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/06-fielddataentryinput-all-type-variants.md",
+          "title": "FieldDataEntryInput — All Type Variants",
+          "lines": 68,
+          "sha256": "3009a8962b94b043e5a0b5abdc4e99a38a94ce00ced9af273687b780e9d68af8"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/07-collection-non-managed.md",
+          "title": "Collection (Non-Managed)",
+          "lines": 19,
+          "sha256": "0d24b11fc0e803d82119cd0d7135c71c9ef1b1fe6fee77b56460693b6fc749dd"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/08-protectedmethod-known-values.md",
+          "title": "ProtectedMethod — Known Values",
+          "lines": 25,
+          "sha256": "1a0196b23925efbef2fbffbec95edf04f133392b1dbb050c6fcd492734dd2efb"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/09-react-hooks.md",
+          "title": "React Hooks",
+          "lines": 14,
+          "sha256": "db6c4c892a3a813d580e52bfeabbc41362e0915d5404ed3a7125564a96d341f7"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/10-error-handling.md",
+          "title": "Error Handling",
+          "lines": 18,
+          "sha256": "ab1a829dc159673619e8bb63c479b0321cfe30b61f3c4b329963f1b88af590aa"
+        },
+        {
+          "path": "references/library/framer-plugins-api-reference/11-official-documentation-urls.md",
+          "title": "Official Documentation URLs",
+          "lines": 13,
+          "sha256": "b9a0cc82c2edb91691d3f6714efcf3cc7971d1019b3d55516842378883b63c8d"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/framer-plugins/references/patterns.md",
+      "module": "framer-plugins-patterns",
+      "source_sha256": "e8b140fb2655dc7cc3169b1cb0866bcdf1958441c26ec04dde85d0717070dfef",
+      "adapted_sha256": "7a788d78537af5541943bd275773fca75f806288b4221e3d063e3892a6c97932",
+      "index": "references/library/framer-plugins-patterns/index.md",
+      "topics": [
+        {
+          "path": "references/library/framer-plugins-patterns/01-framer-plugin-patterns.md",
+          "title": "Framer Plugin Patterns",
+          "lines": 4,
+          "sha256": "148d7ef45eefdf9354334837e91b3c7b09aea656bdbaad4e5a4a754f8b74f162"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/02-cms-plugin-entry-point-main-tsx.md",
+          "title": "CMS Plugin Entry Point (main.tsx)",
+          "lines": 31,
+          "sha256": "22c01f2f215190d45b288a75ec5c2c904f63e2f636461c741a18fd928e0dd3d9"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/03-sync-algorithm-universal.md",
+          "title": "Sync Algorithm (Universal)",
+          "lines": 34,
+          "sha256": "c237c3717d0c0f355832c057b107908881f6ee8ee5026f6ad50f72a59ea70eff"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/04-permission-check-pattern.md",
+          "title": "Permission Check Pattern",
+          "lines": 25,
+          "sha256": "bbd794d762b8a95b33b5443e0f7be7d18e0f8f84f0cccc057d03a2fe74f2dad2"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/05-slug-generation.md",
+          "title": "Slug Generation",
+          "lines": 25,
+          "sha256": "f2bd5c10ee0c07cb89dba2338e3dfa07cde6428e770f6311ea24c90948dc3610"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/06-simple-hash-for-stable-ids.md",
+          "title": "Simple Hash for Stable IDs",
+          "lines": 18,
+          "sha256": "774e49877c7f4c912358f7bed9711bf8de493693698d3ab2c1bf483279dfc31c"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/07-ui-sizing-per-screen-state.md",
+          "title": "UI Sizing Per Screen State",
+          "lines": 26,
+          "sha256": "9c92c4f90d8170269e4c188c583dde3b1000a3a41bd956285b64e522bd9fbeea"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/08-plugin-data-keys-pattern.md",
+          "title": "Plugin Data Keys Pattern",
+          "lines": 22,
+          "sha256": "368ccc46ae20c6344b6918483753d01e98284a57ff763a51e8b1c957e540f213"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/09-oauth-authentication-pattern.md",
+          "title": "OAuth Authentication Pattern",
+          "lines": 39,
+          "sha256": "a1c21ee1d0510d82f2e37b1671c6ff784bfed9eed221741400580327aa5a07fb"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/10-api-key-authentication-pattern.md",
+          "title": "API Key Authentication Pattern",
+          "lines": 24,
+          "sha256": "0eed5bbf885cd988e9157078f792b753d9862aee68b741a306756189fcfe7935"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/11-close-warning-during-sync.md",
+          "title": "Close Warning During Sync",
+          "lines": 21,
+          "sha256": "ed10f081e27883f65470dcde973763e29b5b101b03f8aaf8e36b9f17b6a9ed87"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/12-progress-tracking.md",
+          "title": "Progress Tracking",
+          "lines": 27,
+          "sha256": "33b01db6140c9affc1b38e9f9d0a80abe00279fd39446e0ab472a97017899b33"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/13-error-resilience-with-promise-allsettled.md",
+          "title": "Error Resilience with Promise.allSettled",
+          "lines": 26,
+          "sha256": "213df906a72d2702b2fb06cf40c38020360039a4e7d16ec2ce7733daa904561c"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/14-item-order-preservation.md",
+          "title": "Item Order Preservation",
+          "lines": 11,
+          "sha256": "5a825a223b15c56a530000161123ff255cc36f88f36637a7ef7d4b7d0a07a63c"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/15-menu-integration.md",
+          "title": "Menu Integration",
+          "lines": 18,
+          "sha256": "2378514919f1ef0b2b45e3562aa1551a1fd647f64372b91a2a5b572f6c666c4e"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/16-canvas-mode-patterns.md",
+          "title": "Canvas Mode Patterns",
+          "lines": 23,
+          "sha256": "9a6580e8c1a1c0bc12dfb8edc7a24f785f5cad647c35cc85d5eb3d55008f96e2"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/17-field-definitions-static-vs-dynamic.md",
+          "title": "Field Definitions — Static vs Dynamic",
+          "lines": 17,
+          "sha256": "43a91afb6876957fda51a962eb430ce0e71a32294d7e7c64700597f8a61b0b33"
+        },
+        {
+          "path": "references/library/framer-plugins-patterns/18-cross-collection-lookup.md",
+          "title": "Cross-Collection Lookup",
+          "lines": 14,
+          "sha256": "0438864193c112a419d9715c9e17685c8c9f9f28f787889e3aa6dfb575b8c924"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/framer-plugins/references/pitfalls.md",
+      "module": "framer-plugins-pitfalls",
+      "source_sha256": "e023107a5c3cd131f6207328c4b32b2b28777529cde57ab67e6f03f93cfbf110",
+      "adapted_sha256": "e023107a5c3cd131f6207328c4b32b2b28777529cde57ab67e6f03f93cfbf110",
+      "index": "references/library/framer-plugins-pitfalls/index.md",
+      "topics": [
+        {
+          "path": "references/library/framer-plugins-pitfalls/01-framer-plugin-pitfalls-workarounds.md",
+          "title": "Framer Plugin Pitfalls & Workarounds",
+          "lines": 4,
+          "sha256": "1534105b43c8ce00cfc8d54a2722ef93ec9d29fe8fdf7f93b332e2dff43a298b"
+        },
+        {
+          "path": "references/library/framer-plugins-pitfalls/02-ui-styling.md",
+          "title": "UI & Styling",
+          "lines": 27,
+          "sha256": "ed7046bc3a66471eb75e82387e2bb95d0e46a3de48f4819f27233c41d5a6378a"
+        },
+        {
+          "path": "references/library/framer-plugins-pitfalls/03-sdk-behavior.md",
+          "title": "SDK Behavior",
+          "lines": 33,
+          "sha256": "58ce0bcb873c71be1279d8658a87e73f40a5509f566acc5886a55a19f22f9cb1"
+        },
+        {
+          "path": "references/library/framer-plugins-pitfalls/04-data-storage.md",
+          "title": "Data Storage",
+          "lines": 24,
+          "sha256": "73382474baf21b3ba63a3d3b8704732dde70e76aa3d702d20a64165dadf57c32"
+        },
+        {
+          "path": "references/library/framer-plugins-pitfalls/05-framer-environment.md",
+          "title": "Framer Environment",
+          "lines": 24,
+          "sha256": "85d8c5d97610e195386b7408521f85723125257107d38a99dcc09ccea7993b94"
+        },
+        {
+          "path": "references/library/framer-plugins-pitfalls/06-common-mistakes.md",
+          "title": "Common Mistakes",
+          "lines": 29,
+          "sha256": "d5fa6de33ded125e4c426a9be80c3a924371f641f123a25d820d2d7ac2818b05"
+        },
+        {
+          "path": "references/library/framer-plugins-pitfalls/07-debugging-tips.md",
+          "title": "Debugging Tips",
+          "lines": 8,
+          "sha256": "37fe5855c280d43282baba0e17d252c8b9b88e946e314b999be0538752ef03de"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-animation/SKILL.md",
+      "module": "threejs-animation",
+      "source_sha256": "b24dc96c7a854ab97fa797a8e20d6bf981f155dfc625fd1ef347042395b7754c",
+      "adapted_sha256": "b24dc96c7a854ab97fa797a8e20d6bf981f155dfc625fd1ef347042395b7754c",
+      "index": "references/library/threejs-animation/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-animation/01-three-js-animation.md",
+          "title": "Three.js Animation",
+          "lines": 7,
+          "sha256": "c4a1086a5b5993bcf6157ea69bcaff2c5a4c5674849bf059bfdc142da6d2270d"
+        },
+        {
+          "path": "references/library/threejs-animation/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 21,
+          "sha256": "95bb7ba05cd0650b98809d1a252f65a41eaec3c4971a00625582a8292886e059"
+        },
+        {
+          "path": "references/library/threejs-animation/03-animation-system-overview.md",
+          "title": "Animation System Overview",
+          "lines": 8,
+          "sha256": "ace6fec641bf4094e39cd1ea6a393ad68042a728aeae556da6bfdb1fa4626dcd"
+        },
+        {
+          "path": "references/library/threejs-animation/04-animationclip.md",
+          "title": "AnimationClip",
+          "lines": 82,
+          "sha256": "16030f151bc2e624ed280387c28ac38d9d887a0d53e2b1c3dcd213692870e4de"
+        },
+        {
+          "path": "references/library/threejs-animation/05-animationmixer.md",
+          "title": "AnimationMixer",
+          "lines": 33,
+          "sha256": "0ae682dedf627c0f04d03d9e37490353ee9c0285d839e3e66b292fb5cac6cb4f"
+        },
+        {
+          "path": "references/library/threejs-animation/06-animationaction.md",
+          "title": "AnimationAction",
+          "lines": 60,
+          "sha256": "38b3618a6a1701a1e0dfa9b6a4cafcae1f4bd76ceb14d9559aa7386fb565dda7"
+        },
+        {
+          "path": "references/library/threejs-animation/07-loading-gltf-animations.md",
+          "title": "Loading GLTF Animations",
+          "lines": 48,
+          "sha256": "f591efccb8dfd262c1d5ec24fe244ff883163c2b318cf43bdc81b1845944fe9d"
+        },
+        {
+          "path": "references/library/threejs-animation/08-skeletal-animation.md",
+          "title": "Skeletal Animation",
+          "lines": 53,
+          "sha256": "badb07b06e8ec0a87f00abfbe715bc81de26d11d58dccec0099577f4f156aad8"
+        },
+        {
+          "path": "references/library/threejs-animation/09-morph-targets.md",
+          "title": "Morph Targets",
+          "lines": 40,
+          "sha256": "042c3e73f54be9b2b505eed71c0abdbcd58eb518883237725072f4d7c1dba04f"
+        },
+        {
+          "path": "references/library/threejs-animation/10-animation-blending.md",
+          "title": "Animation Blending",
+          "lines": 56,
+          "sha256": "90b55829fd7b937ca9c4970e63b792ef79b2108452bcc355db68e2ec7d20154e"
+        },
+        {
+          "path": "references/library/threejs-animation/11-animation-utilities.md",
+          "title": "Animation Utilities",
+          "lines": 28,
+          "sha256": "4235e66c76d7cf9699cbfb5e8cfa159a5f9fddba315be9b1d94861892f733675"
+        },
+        {
+          "path": "references/library/threejs-animation/12-procedural-animation-patterns.md",
+          "title": "Procedural Animation Patterns",
+          "lines": 80,
+          "sha256": "d72589e489b63fa654c6bb1afb2c9b3d18d52c3643107d8e5067e32515642d07"
+        },
+        {
+          "path": "references/library/threejs-animation/13-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 31,
+          "sha256": "5aa7754c9f28fb9a08f8535282c91f2e48bde1d314ed1931622206dd406c2057"
+        },
+        {
+          "path": "references/library/threejs-animation/14-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "d079296bfbdc711adf8cc78bfc9b22385e02522cd7c746f71749503a4b7b03d9"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-fundamentals/SKILL.md",
+      "module": "threejs-fundamentals",
+      "source_sha256": "eb66d52f53f489067d602b9b62df507adb391d8220bdd1a8aae6b73e6cee578a",
+      "adapted_sha256": "eb66d52f53f489067d602b9b62df507adb391d8220bdd1a8aae6b73e6cee578a",
+      "index": "references/library/threejs-fundamentals/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-fundamentals/01-three-js-fundamentals.md",
+          "title": "Three.js Fundamentals",
+          "lines": 7,
+          "sha256": "ba31baf330c3a98b7d50627a8296baebae5a1e592772be599c260ddb27af2b88"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 50,
+          "sha256": "03cc6e9ea9fddda693dc30d2ecc7e7dc76f0c89a6797348b5fedd80aed00fcdf"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/03-core-classes.md",
+          "title": "Core Classes",
+          "lines": 2,
+          "sha256": "797d82258249b23bdfa1243f67353f29531324cab5a608308aa016729b2ba89d"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/04-scene.md",
+          "title": "Scene",
+          "lines": 14,
+          "sha256": "f9bc6fe2306cf7e616f6d385a95fdd1f80e290a1b2a3fdf06a3e8e8e4c47eaff"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/05-cameras.md",
+          "title": "Cameras",
+          "lines": 66,
+          "sha256": "3cfbbff1072be778bd30cbc0a76f7453d73bfb06311242a48bdc8e73d2a18bca"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/06-webglrenderer.md",
+          "title": "WebGLRenderer",
+          "lines": 32,
+          "sha256": "a8b551fce0d80cfd350bf516d1ae816d8ece37a4a9fd1716aa994974c6fa22d8"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/07-object3d.md",
+          "title": "Object3D",
+          "lines": 43,
+          "sha256": "5ea34012ddeb66216173e480ffd87460dac11de584c4938b4e292404fe785f58"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/08-group.md",
+          "title": "Group",
+          "lines": 15,
+          "sha256": "8274a572c6ad3c1e38ebf03132406dc4c16c2a4f9e6915ea12c2f16d19ce3c51"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/09-mesh.md",
+          "title": "Mesh",
+          "lines": 23,
+          "sha256": "3438d9ada10d3752a1176a1706e108603d9521c77d6e9902241638a162a019af"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/10-coordinate-system.md",
+          "title": "Coordinate System",
+          "lines": 14,
+          "sha256": "2c92a954bdb1d6dcc6c417f7d08975f205de42db5f7c47f5b22225f50d1afe89"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/11-math-utilities.md",
+          "title": "Math Utilities",
+          "lines": 123,
+          "sha256": "627e8cd8acab7c32bd30bba568631f8f76132f35d3ac7e1d144487c4fb9d35f8"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/12-common-patterns.md",
+          "title": "Common Patterns",
+          "lines": 73,
+          "sha256": "cabe58843ba2735d645aa11accf593bde549e74698288f9af51420e181d944a3"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/13-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 21,
+          "sha256": "4a6f3037c1b5a33bb9658a12dde2f6c41f04ff16e68e63b67f8751f334240a28"
+        },
+        {
+          "path": "references/library/threejs-fundamentals/14-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "c4aebe6c2a39b9b747812a86ff1be8dd998a64d41b57365de7aef7687b458de8"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-geometry/SKILL.md",
+      "module": "threejs-geometry",
+      "source_sha256": "8337bcf86621411f54ef39727b338c84890815e4b3612ce635d593dd9c321a3e",
+      "adapted_sha256": "8337bcf86621411f54ef39727b338c84890815e4b3612ce635d593dd9c321a3e",
+      "index": "references/library/threejs-geometry/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-geometry/01-three-js-geometry.md",
+          "title": "Three.js Geometry",
+          "lines": 7,
+          "sha256": "87f01e2b73cc490cd47d4cff1ce40b8ef8adfa1b629ee3831b05c445532b7091"
+        },
+        {
+          "path": "references/library/threejs-geometry/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 16,
+          "sha256": "310e4c873566151ae2c62c9170044845056b6462cdfb7c1746b8b3353c3610cc"
+        },
+        {
+          "path": "references/library/threejs-geometry/03-built-in-geometries.md",
+          "title": "Built-in Geometries",
+          "lines": 129,
+          "sha256": "5a0d3880355193eaa22605eceace54faac042f8114ccfcc456155521ebb88c28"
+        },
+        {
+          "path": "references/library/threejs-geometry/04-buffergeometry.md",
+          "title": "BufferGeometry",
+          "lines": 130,
+          "sha256": "86adfb7eaff47bec4b6da7e757d30c77c4cd61d63f1da5fde8a2a9c387deeec0"
+        },
+        {
+          "path": "references/library/threejs-geometry/05-edgesgeometry-wireframegeometry.md",
+          "title": "EdgesGeometry & WireframeGeometry",
+          "lines": 18,
+          "sha256": "2934278b410cc492aad17f499e2122f94be428b8317d0b0362d5f69092dcfc0d"
+        },
+        {
+          "path": "references/library/threejs-geometry/06-points.md",
+          "title": "Points",
+          "lines": 25,
+          "sha256": "7ac2c6298a31f3d0ebd2cdc0ffdbca414d896300adb917e7c803d34e54e21fd9"
+        },
+        {
+          "path": "references/library/threejs-geometry/07-lines.md",
+          "title": "Lines",
+          "lines": 43,
+          "sha256": "e52a11f175c3455b89becc2f5f10d9145653150088a2b33d82117f86aba94efc"
+        },
+        {
+          "path": "references/library/threejs-geometry/08-instancedmesh.md",
+          "title": "InstancedMesh",
+          "lines": 64,
+          "sha256": "842ebb43753d11e82f5d74b89548b44da4a8013ab2df46bcc3561a17bf7fd20a"
+        },
+        {
+          "path": "references/library/threejs-geometry/09-instancedbuffergeometry-advanced.md",
+          "title": "InstancedBufferGeometry (Advanced)",
+          "lines": 22,
+          "sha256": "725406d25751dc7dbe700ab24ef57dfc7e995bef3e389e330a314beb3238971d"
+        },
+        {
+          "path": "references/library/threejs-geometry/10-geometry-utilities.md",
+          "title": "Geometry Utilities",
+          "lines": 22,
+          "sha256": "7d5d5c5f226037c4613c9da689c065d1d62124122569ce999fda565232526e09"
+        },
+        {
+          "path": "references/library/threejs-geometry/11-common-patterns.md",
+          "title": "Common Patterns",
+          "lines": 49,
+          "sha256": "699b09cfb1438a26e3df308dbe7a2b12232882c0658feb6e9efc2b0445160397"
+        },
+        {
+          "path": "references/library/threejs-geometry/12-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 18,
+          "sha256": "98c9fe9b949933ac3b895c90c7b73428d0c13522895d393a2edcd13ce538aa63"
+        },
+        {
+          "path": "references/library/threejs-geometry/13-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "67093fd7962239b5234912dbcb005c6d2a7850bbc3cbee6f9d8794b22e92fe00"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-interaction/SKILL.md",
+      "module": "threejs-interaction",
+      "source_sha256": "1bb23f0388d39863432494ff00ea0a96ae7d093c0c6f3149fb223ba1e673fef6",
+      "adapted_sha256": "1bb23f0388d39863432494ff00ea0a96ae7d093c0c6f3149fb223ba1e673fef6",
+      "index": "references/library/threejs-interaction/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-interaction/01-three-js-interaction.md",
+          "title": "Three.js Interaction",
+          "lines": 7,
+          "sha256": "f5bd9e56fabd830574f241d4997814bca7355495bc9a291221d293b07a7a1340"
+        },
+        {
+          "path": "references/library/threejs-interaction/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 29,
+          "sha256": "44153a1bc6391dc12b88635e82ad76379ac351dc9dd1fa53ea2834c68ad3c4bd"
+        },
+        {
+          "path": "references/library/threejs-interaction/03-raycaster.md",
+          "title": "Raycaster",
+          "lines": 111,
+          "sha256": "c08c5a7f29c2eeaf0db26c781b791821e13b468fd017274497b0ddd0c9045ac1"
+        },
+        {
+          "path": "references/library/threejs-interaction/04-camera-controls.md",
+          "title": "Camera Controls",
+          "lines": 2,
+          "sha256": "6e2f13a6bde9ca7831d5c3ea303e2ba5bdb016c222be5e3fe666838be92013ad"
+        },
+        {
+          "path": "references/library/threejs-interaction/05-orbitcontrols.md",
+          "title": "OrbitControls",
+          "lines": 40,
+          "sha256": "ad7ea6b1e1470a25ac089bcc4e104034b79b137cc004b0d7fd61edf0e9d6cf3d"
+        },
+        {
+          "path": "references/library/threejs-interaction/06-flycontrols.md",
+          "title": "FlyControls",
+          "lines": 17,
+          "sha256": "f3783fdc8fce76a0e3e9ef02053cda196cd8a1747206f7a7d756e2ba9cbb9b77"
+        },
+        {
+          "path": "references/library/threejs-interaction/07-firstpersoncontrols.md",
+          "title": "FirstPersonControls",
+          "lines": 18,
+          "sha256": "cbd54ce2f04a6bdc0765d5d10eec7b94f5411fa4edb329836ddef693cab4b940"
+        },
+        {
+          "path": "references/library/threejs-interaction/08-pointerlockcontrols.md",
+          "title": "PointerLockControls",
+          "lines": 50,
+          "sha256": "f1a2e2ea32bfe11ddb41f4cc0820e3cf92d2c36ab55f8ff9c2a976d1b4898e48"
+        },
+        {
+          "path": "references/library/threejs-interaction/09-trackballcontrols.md",
+          "title": "TrackballControls",
+          "lines": 16,
+          "sha256": "47b904325da9aae9fa948ba43ef7f5ae1002e270156adcfb4fa45ba5b87837d5"
+        },
+        {
+          "path": "references/library/threejs-interaction/10-mapcontrols.md",
+          "title": "MapControls",
+          "lines": 12,
+          "sha256": "ac5ebd04b7496120ddbf7118c3754938a4dd58ed2c60a78c893b41fac8dd2de2"
+        },
+        {
+          "path": "references/library/threejs-interaction/11-transformcontrols.md",
+          "title": "TransformControls",
+          "lines": 51,
+          "sha256": "e1060dee5117054a81dcb3c5f01f3252e6de91f0753cff71fcc0556e511fa52c"
+        },
+        {
+          "path": "references/library/threejs-interaction/12-dragcontrols.md",
+          "title": "DragControls",
+          "lines": 30,
+          "sha256": "2f254149962eda2afe4824d65945cd01b543b2f7c75df50cdc4a9ab2a81e7e20"
+        },
+        {
+          "path": "references/library/threejs-interaction/13-selection-system.md",
+          "title": "Selection System",
+          "lines": 107,
+          "sha256": "9f40b7a6062aa7cd29047b06a6919abf4c94d5d4837e7d3fa6b47d77d75f3ec5"
+        },
+        {
+          "path": "references/library/threejs-interaction/14-keyboard-input.md",
+          "title": "Keyboard Input",
+          "lines": 25,
+          "sha256": "8083336d1f8f5faa62ce95d95d9860e857f5ec15d0a85b34c50d04638698dd45"
+        },
+        {
+          "path": "references/library/threejs-interaction/15-world-screen-coordinate-conversion.md",
+          "title": "World-Screen Coordinate Conversion",
+          "lines": 58,
+          "sha256": "5f0aed24f030aa3f191835cb89a8f917a30e34a26d34b6608b41ee8d66d9e5e8"
+        },
+        {
+          "path": "references/library/threejs-interaction/16-event-handling-best-practices.md",
+          "title": "Event Handling Best Practices",
+          "lines": 63,
+          "sha256": "bdcb1a28b3e8223e6ff447c4368c6048a48c3f36e2268195b214513d653f163a"
+        },
+        {
+          "path": "references/library/threejs-interaction/17-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 19,
+          "sha256": "b4644c1ff72af20dfdab606190e9f359637f6261c79d69d34f2154911b38b490"
+        },
+        {
+          "path": "references/library/threejs-interaction/18-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "f600ba88d59d57c87cb97bbe4876cd5fb4c4f5507a029b8fad81b2dc4bec7986"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-lighting/SKILL.md",
+      "module": "threejs-lighting",
+      "source_sha256": "777875f7d6a75219d009ac69310772236231eec7cb57287c0509bb53e994af9d",
+      "adapted_sha256": "777875f7d6a75219d009ac69310772236231eec7cb57287c0509bb53e994af9d",
+      "index": "references/library/threejs-lighting/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-lighting/01-three-js-lighting.md",
+          "title": "Three.js Lighting",
+          "lines": 7,
+          "sha256": "156adcc6adcc3c4074326111958c566598c55ddeceef6d3ec0845254c35a9d37"
+        },
+        {
+          "path": "references/library/threejs-lighting/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 14,
+          "sha256": "ea6084d857280acb7ab2313fa4ee0733a8a873650cc5772c6b248d735a2019c7"
+        },
+        {
+          "path": "references/library/threejs-lighting/03-light-types-overview.md",
+          "title": "Light Types Overview",
+          "lines": 13,
+          "sha256": "d3540e9c325385228e88199f47ae9e49e3c9ae1c17667a14dcf10f146749736f"
+        },
+        {
+          "path": "references/library/threejs-lighting/04-ambientlight.md",
+          "title": "AmbientLight",
+          "lines": 14,
+          "sha256": "11d371ab7100d40b3bf6d9c71da70bb5fffb0604b65734c669be98754cdcae5c"
+        },
+        {
+          "path": "references/library/threejs-lighting/05-hemispherelight.md",
+          "title": "HemisphereLight",
+          "lines": 16,
+          "sha256": "9c9d4189ff4edbd4979aa7c60c4e411695eac09d7a7070d0d10a71325bd7a07c"
+        },
+        {
+          "path": "references/library/threejs-lighting/06-directionallight.md",
+          "title": "DirectionalLight",
+          "lines": 45,
+          "sha256": "66dc86adf09f244d17668a34b275fb27629144e4e4686c2575ace16e0cb44350"
+        },
+        {
+          "path": "references/library/threejs-lighting/07-pointlight.md",
+          "title": "PointLight",
+          "lines": 29,
+          "sha256": "53c3ac8be7536572388deee17e21ef640c42152c2626bc9e6a8d7c03d695f745"
+        },
+        {
+          "path": "references/library/threejs-lighting/08-spotlight.md",
+          "title": "SpotLight",
+          "lines": 40,
+          "sha256": "79e606d5f02b0a1e28607aa1af2932f2903276b29a904a3cc4eef9c03b097db5"
+        },
+        {
+          "path": "references/library/threejs-lighting/09-rectarealight.md",
+          "title": "RectAreaLight",
+          "lines": 25,
+          "sha256": "b1a20b2b74dba9d0a5bc8611d82d2b6aa3ad24436ab9bd7b03f00679bb16096a"
+        },
+        {
+          "path": "references/library/threejs-lighting/10-shadow-setup.md",
+          "title": "Shadow Setup",
+          "lines": 65,
+          "sha256": "a642b67962a3c933db1025868fd923b85a520cf2f5378b1f06968d606c9675a4"
+        },
+        {
+          "path": "references/library/threejs-lighting/11-light-helpers.md",
+          "title": "Light Helpers",
+          "lines": 30,
+          "sha256": "f5a6f84466fcfb6d1bbfa84dbe14bb502c01cb47faa1b8ab8129af83b18b3245"
+        },
+        {
+          "path": "references/library/threejs-lighting/12-environment-lighting-ibl.md",
+          "title": "Environment Lighting (IBL)",
+          "lines": 49,
+          "sha256": "91a73c4346f9ade29c3bcdc57fb139c6a359ab8dd24b360ca5f1e9d4ceb73d24"
+        },
+        {
+          "path": "references/library/threejs-lighting/13-light-probes-advanced.md",
+          "title": "Light Probes (Advanced)",
+          "lines": 25,
+          "sha256": "b801cb2a253febed0a9fc49d0a6649d586b6ba40897b422446e55763f4279761"
+        },
+        {
+          "path": "references/library/threejs-lighting/14-common-lighting-setups.md",
+          "title": "Common Lighting Setups",
+          "lines": 60,
+          "sha256": "1bb42f83144b3f511a0c50b2109c45afd65a333525d01c437df0a445ff0987f5"
+        },
+        {
+          "path": "references/library/threejs-lighting/15-light-animation.md",
+          "title": "Light Animation",
+          "lines": 23,
+          "sha256": "2362dd6b99922953e70dff3f9e5027acd84650298dc91da88f05907e5766392b"
+        },
+        {
+          "path": "references/library/threejs-lighting/16-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 21,
+          "sha256": "c0118473d4a78cb1e2e828f4282567b6478553e4c1aaa1fbbebe8168db958a2d"
+        },
+        {
+          "path": "references/library/threejs-lighting/17-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "9ea2fc073a4bfd5919394db0f7540fb9d3558bf7e9f16c3083b18bcfbfece170"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-loaders/SKILL.md",
+      "module": "threejs-loaders",
+      "source_sha256": "03e0d7319692bb7eaa13cfada5d27d39840c7520c5ddc3fc8cc07b645dcba2e9",
+      "adapted_sha256": "03e0d7319692bb7eaa13cfada5d27d39840c7520c5ddc3fc8cc07b645dcba2e9",
+      "index": "references/library/threejs-loaders/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-loaders/01-three-js-loaders.md",
+          "title": "Three.js Loaders",
+          "lines": 7,
+          "sha256": "fcfe89e4a013631652a02a028323fa3bda25c9976116efd344a74e5adcfec3a0"
+        },
+        {
+          "path": "references/library/threejs-loaders/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 17,
+          "sha256": "1c3b8529656c3daaf115d3423210c1a5b126eac8d47740ff8254343b0566f650"
+        },
+        {
+          "path": "references/library/threejs-loaders/03-loadingmanager.md",
+          "title": "LoadingManager",
+          "lines": 38,
+          "sha256": "e6c57d025519524cb3ea4148ed5b40fb51c75f1808c1b60228e20439a340aec1"
+        },
+        {
+          "path": "references/library/threejs-loaders/04-texture-loading.md",
+          "title": "Texture Loading",
+          "lines": 131,
+          "sha256": "8f2e88e351ee417404552a5d8033012279c9fe91ce3d58b8a4f35ce4cd86f41a"
+        },
+        {
+          "path": "references/library/threejs-loaders/05-gltf-glb-loading.md",
+          "title": "GLTF/GLB Loading",
+          "lines": 111,
+          "sha256": "8d1788cb3d7f11a7592cc1a32081290189edee41102f2edeb2e2c3a8efbea6d8"
+        },
+        {
+          "path": "references/library/threejs-loaders/06-other-model-formats.md",
+          "title": "Other Model Formats",
+          "lines": 67,
+          "sha256": "2a0a72615dd93c8f5d4b27ab0896756fce014de95e7f51f3922623f6fae02431"
+        },
+        {
+          "path": "references/library/threejs-loaders/07-async-promise-loading.md",
+          "title": "Async/Promise Loading",
+          "lines": 65,
+          "sha256": "0d5c30c1ede15407eace51d9b02b035060f28b0d94374d364af6d5da698d0302"
+        },
+        {
+          "path": "references/library/threejs-loaders/08-caching.md",
+          "title": "Caching",
+          "lines": 67,
+          "sha256": "d2d76380c12a9fb505aa5fe462e79584eed03dc04168831210539450ee672eba"
+        },
+        {
+          "path": "references/library/threejs-loaders/09-loading-from-different-sources.md",
+          "title": "Loading from Different Sources",
+          "lines": 50,
+          "sha256": "857ff7fb4153d2af64da80ae49ac9d10e73d3cbaaa0b7d744ee7b287b1492a04"
+        },
+        {
+          "path": "references/library/threejs-loaders/10-error-handling.md",
+          "title": "Error Handling",
+          "lines": 43,
+          "sha256": "281b8d1b703f96760bcddb40f8c2148c7db18e6962132c4796b6346fce0a602c"
+        },
+        {
+          "path": "references/library/threejs-loaders/11-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 22,
+          "sha256": "729979e00b3f519f2df06f55f3e42c976b943e0faab544f0402e91be1d998c35"
+        },
+        {
+          "path": "references/library/threejs-loaders/12-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "b26806e180c730d9a5112423bea30f1fd9f339112a4bc78523a6bd7758e59ca8"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-materials/SKILL.md",
+      "module": "threejs-materials",
+      "source_sha256": "d5846d1b8254b903eacb3014486efbe331101518604b451098fd31989c3e7fe7",
+      "adapted_sha256": "d5846d1b8254b903eacb3014486efbe331101518604b451098fd31989c3e7fe7",
+      "index": "references/library/threejs-materials/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-materials/01-three-js-materials.md",
+          "title": "Three.js Materials",
+          "lines": 7,
+          "sha256": "d1be4d66bd31c6556293ded0e9adf8c7f38b6b415d1f4820ad2c92a563c947d9"
+        },
+        {
+          "path": "references/library/threejs-materials/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 15,
+          "sha256": "4ba273b1c5c89933c63b5137c5ca7e235a241088d81bc04fdc12a2b6a9dcd790"
+        },
+        {
+          "path": "references/library/threejs-materials/03-material-types-overview.md",
+          "title": "Material Types Overview",
+          "lines": 15,
+          "sha256": "b52cd518152ba2d377d6b72297cdf173ace65e08d1c5adc2a483406ebc829ec6"
+        },
+        {
+          "path": "references/library/threejs-materials/04-meshbasicmaterial.md",
+          "title": "MeshBasicMaterial",
+          "lines": 19,
+          "sha256": "db0cf479e07989e6ad7a88faf4de13b17a355af65af6a71ebacf712178a43ac3"
+        },
+        {
+          "path": "references/library/threejs-materials/05-meshlambertmaterial.md",
+          "title": "MeshLambertMaterial",
+          "lines": 16,
+          "sha256": "0ed27c024b6f2ee45b5bc554408c39181130611653927658833c4681ed6e8f34"
+        },
+        {
+          "path": "references/library/threejs-materials/06-meshphongmaterial.md",
+          "title": "MeshPhongMaterial",
+          "lines": 22,
+          "sha256": "a20ec4380941e6a2a32fff76e102d3febbbc895ce0e6b795f01f77a6dc57a487"
+        },
+        {
+          "path": "references/library/threejs-materials/07-meshstandardmaterial-pbr.md",
+          "title": "MeshStandardMaterial (PBR)",
+          "lines": 41,
+          "sha256": "332f638e8d5ad739504a1267f5893ab56229cd0d8cd0fb1599b64f01a0db90db"
+        },
+        {
+          "path": "references/library/threejs-materials/08-meshphysicalmaterial-advanced-pbr.md",
+          "title": "MeshPhysicalMaterial (Advanced PBR)",
+          "lines": 80,
+          "sha256": "0b8325554a03eda7542136336337f0875eb117896468d6e0c7f378cb33b55993"
+        },
+        {
+          "path": "references/library/threejs-materials/09-meshtoonmaterial.md",
+          "title": "MeshToonMaterial",
+          "lines": 18,
+          "sha256": "be804bec7553ab4a6903dcbe063007066a4b7a278526e098de8fd596fe15f83e"
+        },
+        {
+          "path": "references/library/threejs-materials/10-meshnormalmaterial.md",
+          "title": "MeshNormalMaterial",
+          "lines": 11,
+          "sha256": "eb00d3087d54b2b9dc045726ce68c0764167fb9559efbba033ae9cde270bd9e6"
+        },
+        {
+          "path": "references/library/threejs-materials/11-meshdepthmaterial.md",
+          "title": "MeshDepthMaterial",
+          "lines": 10,
+          "sha256": "7e37a48428c33062782923fb62d98e6699a9d9837f6422926f28ccf27510336e"
+        },
+        {
+          "path": "references/library/threejs-materials/12-pointsmaterial.md",
+          "title": "PointsMaterial",
+          "lines": 19,
+          "sha256": "a8847db258129b869ac84aaca5d397e062f4a5dfcf15f5ec517b9b2de789f1a2"
+        },
+        {
+          "path": "references/library/threejs-materials/13-linebasicmaterial-linedashedmaterial.md",
+          "title": "LineBasicMaterial & LineDashedMaterial",
+          "lines": 24,
+          "sha256": "f38ff9bececdb5a65e7140a272be1d5405c5c0277a83e6c5c8c5502cc01d4508"
+        },
+        {
+          "path": "references/library/threejs-materials/14-shadermaterial.md",
+          "title": "ShaderMaterial",
+          "lines": 58,
+          "sha256": "6ac42e5766631e4f20394e98aebad82cf1f4f59982a940d781680cbac0ca9624"
+        },
+        {
+          "path": "references/library/threejs-materials/15-rawshadermaterial.md",
+          "title": "RawShaderMaterial",
+          "lines": 30,
+          "sha256": "0511989718b8d2d5007fb50abbf38eb4454ae5232706d42b604605c72961cf6b"
+        },
+        {
+          "path": "references/library/threejs-materials/16-common-material-properties.md",
+          "title": "Common Material Properties",
+          "lines": 37,
+          "sha256": "a640321a5bc77429be3d8944169cdbb54174eb5af4f0e923287844fa11adde06"
+        },
+        {
+          "path": "references/library/threejs-materials/17-multiple-materials.md",
+          "title": "Multiple Materials",
+          "lines": 21,
+          "sha256": "132a729c064192744987b0f35c2ff26de9c96ef67e340f539e87621771b1c556"
+        },
+        {
+          "path": "references/library/threejs-materials/18-environment-maps.md",
+          "title": "Environment Maps",
+          "lines": 31,
+          "sha256": "31ef49a1e18220c2db7f93648aabcd9117cbc3c88128b3f4bf2adfc0e65b2ecd"
+        },
+        {
+          "path": "references/library/threejs-materials/19-material-cloning-and-modification.md",
+          "title": "Material Cloning and Modification",
+          "lines": 18,
+          "sha256": "8a1d74bff16f3b9f373549f7ff92ba7d34156b4a2599bb8fc72baaabb689c930"
+        },
+        {
+          "path": "references/library/threejs-materials/20-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 23,
+          "sha256": "4479a6c169ca7ffcacb6280839c3eef903ef879b9625841caf38455dc240a5a7"
+        },
+        {
+          "path": "references/library/threejs-materials/21-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "8c819c9aa2ea16994aab13f8df1ab644a47c81418a1f3fbab1c391d20ccaa585"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-postprocessing/SKILL.md",
+      "module": "threejs-postprocessing",
+      "source_sha256": "570b86434c30ad9bdc30f4f6d4e8c04124a07dd4ccaa778d4717ecc211dc1d90",
+      "adapted_sha256": "570b86434c30ad9bdc30f4f6d4e8c04124a07dd4ccaa778d4717ecc211dc1d90",
+      "index": "references/library/threejs-postprocessing/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-postprocessing/01-three-js-post-processing.md",
+          "title": "Three.js Post-Processing",
+          "lines": 7,
+          "sha256": "b51cfef5be52782ac618a95a5c47b67157af6128fe5179dcd7c4710c4e91b993"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 31,
+          "sha256": "12773e33607362092a6a9f17691f9b0e3bc5d044bca4de9211445f811556e929"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/03-effectcomposer-setup.md",
+          "title": "EffectComposer Setup",
+          "lines": 31,
+          "sha256": "73e5a983b4df00fff62d83757a7b39efb380b18d10b946c09a95b0bca705c29b"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/04-common-effects.md",
+          "title": "Common Effects",
+          "lines": 2,
+          "sha256": "e562d60721c2d97c6fdde3941a54eff4979e801f12fae5bfa9541203f750d5b4"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/05-bloom-glow.md",
+          "title": "Bloom (Glow)",
+          "lines": 20,
+          "sha256": "8327a24251a958ea1f6cdfec5f8a39a54df1f45f586a6b612c9171a76653a978"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/06-selective-bloom.md",
+          "title": "Selective Bloom",
+          "lines": 46,
+          "sha256": "10a57cf1d235d15435a248e2d8098d00d1baa19e551f90987eceea7e3aebfd4a"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/07-fxaa-anti-aliasing.md",
+          "title": "FXAA (Anti-Aliasing)",
+          "lines": 23,
+          "sha256": "1c7e1a27e91ef4929b080453ae394de4da2306a4d92a494a4cc40bf87d0827b5"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/08-smaa-better-anti-aliasing.md",
+          "title": "SMAA (Better Anti-Aliasing)",
+          "lines": 13,
+          "sha256": "1a37d9f2c0bbd5a03cfa87c97eb8c3a181bd75413c4f4f47c56f6c1efdf1eda5"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/09-ssao-ambient-occlusion.md",
+          "title": "SSAO (Ambient Occlusion)",
+          "lines": 26,
+          "sha256": "6c2d51d3d2ecde6ea0e6bfe2399ed72b8daebb7993501e33687c6a13e735c8f0"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/10-depth-of-field-dof.md",
+          "title": "Depth of Field (DOF)",
+          "lines": 17,
+          "sha256": "32322ca6d3cca3414b6e0cf668f558b24c48fc174efa377f6783c678585dc1b5"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/11-film-grain.md",
+          "title": "Film Grain",
+          "lines": 15,
+          "sha256": "5ccc4b40503979878cdd84279ae754ed1368424b2ef284d3ec5ae17890e54a20"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/12-vignette.md",
+          "title": "Vignette",
+          "lines": 13,
+          "sha256": "273c97b6a69519a2804e08198e33c8b55aa8d037124803e573420d930f746fff"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/13-color-correction.md",
+          "title": "Color Correction",
+          "lines": 13,
+          "sha256": "764dfa7aea6e40315f35905c3ae93291a8158186130a6ab0ad37676c7b632943"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/14-gamma-correction.md",
+          "title": "Gamma Correction",
+          "lines": 9,
+          "sha256": "8eab02201efee7e7142801c5119c4b82162190c7ffd9197fc2227a234ee1a979"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/15-pixelation.md",
+          "title": "Pixelation",
+          "lines": 10,
+          "sha256": "d1b3cd273a4672cf254c53fe92ad8b79de232c05646f3af71f5f1c5b28751e64"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/16-glitch-effect.md",
+          "title": "Glitch Effect",
+          "lines": 11,
+          "sha256": "1cff042364c9c36c83d2766af0f2b8b27c0d59764f5aacbfb40dea4942957c5c"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/17-halftone.md",
+          "title": "Halftone",
+          "lines": 20,
+          "sha256": "a96b602fab42137c2b114402d127b22ad4bb2ddbd67e3eebed2b12ed7a8215d5"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/18-outline.md",
+          "title": "Outline",
+          "lines": 24,
+          "sha256": "e185f663ab41532be53de90b95abc89e6ee31f1b1ee4c9f760e37f18300dae04"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/19-custom-shaderpass.md",
+          "title": "Custom ShaderPass",
+          "lines": 106,
+          "sha256": "6f6637f01a95ad29f59e107712a478d8b117da74c5272e8fb92d56a420450fe2"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/20-combining-multiple-effects.md",
+          "title": "Combining Multiple Effects",
+          "lines": 43,
+          "sha256": "ebe7d2fa748732fa1eda1b07d8dfc5cee4efd9d23476e597eada0fc36f32f54b"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/21-render-to-texture.md",
+          "title": "Render to Texture",
+          "lines": 16,
+          "sha256": "bbd187e4346e8dfdf7ee18a06c7010a0166a6aff5ca76e590aa88842988e519c"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/22-multi-pass-rendering.md",
+          "title": "Multi-Pass Rendering",
+          "lines": 25,
+          "sha256": "9ebb8afa678d4e8cfab9d0b96ec0c70f0638bd62d61437bbdc711c59034d4fe6"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/23-webgpu-post-processing-three-js-r150.md",
+          "title": "WebGPU Post-Processing (Three.js r150+)",
+          "lines": 19,
+          "sha256": "764bebaed631d6eb77998fa1e51d3304e6a7bde294d1fc99d9ab59c4310eae6c"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/24-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 27,
+          "sha256": "6508578eddf518e873c5987ae7b6d03e4cb513e79b78fd512fc5c4c6b4ec830e"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/25-handle-resize.md",
+          "title": "Handle Resize",
+          "lines": 30,
+          "sha256": "1922e58da2c8d5dfb12130021a91734731d259a3096c26859b1cfd871c9b6aa3"
+        },
+        {
+          "path": "references/library/threejs-postprocessing/26-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "e483dc2cd1b7709b049ed5baf4f9cc5bc4efdd5b7b9127203502da08f7545dfe"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-shaders/SKILL.md",
+      "module": "threejs-shaders",
+      "source_sha256": "6702267bd3ee70d458b54078211db36b1c3738c3faa0570e88e33dceaf478a4d",
+      "adapted_sha256": "6702267bd3ee70d458b54078211db36b1c3738c3faa0570e88e33dceaf478a4d",
+      "index": "references/library/threejs-shaders/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-shaders/01-three-js-shaders.md",
+          "title": "Three.js Shaders",
+          "lines": 7,
+          "sha256": "043946432ee95dc8dc9344fb791f7a6c9f9379d4468cc3030965cad16448e497"
+        },
+        {
+          "path": "references/library/threejs-shaders/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 28,
+          "sha256": "763b43c6682d4deb78f584904bd4da5c486802d64d478399cab07ca0c1083657"
+        },
+        {
+          "path": "references/library/threejs-shaders/03-shadermaterial-vs-rawshadermaterial.md",
+          "title": "ShaderMaterial vs RawShaderMaterial",
+          "lines": 65,
+          "sha256": "4cb0676579653efd1e0f06ccb3d75f7498a24b85cce04fe4cd5db9619ecaa757"
+        },
+        {
+          "path": "references/library/threejs-shaders/04-uniforms.md",
+          "title": "Uniforms",
+          "lines": 68,
+          "sha256": "7dff2c01f5842420158e83b75ee2401ea1c4c0deef6a6f7587f0c420b10b383d"
+        },
+        {
+          "path": "references/library/threejs-shaders/05-varyings.md",
+          "title": "Varyings",
+          "lines": 32,
+          "sha256": "fb7281ebba494f65d778e453c1577ef3ba060027df7cb9375a7008abbfd6af52"
+        },
+        {
+          "path": "references/library/threejs-shaders/06-common-shader-patterns.md",
+          "title": "Common Shader Patterns",
+          "lines": 2,
+          "sha256": "5ee3d7728aacf26e3a40f6ec553ecf2f6dacc6378febaf32e86f6871fc7c87e0"
+        },
+        {
+          "path": "references/library/threejs-shaders/07-texture-sampling.md",
+          "title": "Texture Sampling",
+          "lines": 27,
+          "sha256": "e2e996f82853f9f009aa7e6af2b63eeaba6f4380558508cea59e7e0a3fcc26dc"
+        },
+        {
+          "path": "references/library/threejs-shaders/08-vertex-displacement.md",
+          "title": "Vertex Displacement",
+          "lines": 30,
+          "sha256": "6fbd2984fd8e16a7ce53188274fa00723841712040ea8be61b2e7acf005859c5"
+        },
+        {
+          "path": "references/library/threejs-shaders/09-fresnel-effect.md",
+          "title": "Fresnel Effect",
+          "lines": 32,
+          "sha256": "2816cfc7dd32e76b3855a713106f2b5242a68af5feaf02dcf917d31557d7d55c"
+        },
+        {
+          "path": "references/library/threejs-shaders/10-noise-based-effects.md",
+          "title": "Noise-Based Effects",
+          "lines": 27,
+          "sha256": "3d8cdc92a0cc1f34ea76ee5f9e9e216821c4732a01e56d63726041ee18c89eb8"
+        },
+        {
+          "path": "references/library/threejs-shaders/11-gradient.md",
+          "title": "Gradient",
+          "lines": 15,
+          "sha256": "b062d9d1e190407455e76946a204d224996eb2978da276aa75bc94ca8103fb1f"
+        },
+        {
+          "path": "references/library/threejs-shaders/12-rim-lighting.md",
+          "title": "Rim Lighting",
+          "lines": 33,
+          "sha256": "8680e7a812fa11b3167f67c206b2de41de88170e8abd75dd4986f1dfdac7026f"
+        },
+        {
+          "path": "references/library/threejs-shaders/13-dissolve-effect.md",
+          "title": "Dissolve Effect",
+          "lines": 22,
+          "sha256": "9e5134b16b0f03a8c8239945e68bbe744db4a2606fe4f0cea1f8cbdd62666ca0"
+        },
+        {
+          "path": "references/library/threejs-shaders/14-extending-built-in-materials.md",
+          "title": "Extending Built-in Materials",
+          "lines": 49,
+          "sha256": "6ae456c44b026de797ba8af53c34101b761c954c70caef8506fd82df22f37996"
+        },
+        {
+          "path": "references/library/threejs-shaders/15-glsl-built-in-functions.md",
+          "title": "GLSL Built-in Functions",
+          "lines": 55,
+          "sha256": "c1dc9caff6f5207f49ecc3ff2099b0596e33e61a753b66728db1e5d92fde0566"
+        },
+        {
+          "path": "references/library/threejs-shaders/16-common-material-properties.md",
+          "title": "Common Material Properties",
+          "lines": 38,
+          "sha256": "e2fb14caaeb3f8dbb358135869bb6c891c3e14dcc31f9bd74ea689976f786081"
+        },
+        {
+          "path": "references/library/threejs-shaders/17-shader-includes.md",
+          "title": "Shader Includes",
+          "lines": 35,
+          "sha256": "3875ea97329fc0fe565f9b3ac405cb9a6967abefda6525438b0d2caca1483bca"
+        },
+        {
+          "path": "references/library/threejs-shaders/18-instanced-shaders.md",
+          "title": "Instanced Shaders",
+          "lines": 25,
+          "sha256": "2da6ea5b59efd7b3003ad36a784eb569baed1a88b05166999d1fd9e86ec38a0d"
+        },
+        {
+          "path": "references/library/threejs-shaders/19-debugging-shaders.md",
+          "title": "Debugging Shaders",
+          "lines": 27,
+          "sha256": "3dd238e2adc9a560582411f7e9eb29852030ffdcd345e7c63755794781158a18"
+        },
+        {
+          "path": "references/library/threejs-shaders/20-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 20,
+          "sha256": "30802e14a1893f8b9607b86ce4a3419ccf8d9a08f4d3e887505dd800b548c4e3"
+        },
+        {
+          "path": "references/library/threejs-shaders/21-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "defe9755e0aef45a5d2ca3658f5d82b7da12e6e2db7a8fdeb098c5d7bd064f2f"
+        }
+      ]
+    },
+    {
+      "source": "framerlabs/skills/threejs-textures/SKILL.md",
+      "module": "threejs-textures",
+      "source_sha256": "2a90ce70931e9b172fa5b70c13fd12e7b6f1600482d3ba0c73d95570fe728b65",
+      "adapted_sha256": "2a90ce70931e9b172fa5b70c13fd12e7b6f1600482d3ba0c73d95570fe728b65",
+      "index": "references/library/threejs-textures/index.md",
+      "topics": [
+        {
+          "path": "references/library/threejs-textures/01-three-js-textures.md",
+          "title": "Three.js Textures",
+          "lines": 7,
+          "sha256": "a294f2f36b0c0fa57299717870a8978eb8f34bd7695637d2cb0710fe22112c07"
+        },
+        {
+          "path": "references/library/threejs-textures/02-quick-start.md",
+          "title": "Quick Start",
+          "lines": 15,
+          "sha256": "71b17ae6654681557b0ce3c16833011f2c9402f914c470fa1016475e2f2c36e8"
+        },
+        {
+          "path": "references/library/threejs-textures/03-texture-loading.md",
+          "title": "Texture Loading",
+          "lines": 37,
+          "sha256": "38003f3bc8bcf50de59c07fb02cdb39001bfa5a69970d7b3f3a74595292379e2"
+        },
+        {
+          "path": "references/library/threejs-textures/04-texture-configuration.md",
+          "title": "Texture Configuration",
+          "lines": 69,
+          "sha256": "2376db4aad34db84906676c451ee6b042b8b5eb4027161b3da414c5561820619"
+        },
+        {
+          "path": "references/library/threejs-textures/05-texture-types.md",
+          "title": "Texture Types",
+          "lines": 82,
+          "sha256": "0e23e0ad432bd7ade3537ba92b89ecc03664e45d20b973032f2347446c8168c1"
+        },
+        {
+          "path": "references/library/threejs-textures/06-cube-textures.md",
+          "title": "Cube Textures",
+          "lines": 43,
+          "sha256": "ee393d4e91998f92da8802d145dfb6b19d69bce36d9442c6b97b14904e3c90da"
+        },
+        {
+          "path": "references/library/threejs-textures/07-hdr-textures.md",
+          "title": "HDR Textures",
+          "lines": 36,
+          "sha256": "d525745a0966f0e4662bfbd64984a92973c7cc55727b5ada027b62f593057ab3"
+        },
+        {
+          "path": "references/library/threejs-textures/08-render-targets.md",
+          "title": "Render Targets",
+          "lines": 43,
+          "sha256": "468469d985ab63143234f3205113b712006f1662a38628bc7b3a33e6ab298837"
+        },
+        {
+          "path": "references/library/threejs-textures/09-cubecamera.md",
+          "title": "CubeCamera",
+          "lines": 26,
+          "sha256": "c52f6037382f176d558b1a26581546af2f26e6d243047e0a363571bdf07b290e"
+        },
+        {
+          "path": "references/library/threejs-textures/10-uv-mapping.md",
+          "title": "UV Mapping",
+          "lines": 58,
+          "sha256": "0ba953e4819c3cdf219e9e4cfd58f79855bca90e18edf7310de504b12a306869"
+        },
+        {
+          "path": "references/library/threejs-textures/11-texture-atlas.md",
+          "title": "Texture Atlas",
+          "lines": 20,
+          "sha256": "ff04a0af6b0d671b5492d8e2ce9bc62a30137e968ca5f9989bf721417e991f58"
+        },
+        {
+          "path": "references/library/threejs-textures/12-material-texture-maps.md",
+          "title": "Material Texture Maps",
+          "lines": 54,
+          "sha256": "92bd46b265084869c0127634282cd0be8ba2d310160e2c4ce5893c189de35a38"
+        },
+        {
+          "path": "references/library/threejs-textures/13-procedural-textures.md",
+          "title": "Procedural Textures",
+          "lines": 42,
+          "sha256": "61e8bdc3a68723871212a756aff8e1d0e7f37b635e829401d4dff672763caf21"
+        },
+        {
+          "path": "references/library/threejs-textures/14-texture-memory-management.md",
+          "title": "Texture Memory Management",
+          "lines": 72,
+          "sha256": "46c7ac4e3d5319bbcecbdce124a962c6a019abc4d06e168f5ae6395afebf513e"
+        },
+        {
+          "path": "references/library/threejs-textures/15-performance-tips.md",
+          "title": "Performance Tips",
+          "lines": 19,
+          "sha256": "dede028c28d0f1354cdbc3702d8b1069fb15ed0b30dddbb48092507120daacf4"
+        },
+        {
+          "path": "references/library/threejs-textures/16-see-also.md",
+          "title": "See Also",
+          "lines": 5,
+          "sha256": "3c6285f2ef4e6640455ea972928f8fb874cc8b5a746fc67c7f7e810d6db4c7da"
+        }
+      ]
+    },
+    {
+      "source": "gsap-skills/skills/gsap-core/SKILL.md",
+      "module": "gsap-core",
+      "source_sha256": "3887b47e050ab5afbe2a9a820f23d39fa02ab785e06a343be44c6f91d84d12b3",
+      "adapted_sha256": "3887b47e050ab5afbe2a9a820f23d39fa02ab785e06a343be44c6f91d84d12b3",
+      "index": "references/library/gsap-core/index.md",
+      "topics": [
+        {
+          "path": "references/library/gsap-core/01-gsap-core.md",
+          "title": "GSAP Core",
+          "lines": 8,
+          "sha256": "5372e3a9b46d29d9d5487bffb4bc76574f54552cd9746fc4efc1facd560c6486"
+        },
+        {
+          "path": "references/library/gsap-core/02-when-to-use-this-skill.md",
+          "title": "When to Use This Skill",
+          "lines": 8,
+          "sha256": "6e021bd5e3f9584c47ea8977cef4f5a6e225be6787a9f963a13112f64a2bc5d8"
+        },
+        {
+          "path": "references/library/gsap-core/03-when-to-use-gsap.md",
+          "title": "When to Use GSAP",
+          "lines": 29,
+          "sha256": "c241c951bbab38cebe1735f9a0261eadce14ba9dda2446be2cb72f0d2d649926"
+        },
+        {
+          "path": "references/library/gsap-core/04-core-tween-methods.md",
+          "title": "Core Tween Methods",
+          "lines": 9,
+          "sha256": "7ffaf2d6dddf1746d5ac92a8aca0ce0c91c252b3f1bdfa6ebb98f74c5487bacd"
+        },
+        {
+          "path": "references/library/gsap-core/05-common-vars.md",
+          "title": "Common vars",
+          "lines": 12,
+          "sha256": "04900fd98749f6ad3652230b4bf942bab2467f869931605b86abe13923ea5986"
+        },
+        {
+          "path": "references/library/gsap-core/06-transforms-and-css-properties.md",
+          "title": "Transforms and CSS properties",
+          "lines": 30,
+          "sha256": "0a2917b454109f54ef7fb4fbeec8fa07f1d53c2370f6555f828f97c7dc7ba6e9"
+        },
+        {
+          "path": "references/library/gsap-core/07-targets.md",
+          "title": "Targets",
+          "lines": 4,
+          "sha256": "b4d8501bd20b540a24d0f22021e683a649c201931b90566f1c1b513a8e125779"
+        },
+        {
+          "path": "references/library/gsap-core/08-stagger.md",
+          "title": "Stagger",
+          "lines": 15,
+          "sha256": "a33c224e42ac686a174939ec15c6889fc9a8696afae7723d171ee41d987997a8"
+        },
+        {
+          "path": "references/library/gsap-core/09-easing.md",
+          "title": "Easing",
+          "lines": 47,
+          "sha256": "b52f119a282d36ffee0916d3d70d8fee5efda3b9a3bbd41e0551ecc4eb6bd5a5"
+        },
+        {
+          "path": "references/library/gsap-core/10-returning-and-controlling-tweens.md",
+          "title": "Returning and Controlling Tweens",
+          "lines": 15,
+          "sha256": "71c88dfa6ef5b2db0a747bd698ec207b6ef6bc676300deee709dba3e32687680"
+        },
+        {
+          "path": "references/library/gsap-core/11-function-based-values.md",
+          "title": "Function-based values",
+          "lines": 10,
+          "sha256": "1c066a6a03d0d3a6c04dfd0834977d2785301977b199e678c52219d02ddf2f83"
+        },
+        {
+          "path": "references/library/gsap-core/12-relative-values.md",
+          "title": "Relative values",
+          "lines": 10,
+          "sha256": "4104eb2a0ce0e6bedcba5f3173b31deec3b40d066b932e2c890bc176c1432549"
+        },
+        {
+          "path": "references/library/gsap-core/13-defaults.md",
+          "title": "Defaults",
+          "lines": 8,
+          "sha256": "ae1a48f532b74512783122ce62b07b1035518ffb75febc387f760e822beb535f"
+        },
+        {
+          "path": "references/library/gsap-core/14-accessibility-and-responsive-gsap-matchmedia.md",
+          "title": "Accessibility and responsive (gsap.matchMedia())",
+          "lines": 33,
+          "sha256": "55d264c9c298728b6924d4691e8e13ee67b8270debf832e9d1507ed20168cfc4"
+        },
+        {
+          "path": "references/library/gsap-core/15-official-gsap-best-practices.md",
+          "title": "Official GSAP best practices",
+          "lines": 9,
+          "sha256": "649457ac9478d66aa6e756bee11b7e454e833e0f9e2da20b4604f5b568b902df"
+        },
+        {
+          "path": "references/library/gsap-core/16-do-not.md",
+          "title": "Do Not",
+          "lines": 7,
+          "sha256": "66687a9cceb0ab8ad0adf046cf013d2b69f8a9173a8cdcd2575601575a68dc26"
+        }
+      ]
+    },
+    {
+      "source": "gsap-skills/skills/gsap-frameworks/SKILL.md",
+      "module": "gsap-frameworks",
+      "source_sha256": "842d9d3659ec3ddc8abbdc524708f8facf81f468ac25d0577f48c759c4fa31e6",
+      "adapted_sha256": "842d9d3659ec3ddc8abbdc524708f8facf81f468ac25d0577f48c759c4fa31e6",
+      "index": "references/library/gsap-frameworks/index.md",
+      "topics": [
+        {
+          "path": "references/library/gsap-frameworks/01-gsap-with-vue-svelte-and-other-frameworks.md",
+          "title": "GSAP with Vue, Svelte, and Other Frameworks",
+          "lines": 8,
+          "sha256": "f6abab5b9cb9c830227c81b21145f6ae0d438856778336335dc1de888c35cf15"
+        },
+        {
+          "path": "references/library/gsap-frameworks/02-when-to-use-this-skill.md",
+          "title": "When to Use This Skill",
+          "lines": 6,
+          "sha256": "ed57768b893a9d34e18bfbc38d217c065e96ff649ae0f2fa4545c0cc82a682b4"
+        },
+        {
+          "path": "references/library/gsap-frameworks/03-principles-all-frameworks.md",
+          "title": "Principles (All Frameworks)",
+          "lines": 6,
+          "sha256": "9484bf5150572d930b37aecc70d9d88ffe5db67385daffdd5f3b7b5cbbb4cb52"
+        },
+        {
+          "path": "references/library/gsap-frameworks/04-vue-3-composition-api.md",
+          "title": "Vue 3 (Composition API)",
+          "lines": 37,
+          "sha256": "1b673d69c643a02bed591468651e04c240be9994aedda5e91c83e4cd43462166"
+        },
+        {
+          "path": "references/library/gsap-frameworks/05-vue-3-script-setup.md",
+          "title": "Vue 3 (script setup)",
+          "lines": 34,
+          "sha256": "1575903c4589518ff98f20411382fbf94083d5987dcf901d5859dea997ac66d8"
+        },
+        {
+          "path": "references/library/gsap-frameworks/06-nuxt-4.md",
+          "title": "Nuxt 4",
+          "lines": 111,
+          "sha256": "c82edc0fae3d9a3ddff6d487e88e0c3a31987bcf9a25cad152456b8525c78322"
+        },
+        {
+          "path": "references/library/gsap-frameworks/07-svelte.md",
+          "title": "Svelte",
+          "lines": 31,
+          "sha256": "9fe89f035331a426bf74e3cc3089dbea4cee27e941b179e472042016d9f0e935"
+        },
+        {
+          "path": "references/library/gsap-frameworks/08-scoping-selectors.md",
+          "title": "Scoping Selectors",
+          "lines": 7,
+          "sha256": "83dbe4caa64e6769f3c61ed4af865ceced9fee3ac6f41505980de2278f59534a"
+        },
+        {
+          "path": "references/library/gsap-frameworks/09-scrolltrigger-cleanup.md",
+          "title": "ScrollTrigger Cleanup",
+          "lines": 7,
+          "sha256": "256a1e8a164d738d8c58592e563d2023594b8684f0e045f4501eb971556590e0"
+        },
+        {
+          "path": "references/library/gsap-frameworks/10-when-to-create-vs-kill.md",
+          "title": "When to Create vs Kill",
+          "lines": 9,
+          "sha256": "3c47284aaeda309724a43367f7f9bc09c233023a217f3cc0ddc270adbb0dd98c"
+        },
+        {
+          "path": "references/library/gsap-frameworks/11-do-not.md",
+          "title": "Do Not",
+          "lines": 10,
+          "sha256": "22c00ced4d007116d1ec0e1daf5d49eb1c40348aaa0c6bb5ce30997d16a23dc6"
+        }
+      ]
+    },
+    {
+      "source": "gsap-skills/skills/gsap-performance/SKILL.md",
+      "module": "gsap-performance",
+      "source_sha256": "cb5408d6fba707aabcbfe3320317a14c1f8fca6070074e5261047930f50d441e",
+      "adapted_sha256": "cb5408d6fba707aabcbfe3320317a14c1f8fca6070074e5261047930f50d441e",
+      "index": "references/library/gsap-performance/index.md",
+      "topics": [
+        {
+          "path": "references/library/gsap-performance/01-gsap-performance.md",
+          "title": "GSAP Performance",
+          "lines": 8,
+          "sha256": "97f0d47ba4b2be1af32c1c25b91c643dc68207da9034d3c03d135695f3d51802"
+        },
+        {
+          "path": "references/library/gsap-performance/02-when-to-use-this-skill.md",
+          "title": "When to Use This Skill",
+          "lines": 6,
+          "sha256": "1dd77775cd83157ad616c88049cd87042111ef840c203d204ccb8a948e45ee20"
+        },
+        {
+          "path": "references/library/gsap-performance/03-prefer-transform-and-opacity.md",
+          "title": "Prefer Transform and Opacity",
+          "lines": 9,
+          "sha256": "305a0aaadca03b83c74d04ba18fe5b4b2313ed33d56094c0d2807f57589c5203"
+        },
+        {
+          "path": "references/library/gsap-performance/04-will-change.md",
+          "title": "will-change",
+          "lines": 8,
+          "sha256": "552ff9f127781e62c60cdcaa204dba045814b8dbd06359a28ba59de72d86475b"
+        },
+        {
+          "path": "references/library/gsap-performance/05-batch-reads-and-writes.md",
+          "title": "Batch Reads and Writes",
+          "lines": 4,
+          "sha256": "443e22b2a6d69999048feaa9bae33a14b9f6e941be76e61b106e3aa0a233ca9b"
+        },
+        {
+          "path": "references/library/gsap-performance/06-many-elements-stagger-lists.md",
+          "title": "Many Elements (Stagger, Lists)",
+          "lines": 6,
+          "sha256": "8a252a68f28ce4d1d3d3bfe23d9c9e07a79dd69d13f9daff9ad51bd1f107bd42"
+        },
+        {
+          "path": "references/library/gsap-performance/07-frequently-updated-properties-e-g-mouse-followers.md",
+          "title": "Frequently updated properties (e.g. mouse followers)",
+          "lines": 14,
+          "sha256": "758c473329fd0da1c32746c130f746b99da69c84e6de0650cfcf13550c066d58"
+        },
+        {
+          "path": "references/library/gsap-performance/08-scrolltrigger-and-performance.md",
+          "title": "ScrollTrigger and Performance",
+          "lines": 6,
+          "sha256": "ee5f65c1aed689bc25fb6af20c8a688ca8d86d8580d3b06002a121c13169e907"
+        },
+        {
+          "path": "references/library/gsap-performance/09-reduce-simultaneous-work.md",
+          "title": "Reduce Simultaneous Work",
+          "lines": 5,
+          "sha256": "dcc07c91cf3055af8889ebfcb8a329fc6fbdf5f580b167727d495c792b997764"
+        },
+        {
+          "path": "references/library/gsap-performance/10-best-practices.md",
+          "title": "Best practices",
+          "lines": 7,
+          "sha256": "af322ed716fe658229f83662845676d07d4e4c7aecb4f24bf53d96d07b829fea"
+        },
+        {
+          "path": "references/library/gsap-performance/11-do-not.md",
+          "title": "Do Not",
+          "lines": 6,
+          "sha256": "a9d6d5c504a27689750d8897748c12401f7b993ed0f5087fe3cd86526675b174"
+        }
+      ]
+    },
+    {
+      "source": "gsap-skills/skills/gsap-plugins/SKILL.md",
+      "module": "gsap-plugins",
+      "source_sha256": "5838b856c74c07fbc9fa99b6dfd1eee34ea554c3e530c30e0d58014b707d70a4",
+      "adapted_sha256": "5838b856c74c07fbc9fa99b6dfd1eee34ea554c3e530c30e0d58014b707d70a4",
+      "index": "references/library/gsap-plugins/index.md",
+      "topics": [
+        {
+          "path": "references/library/gsap-plugins/01-gsap-plugins.md",
+          "title": "GSAP Plugins",
+          "lines": 8,
+          "sha256": "dad0dc1b07e3186b39404783020d573557806933eb7264e62add130578b98ff9"
+        },
+        {
+          "path": "references/library/gsap-plugins/02-when-to-use-this-skill.md",
+          "title": "When to Use This Skill",
+          "lines": 6,
+          "sha256": "824623b46c68406e72edce520574b00d4851696a8260be7e65b20a0c7ffe7e7c"
+        },
+        {
+          "path": "references/library/gsap-plugins/03-licensing-install-important.md",
+          "title": "Licensing & Install (important)",
+          "lines": 7,
+          "sha256": "9ec7561e5eae8a87ce93fbb93550ec06ea991b9d64f209f7a4cffea6030a1fd6"
+        },
+        {
+          "path": "references/library/gsap-plugins/04-registering-plugins.md",
+          "title": "Registering Plugins",
+          "lines": 16,
+          "sha256": "d70a6b512e33a99ae3c119a32a335e460cea09af9a030f653d64a1b18234d145"
+        },
+        {
+          "path": "references/library/gsap-plugins/05-scroll.md",
+          "title": "Scroll",
+          "lines": 37,
+          "sha256": "a061a952b7420aaef2f4c0bf8a5680a86fad73d2babd978f01de5eb4d59ffa1f"
+        },
+        {
+          "path": "references/library/gsap-plugins/06-dom-ui.md",
+          "title": "DOM / UI",
+          "lines": 97,
+          "sha256": "683c8affece66b7cff6eef7d19cb7db11b85d61bd5a2685a5738a3b89b430be6"
+        },
+        {
+          "path": "references/library/gsap-plugins/07-text.md",
+          "title": "Text",
+          "lines": 63,
+          "sha256": "308a3833ecabce8217f43b4af7b530db5f9ea32aae0b20535a63bcea0f77c320"
+        },
+        {
+          "path": "references/library/gsap-plugins/08-svg.md",
+          "title": "SVG",
+          "lines": 102,
+          "sha256": "12d7eaae3e4b34620911d535a914d2e7e4fe6922f215ae354250e2aca29b63a3"
+        },
+        {
+          "path": "references/library/gsap-plugins/09-easing.md",
+          "title": "Easing",
+          "lines": 24,
+          "sha256": "09e7d9def830d1ad1d6fa3e298e14d182f4b1949060a06112dc53c607c2eafad"
+        },
+        {
+          "path": "references/library/gsap-plugins/10-physics.md",
+          "title": "Physics",
+          "lines": 35,
+          "sha256": "313174ff27ac4e204f17c257503146647adcb565171e0c8246b8e31561659e22"
+        },
+        {
+          "path": "references/library/gsap-plugins/11-development.md",
+          "title": "Development",
+          "lines": 11,
+          "sha256": "cd4061ade2c7efc3d5208ad5159a6b2917e6805a1ddfc283cccb1e1b65ae4bf7"
+        },
+        {
+          "path": "references/library/gsap-plugins/12-other.md",
+          "title": "Other",
+          "lines": 13,
+          "sha256": "cb00389427ead319831fff398b6b669c0d9bb5c4410e8cddd3b0dc3e3433d63d"
+        },
+        {
+          "path": "references/library/gsap-plugins/13-best-practices.md",
+          "title": "Best practices",
+          "lines": 6,
+          "sha256": "72310416297f1aef29a83d8ff530ffa401672dd025a5808229a56b34af39c41f"
+        },
+        {
+          "path": "references/library/gsap-plugins/14-do-not.md",
+          "title": "Do Not",
+          "lines": 8,
+          "sha256": "67dc81221ef1926e428f39b1e9de54d78cb1b4b5934e332e6212cd6f89680d3f"
+        }
+      ]
+    },
+    {
+      "source": "gsap-skills/skills/gsap-react/SKILL.md",
+      "module": "gsap-react",
+      "source_sha256": "3ef2ba783b087e732128cb8429ef34aafb20a64bcc88562b0ae36a65e7536821",
+      "adapted_sha256": "3ef2ba783b087e732128cb8429ef34aafb20a64bcc88562b0ae36a65e7536821",
+      "index": "references/library/gsap-react/index.md",
+      "topics": [
+        {
+          "path": "references/library/gsap-react/01-gsap-with-react.md",
+          "title": "GSAP with React",
+          "lines": 8,
+          "sha256": "d4837d6c87adb1aacebf1905e4dc79ef0dbd9508a277f96406e6c2d66968414f"
+        },
+        {
+          "path": "references/library/gsap-react/02-when-to-use-this-skill.md",
+          "title": "When to Use This Skill",
+          "lines": 6,
+          "sha256": "dc537ca0420e4804c2ca71512df8a6a8943051fc9c7fc6cb8ced408dc5aaf844"
+        },
+        {
+          "path": "references/library/gsap-react/03-installation.md",
+          "title": "Installation",
+          "lines": 9,
+          "sha256": "dd353e29b3a71c5e528646336789305e6cd258de560d5d5b7af80a085d1f2343"
+        },
+        {
+          "path": "references/library/gsap-react/04-prefer-the-usegsap-hook.md",
+          "title": "Prefer the useGSAP() Hook",
+          "lines": 21,
+          "sha256": "314c3799a98511bdd0ab4274ae737b02421662089602db8ffd1534126fffcc47"
+        },
+        {
+          "path": "references/library/gsap-react/05-refs-for-targets.md",
+          "title": "Refs for Targets",
+          "lines": 4,
+          "sha256": "ff038c6ae2f13228d6d91c49a532571037a4a87072105215af4eb9246931cf5f"
+        },
+        {
+          "path": "references/library/gsap-react/06-dependency-array-scope-and-revertonupdate.md",
+          "title": "Dependency array, scope, and revertOnUpdate",
+          "lines": 14,
+          "sha256": "a2110a2391722a8ed864524b98c8388790645ba57425b7546a080bfbb2bd87a6"
+        },
+        {
+          "path": "references/library/gsap-react/07-gsap-context-in-useeffect-when-usegsap-isn-t-used.md",
+          "title": "gsap.context() in useEffect (when useGSAP isn't used)",
+          "lines": 17,
+          "sha256": "0d6271dde0976f4b9803496942f031c4d1f75fd0a3d5ac457930381ef83018f1"
+        },
+        {
+          "path": "references/library/gsap-react/08-context-safe-callbacks.md",
+          "title": "Context-Safe Callbacks",
+          "lines": 33,
+          "sha256": "393a77c010faae22351c54e0bf470cce8ba177290bf1dab4dae421d40101ab6d"
+        },
+        {
+          "path": "references/library/gsap-react/09-server-side-rendering-next-js-etc.md",
+          "title": "Server-Side Rendering (Next.js, etc.)",
+          "lines": 7,
+          "sha256": "38b46ef3cfea130104b2d20fced21d031f23e288ac513530b84ea8dd2dfae014"
+        },
+        {
+          "path": "references/library/gsap-react/10-best-practices.md",
+          "title": "Best practices",
+          "lines": 6,
+          "sha256": "5a57bc17c6200257f627c8882a5fe0d4938c674fc35219df8ec5fceac7cd37f7"
+        },
+        {
+          "path": "references/library/gsap-react/11-do-not.md",
+          "title": "Do Not",
+          "lines": 11,
+          "sha256": "0cd8d966398be920dc9d708d63cf4ad3c7670ae03967e2ff22f93c1ac66eb17b"
+        }
+      ]
+    },
+    {
+      "source": "gsap-skills/skills/gsap-scrolltrigger/SKILL.md",
+      "module": "gsap-scrolltrigger",
+      "source_sha256": "223205b4b2f94376a73853fbee575fbf29bd303ef03c15fe952f564daaeee02f",
+      "adapted_sha256": "223205b4b2f94376a73853fbee575fbf29bd303ef03c15fe952f564daaeee02f",
+      "index": "references/library/gsap-scrolltrigger/index.md",
+      "topics": [
+        {
+          "path": "references/library/gsap-scrolltrigger/01-gsap-scrolltrigger.md",
+          "title": "GSAP ScrollTrigger",
+          "lines": 8,
+          "sha256": "be8938be81f3d38c68700ecaa786655626f88c70573556b5e7774d99c1843b85"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/02-when-to-use-this-skill.md",
+          "title": "When to Use This Skill",
+          "lines": 6,
+          "sha256": "683f237e7f41c0e14f0b7d9e15009bf73ddd1f0f7a51d8bcf180cd69a59ff8ca"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/03-registering-the-plugin.md",
+          "title": "Registering the Plugin",
+          "lines": 8,
+          "sha256": "95e0614cc5ed9658ac1e8696ee74c742c00aae98724b8152fb9f438c7424d69c"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/04-basic-trigger.md",
+          "title": "Basic Trigger",
+          "lines": 19,
+          "sha256": "2795a6ca5e4974db7d40d59357e958961d67fa2f14d0bc0436fd2a57dbffd8d5"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/05-key-config-options.md",
+          "title": "Key config options",
+          "lines": 37,
+          "sha256": "4e8b603a5351706d63946769ec250cbde0a5b00490dc7e11fa02b5bb66da0b79"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/06-scrolltrigger-batch.md",
+          "title": "ScrollTrigger.batch()",
+          "lines": 41,
+          "sha256": "197fb7156edf001529725e6791065272a907d91681706c180f218cde36aacfd2"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/07-scrolltrigger-scrollerproxy.md",
+          "title": "ScrollTrigger.scrollerProxy()",
+          "lines": 31,
+          "sha256": "390389808418cc61e88858c232683b13732e825223d72a916ce9bb410b340159"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/08-scrub.md",
+          "title": "Scrub",
+          "lines": 18,
+          "sha256": "83e60dae3aeb22ae2dcc0ec65a090d7fc0e454b9dc33d551699498b4985dbcce"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/09-pinning.md",
+          "title": "Pinning",
+          "lines": 17,
+          "sha256": "0d022a97cb3226c16a684b492c4af0c590d884e0d0084de58e7aa5ef3d0d4571"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/10-markers-development.md",
+          "title": "Markers (Development)",
+          "lines": 15,
+          "sha256": "9664d1dcf86aad72b08a1f163b20aa58494f08d3170a4d8fa6ddc02e45648781"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/11-timeline-scrolltrigger.md",
+          "title": "Timeline + ScrollTrigger",
+          "lines": 19,
+          "sha256": "36e95ff3c9d0155d34030641be4fe7871937563479dd786a905e62170e8bf26f"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/12-horizontal-scroll-containeranimation.md",
+          "title": "Horizontal scroll (containerAnimation)",
+          "lines": 39,
+          "sha256": "96eb035738ef1f56cdb3699932e804a7e4093c9a4f3fcc549ccbe1eeabf6836d"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/13-refresh-and-cleanup.md",
+          "title": "Refresh and Cleanup",
+          "lines": 13,
+          "sha256": "8ce96f81b33a111075745e98cbfc7544ca5697feb645f6319a63fb08696e4df5"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/14-official-gsap-best-practices.md",
+          "title": "Official GSAP best practices",
+          "lines": 9,
+          "sha256": "e543c3ac454a14906d31683deae9c616d232a65b01b358ab64bd24f83490221c"
+        },
+        {
+          "path": "references/library/gsap-scrolltrigger/15-do-not.md",
+          "title": "Do Not",
+          "lines": 15,
+          "sha256": "8d433555ee2e3d033541f62aac5e9c472d0a2f525ec9c8a5e0c0c98936ff0d6e"
+        }
+      ]
+    },
+    {
+      "source": "gsap-skills/skills/gsap-timeline/SKILL.md",
+      "module": "gsap-timeline",
+      "source_sha256": "1a8b0f39cc4be3ed3d834b89672e4ae2f151b901dc3450bebf10bbc45379fe02",
+      "adapted_sha256": "1a8b0f39cc4be3ed3d834b89672e4ae2f151b901dc3450bebf10bbc45379fe02",
+      "index": "references/library/gsap-timeline/index.md",
+      "topics": [
+        {
+          "path": "references/library/gsap-timeline/01-gsap-timeline.md",
+          "title": "GSAP Timeline",
+          "lines": 8,
+          "sha256": "54609172dea973a3ee1d57fe982b40a699766ab7414c17e7fdd417cb2c38a768"
+        },
+        {
+          "path": "references/library/gsap-timeline/02-when-to-use-this-skill.md",
+          "title": "When to Use This Skill",
+          "lines": 6,
+          "sha256": "80ea0d34eda59bd1fccd071905ab040f7062d792a1279ea7f7a35b115a26a30c"
+        },
+        {
+          "path": "references/library/gsap-timeline/03-creating-a-timeline.md",
+          "title": "Creating a Timeline",
+          "lines": 11,
+          "sha256": "2a1f8ad2ea229edd92f17a729260895d8c5c9190fc9db02633771692eee4dc98"
+        },
+        {
+          "path": "references/library/gsap-timeline/04-position-parameter.md",
+          "title": "Position Parameter",
+          "lines": 18,
+          "sha256": "95d859ca6b1970c41d6fa2d7876b4bac33964d26cbb07fa8c75713cc6ad85726"
+        },
+        {
+          "path": "references/library/gsap-timeline/05-timeline-defaults.md",
+          "title": "Timeline Defaults",
+          "lines": 9,
+          "sha256": "920e077665c215065eb241ce8e8dda89003c1c7bb531f00282849ae54081f481"
+        },
+        {
+          "path": "references/library/gsap-timeline/06-timeline-options-constructor.md",
+          "title": "Timeline Options (constructor)",
+          "lines": 7,
+          "sha256": "76ce28f30590485297d43810439b2a77e60b47e145b80028cd64de132fec4faf"
+        },
+        {
+          "path": "references/library/gsap-timeline/07-labels.md",
+          "title": "Labels",
+          "lines": 13,
+          "sha256": "43c6b9813f095bd3fdcbf3690a783b3cba3646401e0347dd518ef855f32771b8"
+        },
+        {
+          "path": "references/library/gsap-timeline/08-nesting-timelines.md",
+          "title": "Nesting Timelines",
+          "lines": 12,
+          "sha256": "379014e4815c147f56e467d9311fd4f6d5a3d7de088970aed69458e6a6839c90"
+        },
+        {
+          "path": "references/library/gsap-timeline/09-controlling-playback.md",
+          "title": "Controlling Playback",
+          "lines": 9,
+          "sha256": "5dd5908705ef68717af184cb124d73862479028bf3525135b2035e1bd4f0e502"
+        },
+        {
+          "path": "references/library/gsap-timeline/10-official-gsap-best-practices.md",
+          "title": "Official GSAP Best practices",
+          "lines": 8,
+          "sha256": "e67a676a7c83de1842c39a627154d80e8ca7f8ffbfcd8c28201ae5c85d94ee89"
+        },
+        {
+          "path": "references/library/gsap-timeline/11-do-not.md",
+          "title": "Do Not",
+          "lines": 6,
+          "sha256": "a4609539e4e014d188083a4b71e50301b25d1ebbad5d8d816ea55048edbf0c8f"
+        }
+      ]
+    },
+    {
+      "source": "gsap-skills/skills/gsap-utils/SKILL.md",
+      "module": "gsap-utils",
+      "source_sha256": "1927bcc4ea95b38203404ad5ea1d060b15c4a886c65ae53e885ff1793aabe0ba",
+      "adapted_sha256": "1927bcc4ea95b38203404ad5ea1d060b15c4a886c65ae53e885ff1793aabe0ba",
+      "index": "references/library/gsap-utils/index.md",
+      "topics": [
+        {
+          "path": "references/library/gsap-utils/01-gsap-utils.md",
+          "title": "gsap.utils",
+          "lines": 8,
+          "sha256": "8eabb70270deabb2bb38b9b5e679cbb038f1f770de4bf263b9c7fd82c1036bfe"
+        },
+        {
+          "path": "references/library/gsap-utils/02-when-to-use-this-skill.md",
+          "title": "When to Use This Skill",
+          "lines": 6,
+          "sha256": "8a5ed13839148b14950ffe1e2dba0bd86aa7a2923dada4f74d2e43be1d4fd18f"
+        },
+        {
+          "path": "references/library/gsap-utils/03-overview.md",
+          "title": "Overview",
+          "lines": 16,
+          "sha256": "7a914803dedf1fa50f60a5f5176f0d256def7821f948b1e24ae97bb86b01bd3b"
+        },
+        {
+          "path": "references/library/gsap-utils/04-clamping-and-ranges.md",
+          "title": "Clamping and Ranges",
+          "lines": 51,
+          "sha256": "6de9223461991a3ecf71d6419653ce09169c5e3477ccf340a59e96e4dbf0b5ed"
+        },
+        {
+          "path": "references/library/gsap-utils/05-random-and-snap.md",
+          "title": "Random and Snap",
+          "lines": 100,
+          "sha256": "6d13c97a3323b9cb1aad6d1b0e2183aa8cbc8937f8ef5b92a7e60a7b9c1fa433"
+        },
+        {
+          "path": "references/library/gsap-utils/06-units-and-parsing.md",
+          "title": "Units and Parsing",
+          "lines": 32,
+          "sha256": "e851c837f5080eec0c85e68600ef590bcbdc13638d42f233e4b3ba57ea2db2d7"
+        },
+        {
+          "path": "references/library/gsap-utils/07-arrays-and-collections.md",
+          "title": "Arrays and Collections",
+          "lines": 57,
+          "sha256": "71029751d3b74f7115748d09ff4a44b37df2a0df2760d1cfcb52cfea780dd854"
+        },
+        {
+          "path": "references/library/gsap-utils/08-best-practices.md",
+          "title": "Best practices",
+          "lines": 6,
+          "sha256": "03b02136c0859eb80c5bbef2e673fee3dd37b9d4d50d42f3e2f3a05741c8bc68"
+        },
+        {
+          "path": "references/library/gsap-utils/09-do-not.md",
+          "title": "Do Not",
+          "lines": 8,
+          "sha256": "91c784c91278e02aca40901d751cbcbefa33ac662f3a8016abdc3ccb80d3dcda"
+        }
+      ]
+    }
+  ]
+}
