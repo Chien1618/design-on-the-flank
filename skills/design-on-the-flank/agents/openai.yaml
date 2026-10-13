@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design on the Flank"
+  short_description: "Paste-ready Framer components with visual controls"
+  default_prompt: "Use $design-on-the-flank to create one complete Framer TSX component with working Property Controls and simple copy-and-paste instructions."

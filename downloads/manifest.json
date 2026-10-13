@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "files": {
+    "FlankCard.tsx": {
+      "bytes": 2662,
+      "sha256": "ff263a5d1cbb8f35729d477ba21a796ba83b96ca0dcc0d795becf30cb54dff11"
+    },
+    "chatgpt-instructions.txt": {
+      "bytes": 1586,
+      "sha256": "2f633b8061e5c00e0870a6bca1d6297e99b8086eadcb6733db5301ec30611322"
+    },
+    "design-on-the-flank-knowledge.txt": {
+      "bytes": 16721,
+      "sha256": "aa40c7678f116d87c7742459e87c0d53b6742960166d092db391e47e573e867c"
+    },
+    "design-on-the-flank-skill.zip": {
+      "bytes": 9278,
+      "sha256": "8e1bd0a9c56c15caff4c0c772b119ea5705a01dc53b894dec6380e6f8d11aeca"
+    }
+  }
+}
