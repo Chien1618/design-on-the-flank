@@ -1,26 +1,54 @@
-# Dùng với Codex
+# Cài vào Codex rồi tạo component đầu tiên
 
-## Cài bằng một tin nhắn
+## 1. Mở Codex
 
-1. Mở Codex và một cuộc trò chuyện có thể làm việc với file.
-2. Sao chép toàn bộ lời nhắn dưới đây và gửi cho Codex.
-3. Nếu ứng dụng hỏi quyền tải hoặc ghi file, đọc nội dung và cho phép nếu đúng việc cài skill này.
+Mở một cuộc trò chuyện mới. Nếu Codex yêu cầu chọn thư mục làm việc, tạo một thư mục trống tên **Framer** trên máy rồi chọn thư mục đó.
 
-> Hãy cài skill Design on the Flank từ https://github.com/Chien1618/design-on-the-flank/tree/main/skills/design-on-the-flank bằng trình cài skill có sẵn. Nếu đã có phiên bản cũ, cho tôi biết trước khi thay thế. Sau khi cài, kiểm tra SKILL.md và các tài liệu đi kèm có đầy đủ rồi hướng dẫn tôi sử dụng bằng tiếng Việt. Tôi không biết code; hãy tự thực hiện các thao tác cài đặt mà công cụ của bạn cho phép.
+## 2. Gửi tin nhắn này
 
-4. Sau khi Codex báo cài thành công, gửi một tin nhắn mới. Nếu skill chưa được nhận diện, mở cuộc trò chuyện mới hoặc khởi động lại ứng dụng.
-5. Gửi: **“Dùng $design-on-the-flank tạo một thẻ giới thiệu Framer có chữ và màu chỉnh được.”**
+```text
+Cài giúp tôi skill Design on the Flank từ link này:
+https://github.com/Chien1618/design-on-the-flank/tree/main/skills/design-on-the-flank
 
-Chỉ coi là đã cài khi Codex xác nhận đã ghi và đọc được file skill. Một câu trả lời “đã hiểu” chưa đủ.
+Cài xong hãy báo cho tôi. Nếu không cài được, nói rõ tôi cần làm gì tiếp theo.
+```
 
-## Nếu Codex không tải hoặc cài được
+Nếu Codex hỏi quyền tải và lưu các file của skill này, bạn có thể cho phép để tiếp tục cài. Chờ Codex báo đã cài xong.
 
-Dùng [cách đính kèm tài liệu](bat-dau.md#thu-nhanh). Cách này áp dụng hướng dẫn trong cuộc trò chuyện hiện tại. Tùy môi trường Codex, quyền cài skill có thể khác nhau.
+## 3. Nói bạn muốn tạo gì
 
-## Khi cập nhật
+Ví dụ, gửi:
 
-Yêu cầu Codex kiểm tra phiên bản hiện tại và so sánh với bản mới trong repository, sao lưu phần bạn đã tự chỉnh, rồi cập nhật khi bạn đồng ý. Bản cài không tự đồng bộ với website.
+```text
+Dùng Design on the Flank tạo một thẻ giới thiệu cho Framer.
+Thẻ có tiêu đề, mô tả và nền màu kem. Tôi muốn chỉnh chữ, màu và bo góc trong Framer.
+Trả toàn bộ code để tôi sao chép một lần, rồi chỉ tôi cách dán vào Framer.
+```
 
-Tiếp theo: [Đưa code vào Framer](dua-vao-framer.md).
+Bạn có thể thay “thẻ giới thiệu” bằng một nút, phần hỏi đáp hoặc ý tưởng khác. Gửi thêm ảnh nếu muốn AI dựa theo một mẫu.
 
-Tham khảo: [trình cài skill chính thức của Codex](https://github.com/openai/codex/blob/main/codex-rs/skills/src/assets/samples/skill-installer/SKILL.md). Gói này chưa được thử cài trong một phiên Codex sạch; xem [trạng thái kiểm tra](../validation.md).
+## 4. Sao chép code vào Framer
+
+Bấm **Copy** ở khung code. Nếu Codex chỉ đưa một file, gửi thêm:
+
+```text
+Hiện toàn bộ code trong một khung ở đây để tôi bấm Copy.
+```
+
+Sau đó làm theo [cách dán vào Framer](dua-vao-framer.md).
+
+## Nếu Codex không nhận ra skill vừa cài
+
+Mở cuộc trò chuyện mới và gửi lại yêu cầu ở bước 3. Nếu vẫn không được, gửi thông báo lỗi cho Codex để kiểm tra.
+
+## Nếu Codex không cài được
+
+[Tải tài liệu này](https://github.com/Chien1618/design-on-the-flank/raw/refs/heads/main/downloads/design-on-the-flank-knowledge.txt), đính kèm vào chat hoặc lưu vào thư mục Framer để Codex đọc. Gửi:
+
+```text
+Đọc file design-on-the-flank-knowledge.txt tôi vừa cung cấp và dùng hướng dẫn trong đó để tạo component Framer cho tôi.
+```
+
+Nếu nút tải mở ra một trang chữ, sao chép toàn bộ nội dung trang và dán vào chat. Sau đó gửi yêu cầu ở bước 3. Cách này dùng tài liệu trong cuộc trò chuyện hiện tại.
+
+[Các câu yêu cầu khác để thử](prompt-mau.md) · [Quay lại trang chính](../../README.md)

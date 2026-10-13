@@ -1,73 +1,77 @@
 ---
 slug: design-on-the-flank
-title: Design on the Flank — Tạo component Framer bằng AI
-description: Mô tả ý tưởng, nhận code hoàn chỉnh và sao chép vào Framer. Có hướng dẫn cho ChatGPT, Claude và Codex, dành cho người không biết code.
+title: Tạo component Framer với Codex hoặc ChatGPT
+description: Chọn ứng dụng bạn đang dùng, gửi yêu cầu và sao chép code vào Framer. Có hướng dẫn từng bước từ lúc cài đến lúc chỉnh component trên trang.
 ---
 
-# Ý tưởng của bạn. Component Framer của bạn.
+# Bạn muốn thêm gì vào website Framer?
 
-Mô tả thứ bạn muốn tạo. Để AI viết một file code hoàn chỉnh. Sao chép vào Framer, rồi chỉnh chữ, màu sắc và các thiết lập ngay trên giao diện.
+Một nút bấm, thẻ giới thiệu hay phần câu hỏi mở ra khi bấm? Bạn có thể nhờ Codex hoặc ChatGPT viết code, sau đó sao chép vào Framer để dùng.
 
-**Không cần biết code để bắt đầu.**
+Design on the Flank là tài liệu hướng dẫn AI làm việc đó. Chọn ứng dụng bạn đang dùng để bắt đầu.
 
-Nút chính: **Chọn AI của bạn**
+## Tôi dùng Codex
 
-Nút phụ: **Xem cách đưa vào Framer**
+Mở Codex và gửi tin nhắn này:
 
-## Bạn đang dùng AI nào?
+```text
+Cài giúp tôi skill Design on the Flank từ link này:
+https://github.com/Chien1618/design-on-the-flank/tree/main/skills/design-on-the-flank
 
-### ChatGPT
+Cài xong hãy báo cho tôi. Nếu không cài được, nói rõ tôi cần làm gì tiếp theo.
+```
 
-Tạo một Project, thêm hướng dẫn và tài liệu. Sau đó mô tả component bạn muốn tạo.
+Khi Codex báo đã cài xong, gửi tiếp:
 
-Nút: **Thiết lập cho ChatGPT**
+```text
+Dùng Design on the Flank tạo một thẻ giới thiệu cho Framer.
+Thẻ có tiêu đề, mô tả và nền màu kem. Tôi muốn chỉnh chữ, màu và bo góc trong Framer.
+Trả toàn bộ code để tôi sao chép một lần, rồi chỉ tôi cách dán vào Framer.
+```
 
-### Claude
+[Bấm đây nếu Codex không cài được](../docs/vi/codex.md).
 
-Tải gói skill, thêm vào Claude và bắt đầu tạo component. Có cách dùng bằng tài liệu nếu tài khoản chưa có Skills.
+## Tôi dùng ChatGPT
 
-Nút: **Thiết lập cho Claude**
+1. [Tải tài liệu](../downloads/design-on-the-flank-knowledge.txt).
+2. Mở một cuộc trò chuyện mới trong ChatGPT và đính kèm file vừa tải.
+3. Gửi tin nhắn này:
 
-### Codex
+```text
+Đọc tài liệu tôi đính kèm và dùng nó để tạo component Framer trong cuộc trò chuyện này.
 
-Sao chép một tin nhắn để nhờ Codex cài bộ hướng dẫn. Codex có thể tạo file code trực tiếp cho bạn.
+Tạo cho tôi một thẻ giới thiệu có tiêu đề, mô tả và nền màu kem. Tôi muốn chỉnh chữ, màu và bo góc trong Framer.
+Trả toàn bộ code để tôi sao chép một lần, rồi chỉ tôi cách dán vào Framer.
+```
 
-Nút: **Thiết lập cho Codex**
+Tiếp tục nhờ sửa hoặc tạo thêm trong cùng chat. Nếu mở chat mới, gửi lại tài liệu. [Xem hướng dẫn có hình thức lưu tài liệu trong Project](../docs/vi/chatgpt.md).
 
-### Claude Code
+## Có code rồi thì làm gì?
 
-Nhờ Claude Code cài skill bằng tin nhắn có sẵn. Mọi yêu cầu component sau đó đều có cùng quy tắc đầu ra.
+1. Bấm **Copy** ở khung code AI trả về.
+2. Mở Framer → **Assets** → **Code** → **Create Code File**.
+3. Đặt tên file. Chọn toàn bộ code mẫu và thay bằng code vừa sao chép.
+4. Kéo component vừa tạo từ Assets vào trang.
+5. Chọn component để chỉnh chữ, màu và các thiết lập ở bảng bên phải. Mở **Preview** để thử.
 
-Nút: **Thiết lập cho Claude Code**
+[Nếu cần hướng dẫn chi tiết, xem tại đây](../docs/vi/dua-vao-framer.md).
 
-## Từ mô tả đến component trong ba bước
+Bạn có thể thay “thẻ giới thiệu” bằng thứ mình cần, hoặc gửi thêm một ảnh tham khảo cho AI.
 
-1. **Nói điều bạn muốn.** Ví dụ: “Một danh sách câu hỏi bấm vào sẽ mở câu trả lời, có màu và chữ chỉnh được.”
-2. **Nhận toàn bộ code.** AI trả một file đầy đủ, kèm chỉ dẫn ngắn nếu cần ảnh hoặc dữ liệu.
-3. **Dán vào Framer và tùy chỉnh.** Chọn component, chỉnh các mục trong bảng bên phải và mở Preview để thử.
+## Nếu Framer báo lỗi
 
-## Điều gì làm bộ hướng dẫn này hữu ích?
+Chụp lại lỗi và gửi vào cuộc trò chuyện đang làm:
 
-- Một file code hoàn chỉnh để sao chép một lần.
-- Các thiết lập được nối với giao diện và hành vi của component.
-- Nội dung mặc định để dùng thử ngay khi thêm vào trang.
-- Quy tắc giữ các thiết lập đang có khi bạn yêu cầu sửa.
-- Prompt và hướng dẫn sửa lỗi dành cho người không biết code.
+```text
+Tôi dán code vào Framer và gặp lỗi này. Hãy sửa rồi gửi lại toàn bộ code để tôi thay một lần. Giữ nguyên những phần khác.
+```
 
-## Bắt đầu bằng một câu đơn giản
+Mở lại file code cũ trong Framer để thay nội dung. Giữ một bản sao trước khi thay để có thể quay lại.
 
-> Dùng Design on the Flank. Tạo một thẻ giới thiệu Framer có tiêu đề, mô tả, màu nền và bo góc chỉnh được. Trả một file TSX hoàn chỉnh và hướng dẫn mình dán vào Framer. Mình không biết code.
+---
 
-Nút: **Sao chép prompt**
+Dùng [Claude](../docs/vi/claude.md) hoặc [Claude Code](../docs/vi/claude-code.md)? Có hướng dẫn riêng cho bạn.
 
-## Nếu kết quả chưa đúng thì sao?
+[Thêm câu yêu cầu mẫu](../docs/vi/prompt-mau.md) · [Câu hỏi thường gặp](../docs/vi/faq.md)
 
-Gửi ảnh hoặc thông báo lỗi cùng code hiện tại cho AI. Dùng tin nhắn mẫu để yêu cầu bản sửa đầy đủ. Bạn không phải tự tìm và sửa từng dòng.
-
-Nút: **Xem hướng dẫn sửa lỗi**
-
-## Một lưu ý trước khi bắt đầu
-
-Đây là bản thử nghiệm. Bộ hướng dẫn giúp AI tạo code theo cùng một tiêu chuẩn; kết quả vẫn cần được thử trong Framer. Một số chức năng nâng cao cần tài nguyên hoặc dịch vụ bổ sung. Tính năng có sẵn tùy ứng dụng và tài khoản AI.
-
-Liên kết cuối trang: **Bắt đầu · Prompt mẫu · Câu hỏi thường gặp · Phiên bản · Quyền sử dụng**
+Bản 0.1.0 đang thử nghiệm. Code AI tạo ra vẫn cần được kiểm tra trong Framer.

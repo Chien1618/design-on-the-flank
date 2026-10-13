@@ -17,7 +17,7 @@
 | `/help` | `docs/vi/go-loi.md` |
 | `/faq` | `docs/vi/faq.md` |
 
-Chuyển liên kết Markdown tương đối sang các đường dẫn web ở bảng này. Các liên kết đến `docs/validation.md`, `LICENSE.md`, `CHANGELOG.md` có thể trỏ về GitHub hoặc các trang phụ tương ứng trên web. Giữ nguyên liên kết tài liệu chính thức.
+Chuyển liên kết Markdown tương đối sang các đường dẫn web ở bảng này. Trên website, thay các link tải GitHub trong tài liệu bằng URL file đã upload để người dùng bấm tải trực tiếp. Các liên kết đến `docs/validation.md`, `LICENSE.md`, `CHANGELOG.md` có thể trỏ về GitHub hoặc các trang phụ tương ứng trên web. Giữ nguyên liên kết tài liệu chính thức.
 
 ## Nút tải xuống
 
@@ -26,7 +26,7 @@ Upload các file trong `downloads/` vào kho file của website rồi gắn nút
 | Nút | File |
 |---|---|
 | Tải skill cho Claude | `design-on-the-flank-skill.zip` |
-| Sao chép hướng dẫn ChatGPT | Nội dung `chatgpt-instructions.txt` |
+| Hướng dẫn lưu trong ChatGPT Project (tùy chọn) | Nội dung `chatgpt-instructions.txt` |
 | Tải tài liệu ChatGPT | `design-on-the-flank-knowledge.txt` |
 | Thử nhanh bằng tài liệu | `design-on-the-flank-knowledge.txt` |
 | Tải component ví dụ | `FlankCard.tsx` |
@@ -35,9 +35,9 @@ Nếu muốn liên kết tải trực tiếp từ GitHub, dùng URL raw thực c
 
 ## Gợi ý trình bày
 
-- Cho chọn ứng dụng trước khi hiển thị cách cài.
+- Cho chọn Codex hoặc ChatGPT trước khi hiển thị các bước; để đường dẫn Claude/Claude Code bên dưới.
 - Đặt nút Copy cạnh từng prompt; hiện thông báo “Đã sao chép” khi thành công.
-- Với ChatGPT, chia rõ “Dán instructions” và “Upload tài liệu”.
+- Với ChatGPT, mặc định chỉ hiện tải một tài liệu và đính kèm vào chat. Để cách tạo Project trong phần tùy chọn “Muốn dùng thường xuyên?”.
 - Với Claude, ghi “Giữ nguyên file ZIP, không giải nén”.
 - Có đường lui “Không thấy mục này?” dẫn đến cách dùng một file trong chat.
 - Hiện phiên bản và trạng thái thử nghiệm; không ghi “đã kiểm thử trên mọi AI”.

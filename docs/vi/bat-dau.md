@@ -1,43 +1,23 @@
-# Bắt đầu với Design on the Flank
+# Bạn đang dùng ứng dụng nào?
 
-Bạn mô tả thứ mình muốn tạo. AI viết code. Bạn sao chép code vào Framer rồi chỉnh chữ, màu sắc và các thiết lập như chỉnh một component thông thường.
+- **[Codex →](codex.md)** Sao chép một tin nhắn để nhờ Codex cài, sau đó nói bạn muốn tạo gì.
+- **[ChatGPT →](chatgpt.md)** Gửi một file tài liệu vào chat, rồi mô tả thứ bạn muốn tạo.
+- **[Claude →](claude.md)** Tải file ZIP và thêm vào mục Skills của Claude.
+- **[Claude Code →](claude-code.md)** Gửi tin nhắn cài đặt cho Claude Code.
 
-**Bạn không cần học lập trình hoặc gõ lệnh.** Bạn cần một tài khoản AI và một dự án Framer có thể chỉnh sửa code. Một số tính năng AI phụ thuộc tài khoản hoặc cài đặt của tổ chức.
+Nếu chỉ dùng Claude để trò chuyện, chọn **Claude**.
 
-## 1. Chọn ứng dụng của bạn
-
-- Dùng **ChatGPT**: [làm theo hướng dẫn ChatGPT](chatgpt.md).
-- Dùng **Claude** để trò chuyện: [làm theo hướng dẫn Claude](claude.md).
-- Dùng ứng dụng **Codex**: [làm theo hướng dẫn Codex](codex.md).
-- Dùng **Claude Code** để làm việc với file: [làm theo hướng dẫn Claude Code](claude-code.md).
-
-Nếu chưa phân biệt được Claude và Claude Code: nếu bạn thường mở Claude rồi trò chuyện, hãy chọn hướng dẫn **Claude**.
-
-## 2. Nói cho AI biết bạn muốn gì
-
-Sao chép câu này để thử:
-
-> Dùng Design on the Flank. Tạo một thẻ giới thiệu trong Framer với tiêu đề, mô tả, màu nền kem và bo góc. Cho mình chỉnh chữ, màu nền, màu chữ, khoảng cách bên trong và bo góc trong Properties. Xuất một file TSX hoàn chỉnh. Mình không biết code.
-
-Bạn có thể đính kèm ảnh tham khảo và nói thêm điều gì cần giống ảnh. Không cần biết tên kỹ thuật của hiệu ứng.
-
-## 3. Đưa kết quả vào Framer
-
-AI sẽ trả một file có đuôi `.tsx` hoặc một khung chứa code. Đây là phần bạn cần sao chép nguyên vẹn. [Xem hướng dẫn từng bước](dua-vao-framer.md).
-
-## 4. Chỉnh bằng bảng thiết lập
-
-Chọn component trên trang Framer. Các mục như chữ, màu và bo góc xuất hiện trong bảng bên phải. “Props” là các thiết lập của component; “Property Controls” là những ô chỉnh thiết lập đó.
+AI sẽ trả code. Bạn sao chép code đó vào dự án Framer, rồi chỉnh chữ, màu và các thiết lập trên giao diện. [Xem code cần dán ở đâu](dua-vao-framer.md).
 
 <a id="thu-nhanh"></a>
-## Thử nhanh trong một cuộc trò chuyện
+## Dùng tài liệu ngay trong chat
 
-Chưa muốn cài? Tải [tài liệu một file](../../downloads/design-on-the-flank-knowledge.txt), đính kèm vào cuộc trò chuyện và gửi:
+1. [Tải tài liệu này](https://github.com/Chien1618/design-on-the-flank/raw/refs/heads/main/downloads/design-on-the-flank-knowledge.txt).
+2. Đính kèm vào cuộc trò chuyện. Nếu trình duyệt hiện nội dung thay vì tải file, sao chép toàn bộ và dán vào chat.
+3. Gửi yêu cầu:
 
-> Đọc tài liệu Design on the Flank mình đính kèm và áp dụng khi tạo component Framer trong cuộc trò chuyện này. Mình không biết code. Hãy xuất toàn bộ code trong một file TSX hoặc một khung code để mình sao chép.
+```text
+Đọc tài liệu tôi vừa cung cấp. Dựa theo đó, tạo một thẻ giới thiệu cho Framer có tiêu đề, mô tả, màu nền và bo góc chỉnh được. Trả toàn bộ code để tôi sao chép, rồi chỉ tôi cách dán vào Framer.
+```
 
-Sau đó gửi yêu cầu tạo component. Cách này chỉ cung cấp hướng dẫn cho cuộc trò chuyện đó; không cài skill lâu dài. Nếu AI không đọc được file, mở file, sao chép nội dung và dán vào cuộc trò chuyện.
-
-## Nếu kết quả chưa đúng
-
-Gửi lại code hiện tại cùng ảnh hoặc thông báo lỗi cho AI. Nói rõ phần nào cần sửa và phần nào cần giữ. [Dùng prompt sửa lỗi có sẵn](go-loi.md).
+Tiếp tục làm việc trong chat đó. Nếu mở chat mới, gửi lại tài liệu.

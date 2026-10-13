@@ -1,5 +1,11 @@
 # Changelog
 
+## Documentation update — 2026-10-13
+
+- Rewrote the README and website copy around concrete Codex and ChatGPT steps.
+- Made one-file attachment the default ChatGPT path; Project setup is optional.
+- Moved maintainer details out of the main reading flow. Skill contents and download version remain 0.1.0.
+
 ## 0.1.0 — 2026-10-13
 
 - Standardized the private workspace instructions around one-file Framer TSX delivery.

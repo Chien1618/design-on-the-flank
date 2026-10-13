@@ -1,41 +1,58 @@
-# Dùng với ChatGPT
+# Tạo component bằng ChatGPT
 
-Bạn sẽ tạo một **Project**: một nơi giữ tài liệu và hướng dẫn cho những cuộc trò chuyện làm component Framer. Đây là cách cung cấp cùng bộ quy tắc cho ChatGPT, không phải cài skill vào mọi cuộc trò chuyện của tài khoản.
+Lần đầu, bạn chỉ cần một file tài liệu và một cuộc trò chuyện.
 
-## 1. Tải hai file
+## 1. Tải tài liệu
 
-- [chatgpt-instructions.txt](../../downloads/chatgpt-instructions.txt): đoạn hướng dẫn để sao chép.
-- [design-on-the-flank-knowledge.txt](../../downloads/design-on-the-flank-knowledge.txt): tài liệu để đính kèm.
+[Bấm vào đây để tải](https://github.com/Chien1618/design-on-the-flank/raw/refs/heads/main/downloads/design-on-the-flank-knowledge.txt). File có tên **design-on-the-flank-knowledge.txt**.
 
-## 2. Tạo Project
+Nếu trình duyệt hiện nội dung thay vì tải file, chọn toàn bộ bằng **Ctrl+A**, sao chép bằng **Ctrl+C**, rồi dán vào ChatGPT. Trên Mac, dùng phím **Cmd** thay cho **Ctrl**.
 
-Mở ChatGPT, chọn **New project / Dự án mới** và đặt tên **Framer — Design on the Flank**.
+## 2. Gửi tài liệu cho ChatGPT
 
-## 3. Thêm hướng dẫn
+Mở cuộc trò chuyện mới. Bấm nút đính kèm file cạnh ô nhắn tin, rồi chọn file vừa tải. Nếu đã dán nội dung ở bước 1, gửi nội dung đó trước và đi tiếp bước 3.
 
-1. Mở cài đặt Project, thường nằm trong menu dấu ba chấm.
-2. Tìm **Project instructions / Hướng dẫn**.
-3. Mở file `chatgpt-instructions.txt`, sao chép toàn bộ nội dung và dán vào mục này.
-4. Lưu lại.
+## 3. Gửi yêu cầu của bạn
 
-## 4. Thêm tài liệu
+Sao chép câu này để thử:
 
-Trong Project, chọn thêm file/nguồn và upload `design-on-the-flank-knowledge.txt`. Kiểm tra tên file đã xuất hiện trong danh sách tài liệu. Không cần upload ZIP skill.
+```text
+Đọc tài liệu tôi vừa cung cấp và dùng nó để tạo component Framer trong cuộc trò chuyện này.
 
-## 5. Gửi yêu cầu bên trong Project
+Tạo cho tôi một thẻ giới thiệu có tiêu đề, mô tả và nền màu kem. Tôi muốn chỉnh chữ, màu và bo góc trong Framer.
+Trả toàn bộ code để tôi sao chép một lần, rồi chỉ tôi cách dán vào Framer.
+```
 
-> Áp dụng Design on the Flank từ tài liệu của Project. Tạo một thẻ giới thiệu Framer có tiêu đề, mô tả, màu nền và bo góc chỉnh được. Xuất toàn bộ code trong một file TSX hoặc một khung code duy nhất. Mình không biết code.
+Sau này, thay phần mô tả bằng thứ bạn muốn tạo. Bạn cũng có thể gửi ảnh tham khảo.
 
-Nếu ChatGPT trả nhiều đoạn rời nhau, gửi: **“Gộp thành một file TSX hoàn chỉnh để mình sao chép một lần; không bỏ đoạn nào.”**
+## 4. Đưa code vào Framer
 
-Tiếp theo: [Đưa code vào Framer](dua-vao-framer.md).
+Bấm **Copy** ở khung code ChatGPT trả về, rồi làm theo [cách dán vào Framer](dua-vao-framer.md).
 
-## Nếu không dùng được Project hoặc upload
+Nếu ChatGPT chia code thành nhiều phần hoặc chỉ gửi file, nhắn:
 
-Mở một cuộc trò chuyện mới, dán nội dung instructions rồi dán toàn bộ nội dung knowledge. Sau đó gửi yêu cầu. Cuộc trò chuyện mới khác cần được cung cấp lại tài liệu.
+```text
+Hiện toàn bộ code trong một khung duy nhất để tôi bấm Copy và dán một lần vào Framer.
+```
 
-## Cập nhật
+Tiếp tục yêu cầu sửa trong cùng cuộc trò chuyện. Khi bắt đầu cuộc trò chuyện mới, gửi lại tài liệu.
 
-Tải cả hai file của cùng phiên bản. Thay nội dung Project Instructions, xóa tài liệu phiên bản cũ sau khi lưu bản sao nếu cần, rồi thêm tài liệu mới. Bắt đầu cuộc trò chuyện mới trong Project để hạn chế lẫn hướng dẫn cũ.
+<a id="luu-lai"></a>
+## Muốn dùng thường xuyên?
 
-Tham khảo: [ChatGPT Projects](https://help.openai.com/en/articles/10169521-projects-in-chatgpt). Gói này chưa được thử trong một Project mới; xem [trạng thái kiểm tra](../validation.md).
+Bạn có thể lưu tài liệu trong một **Project** để dùng cho nhiều cuộc trò chuyện ở cùng một nơi:
+
+1. Trong ChatGPT, chọn **New project / Dự án mới** và đặt tên **Làm website Framer**.
+2. Trong Project vừa tạo, chọn thêm file/nguồn và upload file tài liệu ở bước 1.
+3. Mở cài đặt Project qua menu dấu ba chấm, tìm **Project instructions / Hướng dẫn**.
+4. Dán đoạn bên dưới và lưu lại:
+
+```text
+Khi tôi yêu cầu tạo hoặc sửa component Framer, hãy đọc và áp dụng tài liệu Design on the Flank đã đính kèm trong Project.
+
+Tôi cần toàn bộ code trong một file hoặc một khung code để sao chép vào Framer. Đưa các mục tôi muốn chỉnh vào bảng thiết lập của component. Khi sửa, giữ các thiết lập cũ nếu tôi không yêu cầu đổi. Hướng dẫn từng bước bằng tiếng Việt và nói rõ nếu chưa chạy thử trong Framer.
+```
+
+Sau đó bắt đầu các cuộc trò chuyện làm Framer **bên trong Project này**. Nếu không thấy Project, cứ dùng cách gửi file vào chat ở trên.
+
+[Các câu yêu cầu khác để thử](prompt-mau.md) · [Quay lại trang chính](../../README.md)
