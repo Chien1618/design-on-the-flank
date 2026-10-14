@@ -61,13 +61,41 @@ def artifacts():
     return results
 
 
+ZIP_FILE_LIMIT = 200  # Claude rejects skill uploads with more files than this
+LIBRARY = SKILL / "references" / "library"
+LIBRARY_LINK = re.compile(r"\]\((?:\.\./([\w-]+)/)?([\w-]+)\.md(?:#[^)]*)?\)")
+
+
+def bundle_module(module):
+    """Merge a library module's index and topics into one file with in-page anchors."""
+    def relink(text):
+        def replace(match):
+            other, stem = match.groups()
+            target = f"{other}.md" if other and other != module.name else ""
+            anchor = "" if stem == "index" else f"#{stem}"
+            return f"]({target}{anchor or ('' if target else '#top')})"
+        return LIBRARY_LINK.sub(replace, text)
+    parts = ['<a id="top"></a>\n\n' + relink((module / "index.md").read_text()).rstrip()]
+    for path in sorted(module.glob("[0-9]*.md")):
+        body = path.read_text().replace("[Topic index](index.md)\n", "", 1)
+        parts.append(f'<a id="{path.stem}"></a>\n\n' + relink(body).strip())
+    return ("\n\n---\n\n".join(parts) + "\n").encode()
+
+
 def zip_entries():
     entries = {}
     for path in sorted(SKILL.rglob("*")):
-        if path.is_file() and path.name != ".DS_Store":
+        if path.is_file() and path.name != ".DS_Store" and LIBRARY not in path.parents:
             if path.is_symlink():
                 raise ValueError(f"Do not distribute symlinks: {path}")
-            entries["design-on-the-flank/" + path.relative_to(SKILL).as_posix()] = path.read_bytes()
+            content = path.read_bytes()
+            if path.suffix == ".md":
+                content = re.sub(r"library/([\w-]+)/index\.md", r"library/\1.md", content.decode()).encode()
+            entries["design-on-the-flank/" + path.relative_to(SKILL).as_posix()] = content
+    for module in sorted(p for p in LIBRARY.iterdir() if p.is_dir()):
+        entries[f"design-on-the-flank/references/library/{module.name}.md"] = bundle_module(module)
+    if len(entries) + 1 > ZIP_FILE_LIMIT:
+        raise ValueError(f"Skill ZIP would contain {len(entries) + 1} files; Claude accepts at most {ZIP_FILE_LIMIT}")
     entries["design-on-the-flank/LICENSE.md"] = (ROOT / "LICENSE.md").read_text().replace(
         "skills/design-on-the-flank/ATTRIBUTION.md", "ATTRIBUTION.md").encode()
     return entries

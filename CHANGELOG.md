@@ -1,3 +1,8 @@
+# Claude ZIP fix — 2026-10-14
+
+- Merge each library module into one file inside the Claude ZIP (422 → 38 files) so it passes Claude's 200-file upload limit. Repository sources are unchanged.
+- Fail the build above the limit and check every link and anchor inside the ZIP.
+
 # 0.2.0
 
 - Port the handoff into on-demand Framer, plugin and ten Three.js modules; exclude UI/UX Pro Max.

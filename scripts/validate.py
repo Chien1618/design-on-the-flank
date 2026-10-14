@@ -2,6 +2,7 @@
 """Check distribution integrity and local documentation links, without network."""
 import hashlib
 import json
+import posixpath
 import re
 import zipfile
 from urllib.parse import unquote
@@ -25,6 +26,20 @@ def main():
                 errors.append("ZIP contents differ from canonical source")
             if len(archive.namelist()) != len(actual):
                 errors.append("ZIP has duplicate names")
+            for name, content in actual.items():
+                if not name.endswith(".md"):
+                    continue
+                text = content.decode()
+                for target in re.findall(r"\[[^\]]*\]\(([^)\s]+)\)", text):
+                    if target.startswith(("https://", "http://", "mailto:")):
+                        continue
+                    path, _, anchor = target.partition("#")
+                    resolved = posixpath.normpath(posixpath.join(posixpath.dirname(name), unquote(path))) if path else name
+                    if resolved not in actual:
+                        errors.append(f"Broken ZIP link: {name} -> {target}")
+                    elif anchor and resolved.startswith("design-on-the-flank/references/library/") and \
+                            f'<a id="{anchor}"></a>' not in actual[resolved].decode():
+                        errors.append(f"Broken ZIP anchor: {name} -> {target}")
     except (FileNotFoundError, zipfile.BadZipFile) as exc:
         errors.append(str(exc))
     try:
